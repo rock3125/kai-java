@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<Configuration monitorInterval="30">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <logger name="org.apache" level="Error" />
+        <logger name="org.springframework" level="Error" />
+        <logger name="com.datastax.driver" level="Error" />
+        <logger name="org.springframework" level="Error" />
+        <logger name="org.eclipse.jetty" level="Error" />
+        <logger name="io.swagger" level="Error" />
+        <logger name="io.netty" level="Error" />
+        <logger name="org.jboss" level="Fatal" />
+        <logger name="org.hibernate.validator" level="Fatal" />
+        <logger name="default.config.edu.cmu.sphinx" level="Fatal" />
+        <logger name="org.reflections" level="Error" />
+        <Root level="Debug">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
+

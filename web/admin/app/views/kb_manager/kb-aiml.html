@@ -1,0 +1,166 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="kbAimlService" class="container-class" data-ng-controller="KBAiml">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="" data-ng-click="cancelEntity();"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="#/kb-aiml">AI/ML FOR "{{entity_name}}"</a></li>
+        </ul>
+    </div>
+    <div class="viki-background-white">
+        <div class="container">
+
+            <br />
+
+            <div class="row">
+                <div class="col-lg-7">
+                    <table id="aimlTable" class="table table-striped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>AI/ML FIELD</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody data-ng-repeat="aiml in aiml_list">
+                        <tr>
+                            <td>{{aiml.field}}</td>
+                            <td>
+                                <div>
+                                    <a href="" data-ng-click="edit($index, aiml.field);"><img src="images/edit.png" title="edit" alt="edit"></a>&nbsp;&nbsp;
+                                    <a href="" data-ng-click="delete($index, aiml.field);"><img src="images/delete.png" title="delete" alt="delete"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-kaiadd" data-ng-click="newAimlField()" style="height: 32px;">
+                            <span class="glyphicon glyphicon-plus" title="add new AI/ML item" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td><ul id="pagination" class="pagination btn-pagination"></ul></td>
+                </tr>
+            </table>
+
+            <div class="row"><br/></div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" style="margin-bottom:30px;">
+                    <button type="button" class="btn btn-kaisearch" data-ng-click="saveEntity();">SAVE</button>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <button type="button" class="btn btn-kaisearch-alt" data-ng-click="cancelEntity();">CANCEL</button>
+                </div>
+            </div>
+
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="addAimlField" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content container">
+                <div class="modal-header viki-modal-header-colour row panel-heading">
+                    <div class="col-xs-3 col-sm-2 col-md-1 pull-right">
+                        <a href="" class="btn btn-signout" data-dismiss="modal">X</a>
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <h4 id="modalTitle" class="modal-title">ADD AI/ML FIELD</h4>
+                    </div>
+                </div>
+                <div class="modal-body panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>LANGUAGE TEMPLATE(S)</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_language" class="sr-only">language</label>
+                            <textarea class="form-control" id="reg_language" data-ng-model="language" cols="60" rows="5" placeholder="Language templates, e.g. Who is *"></textarea>
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>HTML TEMPLATE</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_html_template" class="sr-only">html</label>
+                            <textarea class="form-control" id="reg_html_template" data-ng-model="html_template" cols="60" rows="5"
+                                      placeholder="html template, e.g. <field_1>\n<field_2>"></textarea>
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>"{{entity_name}}" FIELDS</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="fieldTable" class="sr-only">pick one:</label>
+
+                            <div class="col-lg-7">
+                                <table id="fieldTable" class="table table-striped table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>FIELD NAME</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody data-ng-repeat="field in entity.field_list">
+                                    <tr>
+                                        <td></td>
+                                        <td><label><input id="selected_field" type="radio" name="fields" value="{{field.name}}"
+                                                          data-ng-click="setField(field.name);"
+                                                          data-ng-model="selected_field">&nbsp;{{field.name}}</label></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                </div>
+                <div class="modal-footer row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                        <button type="button" class="btn btn-kaisearch" onclick="$('#kbAimlService').scope().saveAimlDialog();">SAVE</button>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <button type="button" class="btn btn-kaisearch-alt" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="clusterDetailsManagerController" class="container-class">
+
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" data-ng-click="backToClusters();"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="">CLUSTER {{cluster_id}}</a></li>
+        </ul>
+    </div>
+
+    <div class="viki-background-white">
+        <div class="container">
+
+            <div id="time" class="tab-pane fade in active">
+
+                <svg id="clusterVisualisation" width="1150" height="600" style="background: #fff"></svg>
+
+                <br/>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- modal dialog for viewing document details -->
+    <div document-viewer />
+
+</div>

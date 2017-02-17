@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!--<div class="container-class">-->
+
+<!--</div>-->
+
+
+<!-- Where all the magic happens -->
+<!-- LOGIN FORM -->
+<div class="container" style="padding:50px 0">
+
+    <!-- Main Form -->
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+
+            <div class="login-form-1" style="width:100%;">
+                <form id="login-form" class="text-left">
+                    <div class="etc-login-form">
+                        <div style="color:#fff;"><h3>Login</h3></div>
+                    </div>
+                    <div class="login-form-main-message"></div>
+                    <div class="main-login-form">
+                        <div class="login-group">
+                            <div class="form-group">
+                                <label for="lg_username" class="sr-only">Username</label>
+                                <input type="text" class="form-control text-kaisearch" id="lg_username" data-ng-disabled="disabled" data-ng-model="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="lg_password" class="sr-only">Password</label>
+                                <input type="password" class="form-control text-kaisearch" id="lg_password" data-ng-disabled="disabled" data-ng-model="password" name="lg_password" placeholder="Password">
+                            </div>
+                            <div class="form-group login-group-checkbox" style="margin-bottom: 10px;">
+                                <input type="checkbox" id="lg_remember" data-ng-disabled="disabled" data-ng-model="remember" name="lg_remember">
+                                <label for="lg_remember">Remember Me</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-button" data-ng-disabled="disabled" data-ng-click="login()"><i class="fa fa-chevron-right"></i></button>
+                    </div>
+                    <div class="etc-login-form" style="color:#fff;">
+                        <p>Forgot your Password? <a href="#/resetPasswordRequest" style="color:#fff;"><b>Click here</b></a></p>
+                        <p>Re-activate your Account? <a href="#/accountActivationRequest" style="color:#fff;"><b>Click here</b></a></p>
+                        <p>New User? <a href="#/register" style="color:#fff;"><b>Register New Organisation</b></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+    $("#lg_username").focus();
+  </script>
+    <!-- end:Main Form -->
+</div>

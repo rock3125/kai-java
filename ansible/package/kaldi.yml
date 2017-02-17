@@ -1,0 +1,295 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# this is an Ansible Kaldi Server setup script
+# make sure you install Ansible first on your OS
+#
+
+---
+- hosts: kai-kaldi-servers
+  vars:
+    kaldi_base: http://kai002/store/kaldi
+    user: viki
+    buildthreads: 8
+  remote_user: root
+
+  # setup the environment variables used
+  environment:
+    KALDI_ROOT: /opt/kaldi
+    CPLUS_INCLUDE_PATH: /usr/include/gstreamer-1.0:/usr/include/libxml2
+    GST_PLUGIN_PATH: /usr/share/gstreamer-1.0:/opt/kaldi/gst-plugin
+
+  tasks:
+
+#
+# user
+#
+  - name: create {{ user }} user
+    user: name={{ user }} comment="{{ user }} user" group=root
+
+#
+# install repositories and extra packages needed
+#
+
+  - name: yum add EPEL
+    shell: yum -y install {{ kaldi_base }}/epel-release-latest-7.noarch.rpm
+    ignore_errors: yes
+
+  - name: upgrade all packages
+    yum: name=* state=latest
+
+  - name: install the latest version of net-tools
+    yum: name=net-tools state=latest
+
+  - name: install yum-cron
+    yum: name=yum-cron state=latest
+
+  - name: install dev tools
+    shell: yum -y groupinstall "Development tools"
+
+  - name: install zlib
+    yum: name=zlib state=latest
+
+  - name: install zlib-devel
+    yum: name=zlib-devel state=latest
+
+  - name: install wget
+    yum: name=wget state=latest
+
+  - name: install atlas
+    yum: name=atlas.x86_64 state=latest
+
+  - name: install glib2-devel
+    yum: name=glib2-devel state=latest
+
+  - name: install gstreamer1
+    yum: name=gstreamer1 state=latest
+
+  - name: install gstreamer1-devel
+    yum: name=gstreamer1-devel state=latest
+
+  - name: install gstreamer-tools
+    yum: name=gstreamer-tools state=latest
+
+  - name: install gstreamer1-plugins-base
+    yum: name=gstreamer1-plugins-base state=latest
+
+  - name: install gstreamer1-plugins-good
+    yum: name=gstreamer1-plugins-good state=latest
+
+  - name: install jansson-devel
+    yum: name=jansson-devel state=latest
+
+  - name: install python-pip
+    yum: name=python-pip state=latest
+
+  - name: install python-yaml
+    yum: name=python-yaml state=latest
+
+  - name: install yasm
+    yum: name=yasm state=latest
+
+  - name: install bzip2
+    yum: name=bzip2 state=latest
+
+  - name: install speex
+    yum: name=speex state=latest
+
+  - name: install libvpx
+    yum: name=libvpx state=latest
+
+  - name: install libogg
+    yum: name=libogg state=latest
+
+  - name: install libtheora
+    yum: name=libtheora state=latest
+
+#
+# build avconv for mp3 support
+#
+  - name: testing avconv status
+    stat: path=/opt/libav-10.1
+    register: avconv_exists
+
+  - name: downloading avconv
+    get_url: url={{ kaldi_base }}/libav-10.1.tar.gz dest=/tmp/avconv.tgz
+    when: avconv_exists.stat.exists == False
+
+  - name: extracting avconv files
+    unarchive: src=/tmp/avconv.tgz dest=/opt copy=no
+    when: avconv_exists.stat.exists == False
+
+  - name: configuring avconv
+    shell: /opt/libav-10.1/configure --extra-cflags=-I/opt/local/include --extra-ldflags=-L/opt/local/lib --enable-gpl --enable-version3
+    args:
+      chdir: /opt/libav-10.1/
+    when: avconv_exists.stat.exists == False
+
+  - name: building avconv
+    shell: make -j {{ buildthreads }}
+    args:
+      chdir: /opt/libav-10.1
+    when: avconv_exists.stat.exists == False
+
+  - name: installing avconv
+    shell: make install
+    args:
+      chdir: /opt/libav-10.1
+    when: avconv_exists.stat.exists == False
+
+#
+# extract files
+#
+
+  - name: testing /opt/kaldi existence
+    stat: path=/opt/kaldi
+    register: kaldi_exists
+
+  - name: downloading kaldi
+    get_url: url={{ kaldi_base }}/kaldi.tgz dest=/tmp/kaldi.tgz
+    when: kaldi_exists.stat.exists == False
+
+  - name: extracting kaldi files
+    unarchive: src=/tmp/kaldi.tgz dest=/opt copy=no
+    when: kaldi_exists.stat.exists == False
+
+  - name: removing kaldi download
+    file: path=/tmp/kaldi.tgz state=absent
+    when: kaldi_exists.stat.exists == False
+
+#
+# build kaldi
+#
+  - name: testing kaldi/tools build status
+    stat: path=/opt/kaldi/tools/openfst-1.3.4/src/extensions/far/.libs/sttable.o
+    register: sttable_exists
+
+  - name: building kaldi/tools
+    shell: make -j {{ buildthreads }}
+    args:
+      chdir: /opt/kaldi/tools/
+    when: sttable_exists.stat.exists == False
+
+  - name: installing portaudio
+    shell: /opt/kaldi/tools/extras/install_portaudio.sh
+    args:
+      chdir: /opt/kaldi/tools/extras/
+
+  - name: testing kaldi build status
+    stat: path=/opt/kaldi/src/matrix/kaldi-vector.o
+    register: kaldi_vector_exists
+
+  - name: configuring kaldi
+    shell: /opt/kaldi/src/configure --shared
+    args:
+      chdir: /opt/kaldi/src/
+    when: kaldi_vector_exists.stat.exists == False
+
+  - name: building kaldi depends
+    shell: make depend -j {{ buildthreads }}
+    args:
+      chdir: /opt/kaldi/src/
+    when: kaldi_vector_exists.stat.exists == False
+
+  - name: building kaldi
+    shell: make -j {{ buildthreads }}
+    args:
+      chdir: /opt/kaldi/src/
+    when: kaldi_vector_exists.stat.exists == False
+
+  - name: testing kaldi nnet2 plugin status
+    stat: path=/opt/kaldi/tools/gst-kaldi-nnet2-online/src/gst-audio-source.o
+    register: kaldi_audio_source
+
+  - name: building kaldi nnet2 plugin dependencies
+    shell: make depend
+    args:
+      chdir: /opt/kaldi/tools/gst-kaldi-nnet2-online/src
+    when: kaldi_audio_source.stat.exists == False
+
+  - name: building kaldi nnet2 plugin
+    shell: make -j {{ buildthreads }}
+    args:
+      chdir: /opt/kaldi/tools/gst-kaldi-nnet2-online/src
+    when: kaldi_audio_source.stat.exists == False
+
+  - name: create kaldi nnet2 plugin folder
+    file: path=/opt/kaldi/gst-plugin state=directory owner={{ user }} group=root
+
+  - name: copy kaldi nnet2 plugin to folder
+    shell: cp /opt/kaldi/tools/gst-kaldi-nnet2-online/src/libgstkaldionline2.so /opt/kaldi/gst-plugin/
+
+#
+# install php extras
+#
+
+  - name: install php tornado
+    shell: pip install tornado
+
+  - name: install php ws4py
+    shell: pip install ws4py==0.3.2
+
+#
+# setup data files
+#
+  - name: testing tedlium model existence
+    stat: path=/opt/kaldi/kaldi-gstreamer-server/test/models/english/tedlium_nnet_ms_sp_online
+    register: tedlium_exists
+
+  - name: downloading tedlium
+    get_url: url={{ kaldi_base }}/tedlium_nnet_ms_sp_online.tar.gz dest=/tmp/tedlium_nnet_ms_sp_online.tar.gz
+    when: tedlium_exists.stat.exists == False
+
+  - name: extracting tedlium model files
+    unarchive: src=/tmp/tedlium_nnet_ms_sp_online.tar.gz dest=/opt/kaldi/kaldi-gstreamer-server/test/models/english/  copy=no
+    when: tedlium_exists.stat.exists == False
+
+  - name: removing tedlium download
+    file: path=/tmp/tedlium_nnet_ms_sp_online.tar.gz state=absent
+    when: tedlium_exists.stat.exists == False
+
+#
+# upload modified python server
+#
+  - name: download modified python server
+    get_url: url={{ kaldi_base }}/modified-python-server/master_server.py dest=/opt/kaldi/kaldi-gstreamer-server/kaldigstserver/master_server.py
+
+  - name: download server start script
+    get_url: url={{ kaldi_base }}/start-server.sh dest=/opt/start-server.sh mode="a+rx"
+
+  - name: download worker start script
+    get_url: url={{ kaldi_base }}/start-worker.sh dest=/opt/start-worker.sh mode="a+rx"
+
+#
+# reload ldconfig for linking dependencies
+#
+  - name: reload linker config
+    shell: ldconfig
+
+#
+# firewall access
+#
+  - name: enable firewall access to port 8888
+    firewalld: port=8888/tcp permanent=true state=enabled
+    ignore_errors: yes
+
+  - name: restarting firewall
+    service: name=firewalld state=restarted
+    ignore_errors: yes
+
+#
+# setup services
+#
+  - name: starting yum-cron
+    service: name=yum-cron enabled=yes state=started
+
+
+#
+# the service can be tested as follows:  curl -T test/data/english_test.wav  "http://10.17.1.194:8888/client/dynamic/recognize"
+#
+# test the plugin is working:  (should return a whole bunch of data)
+#  
+# export GST_PLUGIN_PATH=/opt/kaldi/gst-plugin:/usr/share/gstreamer-1.0
+# gst-inspect-1.0 kaldinnet2onlinedecoder
+# 
+

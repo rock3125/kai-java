@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="homeService" class="container-class">
+
+    <div style="height: 10%"></div>
+
+    <!-- Where all the magic happens -->
+    <!-- LOGIN FORM -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 home-logo">
+                <img src="./images/logo_white.png" data-ng-click="goHome()" class="header-logo center-block">
+                <h2><span id="changingword" class="changingword">KNOWLEDGABLE</span></h2>
+            </div>
+            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-12 viki-background-white">
+                <!--<div class="logo">SEARCH LOGIN</div>-->
+                <!-- Main Form -->
+                    <div class="login-form-1">
+                        <form id="login-form" class="text-left">
+                            <div class="login-form-main-message"></div>
+                            <div class="main-login-form">
+                                <div class="login-group row">
+                                    <div class="form-group go-bottom col-xs-12">
+                                        <input type="text" class="form-control text-kaisearch" id="lg_username" data-ng-disabled="disabled" data-ng-model="email" placeholder="Email">
+                                        <label for="lg_username" class="sr-only">Username</label>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <label for="lg_password" class="sr-only">Password</label>
+                                        <input type="password" class="form-control text-kaisearch" id="lg_password" data-ng-disabled="disabled" data-ng-model="password" name="lg_password" placeholder="Password">
+                                    </div>
+                                    <div class="form-group login-group-checkbox">
+                                        <br/>
+                                    </div>
+                                </div>
+                                <button type="submit" class="login-button" data-ng-disabled="disabled" data-ng-click="login()"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                            <div class="etc-login-form">
+                                <p>forgot your password? <a href="#/reset-password-request">click here</a></p>
+                            </div>
+                            <div class="etc-login-form">
+                                <p>view license agreement: <a href="#/license">click here</a></p>
+                            </div>
+                        </form>
+
+                    <script>
+                        $("#lg_username").focus();
+                    </script>
+                    <!-- end:Main Form -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

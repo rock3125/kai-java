@@ -1,0 +1,240 @@
+
+description = 'webserver'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.netflix.nebula:gradle-ospackage-plugin:3.4.0'
+    }
+
+}
+
+
+dependencies {
+
+    compile project(':common')
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-jetty-http', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-moxy', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.ext', name: 'jersey-spring3', version: jerseyVersion
+}
+
+task createJarDependencies(type: Copy) {
+    into "build/jars"
+    from configurations.runtime
+}
+
+/*
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+
+// copy web files to /opt/kai/
+task setupFiles(description: 'setup the files for the static webserver') {
+
+    def wsConf = new File("/opt/kai/webserver/conf")
+    wsConf.mkdirs()
+
+    // remove any existing files in web
+    delete fileTree(dir: '/opt/kai/webserver/web' , include: '**/*')
+
+    // make directory and setup copy point
+    def wsWeb_admin = new File("/opt/kai/webserver/web/admin")
+    wsWeb_admin.mkdirs();
+
+    def wsWeb_search = new File("/opt/kai/webserver/web/search")
+    wsWeb_search.mkdirs();
+
+    copy {
+        from 'webserver.properties'
+        into wsConf
+    }
+
+    copy {
+        from '../web/admin/dist'
+        into wsWeb_admin
+        include '**/*'
+    }
+
+    copy {
+        from '../web/search/dist'
+        into wsWeb_search
+        include '**/*'
+    }
+
+    def wsConf2 = new File("/opt/viki")
+    copy {
+        from '../data/documentation'
+        into wsConf2
+        include '*.jks'
+    }
+
+
+}
+
+
+
+// setup the rpm
+apply plugin: 'nebula.rpm'
+
+task rpm(type: Rpm) {
+
+    packageName 'viki-webserver'
+    version= vikiVersion
+    os LINUX
+
+    preInstall file('src/rpm/preInstall.sh')
+    postInstall file('src/rpm/postInstall.sh')
+    preUninstall file('src/rpm/preRemove.sh')
+    postUninstall file('src/rpm/postRemove.sh')
+
+    directory('/opt/kai/webserver/bin', 644)
+    directory('/opt/kai/webserver/conf', 644)
+
+    directory('/opt/kai/webserver/web/search', 644)
+    directory('/opt/kai/webserver/web/search/icons', 644)
+
+    directory('/opt/kai/webserver/web/admin', 644)
+    directory('/opt/kai/webserver/web/admin/icons', 644)
+
+    // destination
+    into '/opt/kai/webserver'
+
+    // what goes into destination:
+    from(jar.outputs.files) {
+        into 'bin'
+    }
+
+    from (configurations.runtime) {
+        into 'bin'
+    }
+
+    from('src/rpm/etc/init.d/viki-webserver') {
+        into '/etc/init.d/'
+        fileMode 0550
+    }
+
+    from('src/rpm/opt/webserver/bin') {
+        into 'bin'
+        fileMode 0550
+    }
+
+
+    from('./') {
+        fileType CONFIG | NOREPLACE
+        into 'conf'
+        include('webserver.properties')
+    }
+
+    from('./src/main/resources') {
+        fileType CONFIG | NOREPLACE
+        into 'conf'
+        include('log4j2.xml')
+    }
+
+    from('./../web/admin/app') {
+        fileType CONFIG | NOREPLACE
+        into 'web/admin'
+        include('config.js')
+    }
+
+    from('./../web/search/app') {
+        fileType CONFIG | NOREPLACE
+        into 'web/search'
+        include('config.js')
+    }
+
+    from('./../web/admin/app/icons') {
+        into 'web/admin/icons'
+        include '**/*'
+    }
+
+    from('./../web/swagger') {
+        into 'web/admin/swagger'
+        include '**/*'
+    }
+
+    from('./../web/swagger') {
+        into 'web/search/swagger'
+        include '**/*'
+    }
+
+    from('./../web/admin/bower_components/bootstrap/fonts') {
+        into 'web/admin/fonts'
+        include '**/*'
+    }
+
+    from('./../web/admin/bower_components/bootstrap/fonts') {
+        into 'web/search/fonts'
+        include '**/*'
+    }
+
+    from('./../web/admin/bower_components/font-awesome/fonts') {
+        into 'web/admin/fonts'
+        include '**/*'
+    }
+
+    from('./../web/admin/bower_components/font-awesome/fonts') {
+        into 'web/search/fonts'
+        include '**/*'
+    }
+
+    from('./../web/search/app/styles') {
+        into 'web/search/styles'
+        include 'bg1.jpg'
+    }
+
+    from('./../web/admin/dist') {
+        into 'web/admin'
+        include '**/*'
+    }
+
+    from('./../web/search/dist') {
+        into 'web/search'
+        include '**/*'
+    }
+
+    // static site
+
+    from('./../web/static/assets') {
+        into 'web/assets'
+        include '**/*'
+    }
+
+    from('./../web/static') {
+        into 'web'
+        include 'index.html'
+    }
+
+
+
+}
+
+
+//task web() {
+//
+//    def stdout = new ByteArrayOutputStream()
+//    exec {
+//        workingDir '../web/admin'
+//        commandLine 'grunt', 'build'
+//        standardOutput = stdout
+//    }
+//
+//}
+

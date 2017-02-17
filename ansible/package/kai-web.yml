@@ -1,0 +1,135 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# copy webserver build
+#
+  - name: testing search web
+    stat: path={{ kai_base }}/webserver/web/search/index.html
+    register: search_exists
+
+  - name: copying search web
+    copy: src={{ dev_base }}/web/search/dist/ dest={{ kai_base }}/webserver/web/search/ force=yes
+    when: search_exists.stat.exists == False
+
+  - name: copying search config.js
+    copy: src={{ dev_base }}/web/search/app/config.js dest={{ kai_base }}/webserver/web/search/config.js
+    when: search_exists.stat.exists == False
+
+  - name: create search fonts folder
+    file: path={{ kai_base }}/webserver/web/search/fonts state=directory owner=kai group=kai
+    when: search_exists.stat.exists == False
+
+  - name: copying fontawesome-webfont
+    copy: src={{ dev_base }}/web/search/bower_components/font-awesome/fonts/ dest={{ kai_base }}/webserver/web/search/fonts/ force=yes
+    when: search_exists.stat.exists == False
+
+  - name: copying glyphicons-halflings-regular
+    copy: src={{ dev_base }}/web/search/bower_components/bootstrap/fonts/ dest={{ kai_base }}/webserver/web/search/fonts/ force=yes
+    when: search_exists.stat.exists == False
+
+  - name: replace search/config.js localhost with {{ s_en }}
+    replace: dest={{ kai_base }}/webserver/web/search/config.js regexp='localhost.*/viki/' replace='{{ s_en }}:{{ s_server_port }}/viki/'
+
+  - name: testing web jars exist
+    stat: path={{ kai_base }}/webserver/bin/activation-1.1.jar
+    register: kaiweb_exists
+
+  - name: create webserver bin folder
+    file: path={{ kai_base }}/webserver/bin state=directory owner=kai group=kai
+    when: kaiweb_exists.stat.exists == False
+
+  - name: copying webserver jars
+    copy: src={{ dev_base }}/webserver/build/jars/ dest={{ kai_base }}/webserver/bin/
+    when: kaiweb_exists.stat.exists == False
+
+  - name: copying webserver jar
+    copy: src={{ dev_base }}/webserver/build/libs/ dest={{ kai_base }}/webserver/bin/
+    when: kaiweb_exists.stat.exists == False
+
+
+
+
+  - name: testing admin web
+    stat: path={{ kai_base }}/webserver/web/admin/index.html
+    register: admin_exists
+
+  - name: copying admin web
+    copy: src={{ dev_base }}/web/admin/dist/ dest={{ kai_base }}/webserver/web/admin/ force=yes
+    when: admin_exists.stat.exists == False
+
+  - name: create admin icons folder
+    file: path={{ kai_base }}/webserver/web/admin/icons state=directory owner=kai group=kai
+    when: admin_exists.stat.exists == False
+
+  - name: copying admin icons
+    copy: src={{ dev_base }}/web/admin/app/icons/ dest={{ kai_base }}/webserver/web/admin/icons/ force=yes
+    when: admin_exists.stat.exists == False
+
+  - name: copying admin config.js
+    copy: src={{ dev_base }}/web/admin/app/config.js dest={{ kai_base }}/webserver/web/admin/config.js
+    when: admin_exists.stat.exists == False
+
+  - name: create admin fonts folder
+    file: path={{ kai_base }}/webserver/web/admin/fonts state=directory owner=kai group=kai
+    when: admin_exists.stat.exists == False
+
+  - name: copying fontawesome-webfont.ttf
+    copy: src={{ dev_base }}/web/admin/bower_components/font-awesome/fonts/ dest={{ kai_base }}/webserver/web/admin/fonts/ force=yes
+    when: admin_exists.stat.exists == False
+
+  - name: copying glyphicons-halflings-regular.woff
+    copy: src={{ dev_base }}/web/admin/bower_components/bootstrap/fonts/ dest={{ kai_base }}/webserver/web/admin/fonts/ force=yes
+    when: admin_exists.stat.exists == False
+
+  - name: replace admin/config.js localhost with {{ s_en }}
+    replace: dest={{ kai_base }}/webserver/web/admin/config.js regexp='localhost.*/viki/' replace='{{ s_en }}:{{ s_server_port }}/viki/'
+
+
+
+  - name: testing static web
+    stat: path={{ kai_base }}/webserver/web/index.html
+    register: static_exists
+
+  - name: copying static/main web
+    copy: src={{ dev_base }}/web/static/ dest={{ kai_base }}/webserver/web/ force=yes
+    when: static_exists.stat.exists == False
+
+  - name: copying kai-webserver.sh
+    copy: src={{ dev_base }}/webserver/src/rpm/opt/webserver/bin/viki-webserver.sh dest={{ kai_base }}/kai-webserver.sh mode=a+x
+    when: static_exists.stat.exists == False
+
+  - name: copying config
+    copy: src={{ dev_base }}/webserver/webserver.properties dest={{ kai_base }}/webserver/conf/
+
+  - name: copying config
+    copy: src={{ dev_base }}/webserver/src/main/resources/log4j2.xml dest={{ kai_base }}/webserver/conf/
+
+  - name: replace port x with {{ s_web_port }} for KAI web server
+    replace: dest={{ kai_base }}/webserver/conf/webserver.properties regexp='web.port=.*' replace='web.port={{ s_web_port }}'
+
+  - name: replace index.html meta-refresh localhost with {{ s_en }}
+    replace: dest={{ kai_base }}/webserver/web/index.html regexp='//localhost/search' replace='//{{ s_en }}/search'
+
+  - name: replace index.html search link with {{ s_en }}
+    replace: dest={{ kai_base }}/webserver/web/index.html regexp='http.*//kai-cluster.com/search' replace='{{ s_protocol }}://{{ s_en }}:{{ s_web_port }}/search'
+
+
+
+
+
+  - name: testing swagger existence
+    stat: path={{ kai_base }}/node01/web/swagger/index.html
+    register: swagger_exists
+
+  - name: copying KAI swagger files
+    copy: src={{ dev_base }}/web/swagger/ dest={{ kai_base }}/node01/web/swagger/
+    when: swagger_exists.stat.exists == False
+

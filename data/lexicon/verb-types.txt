@@ -1,0 +1,468 @@
+comprehend|misconstrue,misinterpret,misunderstand,misapprehend
+comprehend|understand,grasp,comprehend,apprehend,follow,fathom,know
+substance_emission|bead,belch,bubble,dribble,drip,drool,emanate,exrete,exude,foam,gush,jet,leak,ooze,percolate,pour,puff,radiate,seep,shed,slop,spew,spill,spout,sprout,spurt,squirt,steam,stream,sweat,trickle
+substance_emission|bleed
+bring|take
+bring|bring
+marry|court,cuddle,date,divorce,embrace,hug,kiss,marry,nuzzle,pet
+pelt|bombard,buffet,pelt,pepperspray,shell,shower,stone
+absorb|absorb,ingest,take in
+urge|admonish,ask,badger,beg,egg on,entreat,exhort,extort,lobby,urge,implore,press
+fit|carry,contain,fit,feed,hibernate,hold,house,reseat,seat,serve,sleep,store,take,use
+hiccup|belch,blink,blush,burp,eruct,fart,flush,hiccup,pant,salivate,shiver,sneeze,sniffle,snore,snuff,snuffle,swallow,wheeze,yawn
+refrain|refrain,abstain,desist,forbear
+estimate|estimate,gauge,approximate,guess,judge,count,quantize,assess,guesstimate,project
+fire|fire,dismiss,sack,drop,unseat,oust,expel,remove,can,send away,suspend,force out,terminate,give the boot,lay off,let go,shitcan
+comprise|comprise,compose,make,make up,constitute,form
+comprise|comprise,consist of,encompass,contain
+neglect|omit
+neglect|neglect,fail,forego,forgo,flub,overleap
+neglect|manage
+flinch|balk,cower,cringe,flinch,quail,recoil,shrink,wince
+groom|cleanse,curry,groom,neaten
+carve|bruise,chip,cleave,crumble,crumple,crunch,crush,cube,dent,dice,fillet,flake,flatten,gash,gouge,grate,grind,mangle,mash,mince,nick,notch,perforate,pulverize,quarter,scollop,scrunch,shred,slice,slit,smash,squash,squish,trench
+carve|bore,carve,chop,crop,crumb,drill,file,lance,mill,mangle,mow,pink,punch,prune,scollop,sand,spear,tool,tread
+grow|develop,evolve,generate,grow,hatch,maturate,mature,redevelop
+spray|overload
+spray|baste,brush,drizzle,hang,plaster,pump,rub,scatter,seed,sew,shower,smear,smudge,sow,spatter,splash,splatter,spray,spread,sprinkle,spritz,squirt,stick,strew,string,swab,swash,spurt,wrap
+spray|cram,crowd,jam,pack,pile
+spray|drape,load,dab,daub,mound,dust,heap,plant,seed,slather,stack,stock,stuff
+want|covet,crave,desire,fancy,love
+want|enjoy
+want|want,need,like,prefer,desire
+concealment|block,cloister,conceal,curtain,impound,isolate,quarantine,repress,screen,seclude,sequester,shelter,suppress
+concealment|hide
+bill|amerce,bet,bill,charge,fine,invoice,mulct,overcharge,save,scrimp,spare,tax,tip,undercharge,wager
+require|take
+require|necessitate,require,involve,demand
+require|need
+benefit|benefit,profit
+accept|accept,buy,understand,encourage,discourage,disprefer,reject,repent,rue
+transfer_mesg|demonstrate,elucidate,explain,explicate,expound,justify,narrate,pose,preach,recap,recite,relay,sniff,illustrate,verify,corroborate,communicate,outline,summarize,sum up,boil down,snitch
+transfer_mesg|dictate,quote,read
+transfer_mesg|show,teach,tell,write
+acquiesce|acquiesce,submit,give in,bow,defer,accede,succumb,yield,capitulate
+stop|close,terminate,halt,repeat
+stop|cease,conclude,end,finish,stop
+adopt|assume,adopt,take over,take on,take
+wink|wag
+wink|beckon,blink,clap,gesture,nod,point,shrug,squint,wave,wink
+drive|bike,drive,row,motor,paddle,tool,tool around,trundle,wheel
+drive|barge,bus,cart,ferry,fly,shuttle,truck
+resign|vacate,resign,renounce,leave,quit,abdicate,retire,withdraw,depart
+hurt|hit,jam,graze,chafe
+hurt|stub
+hurt|break,chip,fracture,pull,rupture,split,splinter,sprain,tear,turn,twist
+hurt|bark,bite,bruise,bump,burn,contuse,cut,hurt,injure,nick,prick,scald,scratch,skin,strain,sunburn,wrench
+exhale|defecate,exhale,hemorrhage,perspire,expectorate,regurgitate,urinate,whiff
+exhale|inhale
+nonverbal_expression|beam,blubber,cackle,chortle,chuckle,cough,cry,frown,gape,gasp,gawk,giggle,glare,glower,goggle,grimace,grin,groan,growl,guffaw,howl,jeer,laugh,lour,moan,pout,scoff,scowl,sigh,simper,smile,smirk,sneer,sneeze,snicker,sniff,snigger,snivel,snore,snort,sob,titter,weep,whistle,yawn,hem
+sound_existence|echo,resonate,resound,reverberate,roll,sound
+cut|chip,chop,clip,cut,hack,hew,rip,saw,scarify,scrape,scratch,slash,slice,snip,ream
+admire|admire,adore,appreciate,applaud,bear,bewail,cherish,deify,detest,disbelieve,esteem,exalt,fancy,favor,grudge,idolize,miss,mistrust,prefer,affirm,reaffirm,prize,respect,relish,revere,savor,stand,support,tolerate,treasure,trust,value,venerate,worship,abhor,deplore,distrust,dread,envy,execrate,lament,loathe,mourn,pity,resent,rue,believe,suffer
+admire|despise,disdain,dislike,regret,like,love,enjoy,fear,hate
+cooperate|collaborate,cooperate,join
+cooperate|participate
+cooperate|labour,work
+roll|bounce,drift,drop,float,glide,move,nose,roll,slide,swing,coil,revolve,rotate,spin,turn,twirl,twist,whirl,wind,snake,soar,spiral,undulate
+turn|alter,deform,metamorphose,morph,mutate,transform,translate,transmute
+turn|change,convert,turn
+chase|chase,follow,pursue,shadow,tail,track,trail
+long|ache,crave,fall,hanker,hope,hunger,itch,long,lust,pine,pray,thirst,wish,yearn
+long|dangle,hanker,lust,thirst,yearn
+seem|smell,sound,taste,keep
+seem|act
+seem|be,feel,look,remain,stay
+seem|seem,appear,prove
+amuse|abash,affect,afflict,affront,aggravate,aggrieve,agitate,agonize,alarm,alienate,amaze,amuse,anger,annoy,antagonize,appall,appease,arouse,assuage,astonish,astound,awe,baffle,befuddle,beguile,bewilder,bewitch,boggle,bore,bother,browbeat,bug,calm,captivate,chagrin,charm,cheer,chill,cloy,comfort,concern,confound,confuse,console,content,convince,cow,crush,cut,daunt,daze,dazzle,deject,delight,demolish,demoralize,depress,devastate,disappoint,disarm,discombobulate,discomfit,disconcert,discompose,discourage,disgrace,disgruntle,disgust,dishearten,dishonour,disillusion,dismay,dispirit,displease,disquiet,dissatisfy,distract,distress,disturb,divert,dumbfound,elate,electrify,embarrass,embolden,enchant,encourage,enervate,enflame,engage,engross,enlighten,enliven,enrage,enrapture,entertain,enthrall,enthuse,entice,entrance,exasperate,excite,exhaust,exhilarate,fascinate,fatigue,faze,flabbergast,flatter,floor,flummox,fluster,fox,frighten,frustrate,fuddle,gall,galvanize,gladden,gratify,grieve,harass,harm,haunt,hearten,horrify,humble,humiliate,hurt,hypnotize,impair,impress,incense,inflame,infuriate,inspire,insult,interest,intimidate,intoxicate,intrigue,invigorate,irk,irritate,jade,jar,jollify,jolt,lull,madden,menace,mesmerize,miff,misguide,molest,mollify,mortify,move,muddle,mystify,nauseate,nettle,nonplus,numb,obsess,occupy,offend,outrage,overawe,overwhelm,pacify,pain,peeve,perplex,perturb,pester,pique,placate,plague,please,preoccupy,provoke,puzzle,quench,rag,rankle,ravish,reassure,recharge,refresh,rejuvenate,relax,relieve,repel,repulse,revitalize,revolt,rile,ruffle,sadden,satiate,satisfy,scandalize,scare,shake,shame,shock,sicken,sober,solace,soothe,spellbind,spook,stagger,startle,stimulate,sting,stir,strike,stump,stun,stupefy,surprise,tantalize,taunt,tease,tempt,terrify,terrorize,threaten,thrill,throw,tickle,tire,titillate,torment,torture,touch,transfix,transport,trouble,try,unnerve,unsettle,uplift,upset,vex,weary,worry,wound,wow,roil,smite
+promote|promote,advance,boost,further,encourage,invite,emphasize,underscore
+search|advertise,check,comb,dive,drag,dredge,excavate,nose,patrol,plumb,probe,prospect,prowl,quarry,rake,rifle,scavenge,scour,scout,search,shop,sift,sweep,trawl,troll,watch,quest,google
+see|smell,taste
+see|detect,discern,feel,sense,perceive,notice,see
+see|hear
+waltz|boogie,bop,cancan,clog,conga,dance,foxtrot,jig,jitterbug,jive,pirouette,polka,quickstep,rumba,samba,shuffle,squaredance,tango,tapdance,waltz
+feeding|bottlefeed,breastfeed,feed,force-feed,handfeed,nurse,spoonfeed,suckle
+indicate|imply,predict,denote,corroborate,expose,prognosticate,forebode,anticipate
+indicate|explain,indicate,say
+indicate|affirm,reaffirm,disclose,verify,confirm,demonstrate,establish,prove,reveal,show
+lecture|lecture,moralize,preach,rant,remark,speak,talk,testify,theorize,write,pontificate
+lecture|elaborate,comment
+lecture|dwell
+vehicle_path|take,sail,coast
+free|alleviate,liberate,discharge,exonerate
+free|absolve,acquit,clear,free,cure,relieve,emancipate,release,rerelease
+chit_chat|chat,chatter,chitchat,confer,converse,gab,gossip,jest,joke,palaver,rap,schmooze,yak
+chit_chat|argue,debate,discuss
+escape|advance,approach,come,decamp,fall,file,go,plunge,recede,return,rise,tumble,arrive,set off,set out,bolt,emerge,emigrate,retreat,skedaddle,vamoose,withdraw
+escape|depart,disembark,escape,exit,flee,leave,vacate
+escape|enter,approach
+escape|ascend,climb,cross,descend
+mix|admix,consolidate,intermix,scramble,tumble,cream
+mix|amalgamate,blend,coalesce,combine,compound,commingle,decoct,fuse,meld,merge,mingle,mix,recombine
+mix|add,tie
+mix|connect,join,link,pair,pool,network,rejoin,unite
+mine|mine,quarry
+manner_speaking|babble,bark,bawl,bellow,bleat,blubber,boom,bray,burble,bluster,cackle,call,carol,chant,chatter,chirp,chortle,chuckle,cluck,coo,croak,croon,crow,cry,drawl,drone,gabble,gasp,gibber,groan,growl,grumble,grunt,hiss,holler,hoot,howl,jabber,keen,lilt,lisp,mewl,moan,mumble,murmur,mutter,nasal,natter,pant,prattle,purr,quaver,rage,rant,rasp,roar,rumble,scream,screech,shout,shriek,sibilate,simper,sigh,sing,smatter,smile,snap,snarl,snivel,snuffle,splutter,squall,squawk,squeak,squeal,stammer,stemmer,stutter,thunder,tisk,trill,trumpet,twang,twitter,vociferate,wail,warble,wheeze,whimper,whine,whisper,whistle,witter,whoop,yammer,yap,yell,yelp,yodel,blare,gurgle,hum
+light_emission|beam,blaze,blink,burn,flame,flare,flash,flicker,fluoresce,glare,gleam,glimmer,glint,glisten,glitter,glow,incandesce,scintillate,shimmer,shine,sparkle,twinkle
+poison|asphyxiate,behead,bullet,crucify,dart,decapitate,disembowel,drown,electrocute,evicerate,gas,garrotte,hang,impale,knife,poison,shoot,smother,stab,stone,strangle,strangulate,suffocate,throttle
+learn|cram,read,relearn,study,learn
+learn|glean,memorize
+learn|assimilate,learn,read
+suffocate|asphyxiate,choke,drown,starve,stifle,suffocate
+appeal|niggle
+appeal|grate,jar
+appeal|appeal,matter
+involve|involve,engage,relate,include,enroll
+breathe|barf,bleed,dribble,drool,pee,piss,puke,shit,spit,sweat,throw up,vomit,weep
+breathe|breathe,cough,cry,defecate,expectorate,retch,slobber,urinate,hawk
+battle|consult,contend,exile
+battle|argue,bargain,battle,bicker,brawl,clash,combat,compete,conflict,correspond,communicate,dicker,differ,disagree,dispute,duel,feud,fight,joust,quarrel,quibble,refight,scuffle,skirmish,spar,spat,struggle,squabble,tilt,tussle,vie,war,wrangle,wrestle
+dedicate|dedicate,devote,commit
+appear|appear,arise,awake,awaken,break,burst,coalesce,come,dawn,derive,develop,emanate,emerge,erupt,evolve,exude,flow,form,grow,gush,irrupt,issue,materialize,open,plop,pop up,reappear,re-emerge,result,rise,show up,spill,spread,spring up,steal,stem,stream,supervene,surge,take shape,wax
+characterize|count,depict,detail,envision,interpret,moot,peg,picture,pigeonhole,paint,recast,redraw,specify,stereotype,typecast,bill,cast,diagnose,certify,praise,hail,regard,treat,rank,take,perceive,judge,adopt,class,classify,select,subselect,pidgeonhole,stamp
+characterize|characterize,conceive,see,view,know,underestimate
+characterize|portray,define,describe,represent,accept,envisage,identify,imagine,visualize,remember,recollect
+characterize|report,reveal
+meet|consult,deliberate,meet,play,remonstrate,reunite,visit
+meet|battle,box,debate,fight
+throw|cast,discard,drive
+throw|bash,bat,bunt,chuck,fire,flick,fling,flip,hit,hurl,knock,lob,loft,nudge,pass,pitch,punt,shoot,shove,slam,slap,sling,smash,tap,boot
+throw|catapult,kick,launch,throw,tip,toss
+appoint|appoint,coronate,crown,designate,elect,install,proclaim,mark,ordain,adopt,upgrade,reelect,want,name,nominate
+future_having|advance,allocate,allot,apportion,assign,award,bequeath,cede,concede,devolve,extend,grant,guarantee,issue,leave,offer,owe,portion,promise,ration,reallocate,reassign,vote,will,yield,accord
+assuming_position|bend,bow,crouch,flop,hang,hunch,hunch up,kneel,lean,lie,lie down,perch,plop,rise,sit,sit down,slouch,slump,sprawl,squat,squat down,stand,stand up,stoop,straddle
+register|clock,time,mistime
+register|measure,read,register,total,weigh
+berry|antique,berry,birdnest,blackberry,clam,crab,fish,fowl,grouse,hay,log,mushroom,nest,nut,oyster,pearl,prawn,rabbit,scollop,seal,shark,shrimp,snail,snipe,sponge,whale,whelk,whore,hawk
+declare|maintain
+declare|prove
+declare|declare
+declare|find,judge
+declare|profess
+declare|proclaim
+separate|disassociate,sever,uncoil
+separate|decouple,differentiate,disentangle,dissimilate,divide,divorce,segregate
+separate|disconnect,dissociate,part,separate
+beg|beg,ask,request,supplicate,importune
+advance|appreciate,balloon,climb,decline,decrease,depreciate,diminish,drop,dwindle,explode,fall,fluctuate,gain,grow,increase,jump,move,mushroom,plummet,plump,plunge,retreat,rocket,rise,seesaw,shift,skyrocket,slide,slip,soar,surge,swing,tumble,vary,dip,lower,swell
+instr_communication|broadcast,cable,e-mail,fax,modem,netmail,phone,radio,relay,satellite,semaphore,sign,signal,telecast,telegraph,telephone,telex,wire,wireless
+confront|face,confront,head on,undertake,tackle,take on,set about,go about,approach,brave,handle,intercept,target,rival,counter,pre-empt,combat,breast
+promise|assure,guarantee,promise,ascertain
+run|amble,ambulate,backpack,bolt,bound,breeze,bustle,caper,carom,cavort,charge,chunter,clamber,climb,clump,crawl,creep,dodder,flit,flounce,frolic,gallivant,gambol,ghost,globetrot,goose step,hike,hitchhike,hopscotch,jounce,limp,lollop,lumber,lurch,meander,mince,mosey,nip,pace,pootle,pounce,pussyfoot,repair,roar,romp,sashay,saunter,scamper,scram,scramble,scud,scurry,scutter,scuttle,seesaw,shamble,shuffle,sidle,skedaddle,skid,skulk,sleepwalk,slink,slither,slog,slouch,somersault,sprint,spring,stagger,step,stomp,stray,streak,stumble,stump,swag,swagger,swan,swerve,tear,tiptoe,toddle,toil,tootle,totter,tread,troop,trundle,waddle,weave,wend,whiz,worm,yaw,zigzag,zoom
+run|hop,journey,leap,pad,perambulate,plod,prowl,ramble,roam,rove,stride,stroll,sweep,swim,traipse,tramp,travel,trek,trudge,vault,wade,wander,wing
+run|back,bounce,bowl,canter,coast,dart,dash,drift,float,gallop,glide,hasten,hobble,hurry,hurtle,inch,lope,march,prance,race,roll,scoot,skip,skitter,slide,sneak,speed,strut,tack,trip,trot
+run|fly,jog,jump,march,parade,promenade,run,rush,walk
+bulge|bristle,bulge,buzz,hum,hyperventilate,seethe
+confine|charge,institutionalize,incarcerate,hospitalize,detain,jail,imprison,jug,hold,immure
+confine|commit,recommit,send,confine
+hold|clasp,clutch,grab,grasp,grip,handle,hold,pull,push,seize,tug,wield,yank
+wish|expect,wish,intend,mean,plan,propose,think,aim,dream,imagine,yen
+assessment|analyse,analyze,appraise,assay,assess,audit,examine,evaluate,feel out,go over,inspect,investigate,peruse,proofread,regard,review,scan,scrutinize,study,surveil,survey,watch
+masquerade|behave,count,function,masquerade,officiate,qualify,rank
+masquerade|act,behave
+masquerade|serve,pose
+continue|continue
+leave|abandon,split
+leave|desert,leave
+exceed|overcome,overleap,transcend
+exceed|better,exceed,lap,outbid,outdo,outmatch,outnumber,outrace,outshine,outsmart,outstrip,outweigh,outwit,overreach,overstep,surpass,top
+subjugate|disenfranchise,enslave,mob,nourish,suppress,stamp down,subdue,conquer,curb,crush,stifle,dampen,suffocate,choke,hush,silence,still,shut up,hush up,lull,calm down,gag,muzzle,squelch,quell,quench,smother,muffle,repress,quash,keep down,subjugate,reduce,slake,strangle,kill
+talk|speak,talk
+rummage|bore,burrow,fumble,leaf,listen,look,page,poke,scrabble,scratch
+rummage|forage,grope,rifle,rummage,paw,delve,root,thumb,snoop,tunnel
+put_spatial|lay,prop,underlay
+put_spatial|dangle,hang,lean,perch,rest,sit,stand,suspend
+curtsey|bob,bow,curtsey,genuflect,kneel,salaam,salute
+coil|loop,roll,rotate,spin,swirl,twine,whirl,wind
+coil|curl,coil,hook,swing,twirl,twist
+crane|arch,bare,bat,beat,blow,clench,click,close,cock,crane,crook,cross,drum,flap,flash,flex,flick,flutter,fold,gnash,grind,hang,hunch,kick,knit,open,pucker,purse,raise,roll,rub,shake,show,shuffle,smack,snap,stamp,stretch,toss,turn,twiddle,twitch,wag,waggle,wiggle,wring,wrinkle
+murder|annihilate,assassinate,bushwhack,butcher,dispatch,eliminate,euthanize,execute,exterminate,immolate,liquidate,lynch,massacre,murder,off,slaughter,slay
+murder|kill
+ensure|ensure,assure,guarantee,insure,secure,ascertain,reinsure
+debone|deaccent,debark,debone,debowel,debug,debur,declaw,decontaminate,defang,defat,defeather,deflea,deflesh,deflower,defoam,defog,deforest,defrost,defuzz,degas,degerm,deglaze,degrease,degrit,degum,degut,dehair,dehead,dehorn,dehull,dehusk,deice,deink,delint,delouse,deluster,demast,derat,derib,derind,desalt,descale,desex,desprout,destarch,destress,detassel,detusk,devein,dewater,dewax,deworm,disembowel,eviscerate
+pay|spend,squander,waste,serve,tithe
+pay|pay,repay
+remedy|abase,africanize,alcoholize,alleviate,anesthetize,animate,backfill,bastardize,bedew,blast,blemish,bloody,botch,bowdlerize,bungle,capacitate,carbonify,castrate,categorize,catholicize,cauterize,chamfer,chlorinate,christianize,circumcise,circumscribe,coif,commercialize,configure,conflate,constipate,constringe,construct,contextualize,correct,counteract,cremate,deafen,debase,deconstruct,dehumidify,delineate,demean,dement,demobilize,desalinate,desensitize,diffract,disable,dishevel,disinfect,disinter,dispel,dislocate,disorganize,domesticate,edify,emasculate,embitter,embrocate,enhance,enunciate,eternalize,eternize,europeanize,exacerbate,exhume,expropriate,extinguish,fanaticize,federalize,fertilize,flouridate,fortify,grade,halve,homogenize,humanize,humidify,hydrogenate,ice,immortalize,inactivate,incinerate,inseminate,inspissate,invert,iodize,light,lighten,magnetize,magnify,manure,marginalize,mechanize,medicate,militarize,mineralize,miniaturize,minimize,mishandle,mismanage,motorize,muddy,mummify,mute,nasalize,nitrify,objectify,obscure,obviate,overshadow,oxygenate,paralyze,pasteurize,perfect,perpetuate,pink,pollard,popularize,prejudge,prettify,publicize,reanimate,rectify,redact,refract,regularize,remaster,remedy,repair,revise,secularize,sensationalize,shortchange,silence,singe,sinter,sovietize,sterilize,streamline,subvert,sulfurize,tabulate,taiwanize,tart up,tousle,transplant,traumatize,truncate,trivialize,underfeed,upload,urbanize,ventilate,vulgarize
+complain|bellyache,bitch,boast,brag,caterwaul,complain,crab,gripe,grouch,grouse,grumble,kvetch,moan,object,whine
+gobble|bolt,gobble,wolf
+gobble|gulp,guzzle,quaff,slug,swallow,swig
+accompany|accompany,conduct,escort,guide,lead,misdirect,shepherd,steer
+adjust|adapt,accommodate,conform,adjust,gear,fit,readjust,readapt,assimilate
+exchange|barter,forgo,jilt,replace
+exchange|change,exchange,switch,trade
+exchange|substitute,swap
+carry|carry,drag,draw,haul,heft,hoist,lug,nudge,pull,run,schlep,tote,tow,tug,yank
+carry|heave,kick,push,shove,thrust
+conspire|ally,collaborate,collude,conspire,discriminate,legislate,partner,protest,rebel,retaliate,scheme,sin,team up,befriend
+allow|allow,approve,permit,sanction,tolerate
+hire|hire,recruit,employ,contract,engage,take,sign,sign on,sign up,subcontract,train,enlist,reinstate
+spend_time|pass,serve,misspend
+smell_emission|reek,smell,stink
+body_internal_motion|buck,fidget,flap,gyrate,jiggle,kick,rock,squirm,sway,teeter,totter,twitch,waggle,wiggle,wobble,wriggle
+banish|banish,deport,evacuate,expel,extradite,recall,recuse,remove,shanghai,boot
+spatial_configuration|balance,bend,bow,crouch,dangle,droop,flop,fly,hang,hover,huddle,hunch,jut,kneel,lean,lie,loll,loom,lounge,nestle,open,perch,plop,project,protrude,recline,repose,rest,rise,roost,sag,sit,slope,slouch,slump,sprawl,squat,stand,stoop,straddle,swag,swing,tilt,tower,yaw
+remove|abolish,abstract,cull,deburr,deduct,delete,depose,disgorge,dislodge,disengage,draw,eject,eliminate,eradicate,excise,excommunicate,expel,extirpate,extract,extrude,lop,omit,ostracize,partition,pry,reap,ream,retract,roust,separate,shoo,subtract,take,take away,take out,take off,uproot,winkle,wrench,withdraw,oust,discharge,dismiss,evict,remove,sever,extinguish,prise
+admit|admit,allow,exclude,include,permit,receive,welcome
+dine|banquet,breakfast,brunch,dine,feast,graze,junket,lunch,luncheon,nosh,picnic,snack,sup
+defend|defend,insure,protect,shade,preserve,guard,safeguard
+deduce|reason,reason out,conclude,derive,disprove,infer,deduct,deduce,gather,conceive,prove,rationalize
+multiply|sum,add,tally,count
+multiply|multiply,divide
+multiply|deduct,factor out,interpolate,extrapolate,subtract
+multiply|average
+change_bodily_state|blanch,blench,faint,pale,sicken,black out,swoon,doze off,drift off,konk out,nod off,pass out,zonk out
+engender|beget,bring about,cause,create,engender,generate,incite,inspire,instigate,kindle,produce,provoke,set off,shape,sire,spark,spawn,actuate,arouse,call forth,elicit,prompt,stimulate,stir up,trigger
+pain|ail,bother,burn,hurt,itch,pain,wrench
+rehearse|rehearse,practice,walk through,exercise,repeat
+pour|dribble,drip,pour,slop,slosh,spew,spill,trickle
+spank|bayonet,belt,biff,birch,bludgeon,bonk,brain,bump,cane,clobber,clout,club,conk,cosh,crack,crunch,cudgel,cuff,elbow,flagellate,flog,gash,knee,knife,k.o.,paddle,paddywhack,pummel,slam,sock,spank,stabb,strap,thrash,thump,truncheon,wallop,whip,whisk,horsewhip
+marvel|cheer,cringe,enthuse,exult,fume,gladden,madden,marvel,rage,rejoice,sadden,sicken,start,swoon,thrill,wonder,flip out,freak out,go apeshit,go ballistic,lose it,chafe
+marvel|bother,care,fret,mind,moon,rage,rejoice,rhapsodize,stew,stress,sulk,worry,flip out,freak out,go apeshit,go ballistic,lose it
+marvel|bleed,care,cry,fear,feel,grieve,mourn,weep
+marvel|ache,hurt,suffer
+marvel|bask,delight,exult,glory,luxuriate,rejoice,revel,wallow
+marvel|approve,beware,despair,disapprove,sicken,tire,weary
+marvel|groove
+marvel|agonize,anger,anguish,delight,enthuse,exult,fret,fume,gloat,grieve,gush,hallucinate,hunger,marvel,meditate,moon,mope,mourn,muse,obsess,puzzle,rage,rave,reflect,rejoice,rhapsodize,ruminate,salivate,seethe,triumph,wonder,worry,sorrow,flip out,freak out,go apeshit,go ballistic,lose it,chafe
+marvel|react,thrill
+succeed|succeed,excel
+succeed|manage
+succeed|fail,flub
+risk|bet,gamble,punt,venture,wager
+risk|chance,risk,hazard
+avoid|avoid,boycott,circumvent,dodge,duck,elude,eschew,evade,forgo,shun,sidestep
+base|base,establish,ground,found,build,construe
+pocket|archive,bag,bank,barrack,beach,bed,bench,billet,bin,bottle,box,cage,can,case,cellar,cloister,coop,corral,crate,cup,file,fork,garage,hangar,house,imprison,jail,jar,jug,kennel,pasture,pen,pillory,pocket,pot,sheathe,shelve,shoulder,skewer,snare,spindle,spit,spool,string,tassel,tin,trap,tree,warehouse,wharf
+pocket|berth,dock,drydock,land,moor,ground,lodge,stable
+withdraw|back out,chicken out,get out,wriggle out,bow out,pull out
+withdraw|get away,back off
+withdraw|withdraw,retreat,pull away,retire
+funnel|dip,dunk,ladle,hoe,scoop,siphon,sop,channelize
+funnel|channel,fit,rake,scrape,shovel,spoon,squash,squish,tuck,wipe,wring
+funnel|bang,dump,funnel,hammer,pound,push,ram,shake,squeeze,sweep,wedge
+reach|reach,hit,make,breast
+focus|focus,focalize,center,concentrate,contemplate,converge,dwell,fixate
+focus|brood,deliberate,meditate,muse,ponder,reflect,ruminate,think,wonder
+tingle|ache,burn,hum,palpitate,pound,prickle,pucker,reel,smart,spin,split,sting,swim,throb,tickle,tingle,twinge
+convert|advert,come around,fall,get,get around,get down,go back,resort,return,revert,settle down,shift,take,turn
+convert|change over,convert,move over,switch,switch over
+put|arrange,emplace,immerse,implant,lodge,mount,position,situate,sling,station,superimpose,tack on,wharf
+put|apply,bury,deposit,embed,insert,install,park,plant,reinstall,stash,stow
+put|place,put,set,stick
+transcribe|chart,chronicle,copy,document,duplicate,film,forge,microfilm,photocopy,photograph,record,tally,tally up,tape,televise,transcribe,type,videotape
+conjecture|allow,believe,conjecture,deny,determine,doubt,expect,feel,foreknow,foresee,foretell,guess,hold,infer,know,presume,prophesy,realize,repute,recognize,speculate,surmise,suspect,swear,trust,mean,vaticinate,anticipate,prognosticate
+conjecture|admit,affirm,assert,attest,aver,avow,avouch,claim,confirm,contend,discover,grant,guarantee,maintain,observe,reaffirm,reassert,show
+knead|ball,beat,bend,coil,collect,compress,contort,curve,distort,fold,flex,flux,knead,melt,shake,squash,squeeze,squish,twirl,twist,wad,whip,wind,work
+relate|involve,concern,touch,bear on,touch on
+relate|refer,pertain,relate
+tape|affix,anchor,band,belt,bond,bolt,bracket,buckle,button,cable,cement,chain,cinch,connect,epoxy,fasten,fetter,glue,gum,handcuff,harness,hinge,hitch,hook,knot,lace,lash,lasso,latch,leash,link,lock,loop,manacle,moor,muzzle,nail,padlock,paste,peg,pin,plaster,rivet,rope,screw,seal,shackle,skewer,solder,staple,stitch,strap,string,suture,tack,tape,tether,thread,thumbtack,tie,trammel,truss,weld,wire,yoke,zip
+tape|clamp,clip,clasp,gum,paste,reeve
+entity_specific_cos|apostatize,atrophy,blister,bloom,blossom,bud,burgeon,burn,corrode,crust,decay,decompose,deteriorate,ebb,erode,ferment,fester,flower,foliate,germinate,green,molder,molt,moult,oxidize,phosphoresce,progress,putrefy,rot,rust,spoil,sprout,stagnate,subside,suppurate,swell,tarnish,wane,wilt,wither,pullulate
+stalk|scent,smell,stalk,taste,track,whiff
+price|appraise,approximate,assess,auction,calibrate,estimate,fix,gauge,meter,overestimate,peg,price,rate,reappraise,value
+bend|bend,crease,crinkle,crumple,distend,flex,fold,furrow,hyperextend,roll,round,rumple,scrunch,splay,straighten,stretch,unfold,unfurl,unroll,unwind,warp,wrinkle,unbend
+bump|hit,run
+bump|bang,bash,brush,bump,butt,clang,clash,clatter,collide,crack,crash,crunch,hammer,knock,ram,rap,slam,slap,smack,smash,squash,strike,thud,thump
+sight|behold,descry,discover,espy,experience,eye,glimpse,know,make out,note,observe,overhear,perceive,recognize,savor,scent,scent out,sight,spot,spy,view,witness,sniff
+weather|blow,bucket,clear,drizzle,fog,frost,freeze,gust,hail,howl,lightning,mist,mizzle,pelt,pour,precipitate,rain,roar,shower,sleet,snow,spit,spot,sprinkle,storm,swelter,teem,thaw,thunder
+coloring|color,distemper,dye,enamel,glaze,japan,lacquer,paint,repaint,shellac,spraypaint,stain,starch,tint,varnish
+contiguous_location|bestride,blanket,border,bound,bracket,bridge,cap,circle,cloak,cover,edge,encircle,enclose,encompass,engulf,envelop,fence,fill,flank,follow,forgo,frame,head,hug,line,neighbor,overcast,overhang,precede,predate,rim,ring,skirt,span,straddle,support,surmount,surround,top,traverse,underlie,wreathe,enshroud,veil
+contiguous_location|abut,adjoin,cross,hit,intersect,meet,touch
+contiguous_location|dominate
+animal_sounds|baa,bark,bay,bellow,blat,bleat,bray,buzz,cackle,call,caw,chatter,cheep,chirp,chirrup,chitter,cluck,coo,croak,crow,cuckoo,drone,gobble,growl,grunt,hee-haw,hiss,honk,hoot,howl,ki-yi,low,meow,mew,moo,neigh,oink,peep,pipe,purr,quack,roar,rooroo,scrawk,squawk,squeak,squeal,stridulate,trill,tweet,twitter,wail,warble,whimper,whinny,whistle,woof,yap,yell,yelp,yip,yowl,boom,rattle,groan,ululate,moan,rumble,screech,snarl,thunder,trumpet,wheeze,whine
+order|allow,beseech,call,hail,invite,okay,permit,summon
+order|ask,command,demand,order,require
+give|deal,lend,loan,pass,peddle,refund,render
+give|give,hock,hawk,rent,sell,lease,pawn
+inquire|ask,enquire,inquire,consult,pry
+sound_emission|babble,bang,beat,beep,bellow,blare,blast,blat,boom,bubble,burble,burr,buzz,caterwaul,chatter,chime,chink,chir,chitter,chug,clack,clang,clank,clap,clash,clatter,click,cling,clink,clomp,clump,clunk,crack,crackle,crash,creak,crepitate,crunch,cry,ding,dong,drone,explode,fizz,fizzle,groan,growl,gurgle,hiss,hoot,honk,howl,hum,jangle,jingle,keen,knell,knock,lilt,mewl,moan,murmur,patter,peal,ping,pink,pipe,plash,plink,plonk,plop,plunk,pop,purr,putter,rap,rasp,rattle,ring,roar,roll,rumble,rustle,scream,screech,shriek,shrill,sing,sizzle,snap,sound,sough,sploosh,splash,splutter,sputter,squawk,squeak,squeal,squelch,strike,swish,swoosh,thrum,thud,thump,thunder,thunk,tick,ting,tinkle,toll,toot,tootle,trill,trumpet,twang,ululate,vroom,wail,wheeze,whine,whir,whish,whisper,whistle,whoosh,whump,zing
+destroy|annihilate,blight,blitz,damage,decimate,demolish,desecrate,destroy,devastate,disfigure,efface,exterminate,extirpate,level,louse up,maim,mutilate,obliterate,rack,ravage,raze,ruin,shipwreck,smoke,undo,unmake,vaporize,waste,wrack,wreck,shatter
+push|heave
+push|jerk,pull,tug,yank
+push|jostle,nudge,press,push,shove,squeeze,thrust
+exist|overspread
+exist|coexist,dwell,exist,extend,flourish,languish,linger,live,loom,lurk,persist,predominate,prevail,prosper,remain,reside,shelter,stay,thrive,tower,vegetate,wait,persevere
+exist|endure,survive
+reflexive_appearance|announce,assert,declare,define,display,exhibit,expose,express,flaunt,form,intrude,manifest,offer,pose,present,proffer,propose,reassert,recommend,reveal,shape,show,suggest
+rely|rely,depend,bank,bargain,count,figure,reckon,bet,gamble,take a chance,wager
+slide|move,scoot
+slide|bounce,dart,float,roll,slide
+gorge|exist,feed,flourish,gorge,prosper,subsist,survive,thrive
+force|bullock,bamboozle,coax,coerce,commission,compel,convince,cozen,dare,draw,encourage,entice,force,goad,impel,incite,induce,inveigle,jolt,lead,mislead,motivate,obligate,oblige,palaver,persuade,press,pressure,prod,prompt,push,rush,rouse,fox,soothe,spur,steamroller,suborn,sway,sweet-talk,talk into,talk out of,tempt,win over,bullshit,sandbag,railroad,dragoon,hound
+force|allure,annoy,arm-twist,bait,bluff,blackmail,bribe,bully,cajole,cheat,commander,con,deceive,delude,draw,drive,dupe,ensnare,entrap,flatter,fool,frighten,guide,harass,harry,hijack,hoodwink,hustle,influence,seduce,lure,manipulate,organize,panic,set,shame,shock,stimulate,talk,tease,terrify,trap,trick,wheedle
+begin|go on,pledge,proceed
+begin|begin,start,start off,commence,recommence,resume,undertake
+become|come,come out,turn,get,go,grow,fall,turn up
+become|become
+become|end up,leave
+care|mind
+care|care,worry,wonder
+amalgamate|intermarry
+amalgamate|couple,incorporate,integrate,match,overlap
+amalgamate|amalgamate,coalesce,consolidate,intermingle
+amalgamate|conjoin,entangle,muddle,pair,team,affiliate,associate,compare,confederate,confuse,incorporate,integrate,total,identity
+amalgamate|alternate,crisscross,entwine,interchange,interconnect,interlace,interlink,interlock,intersperse,intertwine,interweave,mate,unite,coalesce,coincide,conflate,consolidate,contrast,correlate,harmonize,intermingle,interrelate,repackage,rhyme,unify
+amalgamate|oppose
+amalgamate|introduce,figure
+amalgamate|marry,remarry,wed
+amalgamate|engage
+weekend|December,holiday,honeymoon,junket,overnight,sojourn,summer,vacation,weekend,winter
+settle|settle,concur,contract,harmonize,bargain,consent,cohere,jibe,square,resolve,covenant
+consume|use,consume,pass,kill
+consume|reuse,spend,squander,waste
+put_direction|drop,elevate,heel,hoist,lift,lower,raise,back
+image_impression|annotate,applique,emboss,embroider,engrave,etch,handpaint,imprint,incise,ingrain,inscribe,mark,paint,reinscribe,scar,set,sign,stamp,stipple,tattoo,tool
+occurrence|ensue,eventuate,follow,happen,occur,recur,result,take place,transpire,befall,chance,develop,pass
+matter|matter,count
+cope|deal
+cope|cope
+cope|manage,grapple,get by,get through
+vehicle|balloon,boat,bobsled,bus,cab,caravan,chariot,coach,dogsled,ferry,gondola,helicopter,jeep,jet,moped,motor,parachute,punt,rickshaw,rocket,sledge,sleigh,taxi,tram,trolley,yacht
+vehicle|bicycle,bike,canoe,cycle,kayak,motorbike,motorcycle,raft,skate,skateboard,ski,sled,toboggan
+confess|confess,admit,acknowledge,fess up,proclaim,reveal
+wipe_instr|file,filter,hoover,iron,plough,sandpaper,sponge,squeegee,towel
+wipe_instr|brush,comb,hose,mop,plow,rake,shear,shovel,siphon,vacuum
+peer|attend,check,eavesdrop,gape,gawk,gaze,glance,glare,goggle,leer,listen,look,ogle,peek,peep,peer,sniff,snoop,squint,stare
+get|attain,book,buy,call,catch,charter,choose,conserve,find,gather,hire,lease,order,phone,pick,pluck,procure,pull,reach,rent,reserve,shoot,slaughter,vote,win
+get|earn,fetch,cash,gain,get,save,score,secure,steal
+eat|eat
+eat|drink
+eat|huff,inject,mainline,snort,shoot up,smoke,use
+floss|brush,floss,shave,wash
+cooking|bake,barbecue,barbeque,blanch,boil,braise,broil,brown,char,charbroil,charcoal-broil,coddle,cook,crisp,deep-fry,french-fry,fry,grill,hardboil,heat,microwave,oven-fry,oven-poach,overbake,overcook,overheat,pan-broil,pan-fry,parboil,parch,percolate,perk,pickle,plank,poach,pot-roast,reheat,rissole,roast,saute,scald,scallop,sear,shirr,simmer,softboil,steam,steam-bake,steep,stew,stir-fry,toast,warm up
+calve|calve,cub,fawn,foal,kitten,lamb,litter,pup,spawn,whelp
+overstate|overstate,overdraw,hyperbolize,magnify,amplify,overemphasize,overrate,overstress,tout,glorify
+break|break,break apart,break down,break up,chip,cleave,crack,crash,crush,dissolve,fissure,fracture,fragment,rend,rive,rip,shatter,shred,sliver,smash,snap,splinter,split,tear
+linger|dally,dawdle,dither,equivocate,hesitate,linger,loaf,loiter,pause,potter,procrastinate,putter,tarry
+linger|delay,scruple,stall
+suspect|suspect,accuse,condemn
+orphan|apprentice,beggar,cripple,cuckold,knight,martyr,orphan,outlaw,pauper,recruit,whore,widow
+scribble|carve,chalk,charcoal,copy,crayon,doodle,draw,forge,ink,misspell,paint,pencil,plot,print,scratch,scrawl,scribble,sketch,spell,spraypaint,stencil,trace,type,write,print out,print up,underscore,underline
+addict|addict,bias,dispose,incline,predispose,woo,slant
+cheat|bereave,break,cleanse,cure,denude,deplete,depopulate,deprive,despoil,disabuse,disarm,disencumber,dispossess,divest,purge,purify,ransack,relieve,render,rid,rifle,strip,unburden,wean,whitewash,bleed,cheat,defraud,rob,sap,gull,fleece,cull
+cheat|bilk,burgle,con,cozen,drain,ease,milk,mulct,plunder,swindle
+help|support,succor
+help|aid,abet,assist,help
+braid|bob,braid,brush,clip,coldcream,comb,condition,crimp,crop,curl,cut,dye,file,gel,henna,highlight,lather,manicure,part,perm,paint,plait,pluck,powder,rinse,rouge,set,shampoo,soap,style,talc,tease,towel,trim,tweeze,wave,wax
+being_dressed|attire,clad,garb,outfit,robe
+cling|adhere,cleave,cling
+complete|accomplish,achieve,complete,discontinue,quit
+devour|consume,devour,down,have,imbibe,ingest,swill,take
+simple_dressing|don,doff,wear
+dress|bathe,change,clothe,disrobe,dress,exercise,frock,lave,moisturize,preen,primp,shave,shower,strip,sunbathe,tan,unclothe,undress,wash
+shake|lump,mass
+shake|beat,fuse,scramble,stir,swirl,whip,whisk
+shake|band,baste,cluster,collate,collect,fix,gather,glom,group,herd,pair,roll,sew,shake,shuffle,stick
+shake|attach,bind,bond,bundle,concatenate,fasten,graft,jumble,ligate,moor,package,secure,splice,toggle,weld,fixate,affix,agglutinate
+use|use,utilize,apply,employ,exert,exploit,reuse
+own|have,own,possess
+tell|acquaint,inform,apprise,notify,advise,update,remind
+tell|tell
+correspond|banter,bargain,coexist,collaborate,collide,commiserate,communicate,compromise,concur,confabulate,confer,cooperate,correspond,decide,deliberate,dissent,disagree,flirt,haggle,hobnob,interact,intermix,mingle,mix,neck,negotiate,parley,plot,rendezvous,renegotiate,reunite
+correspond|agree
+correspond|debate,argue
+disassemble|carve,detach,disassemble,disconnect,dismantle,dismount,pare,partition,segregate,sift,slice,sunder,unbolt,unbuckle,unbutton,unchain,unclamp,unclasp,unclip,unfasten,unfix,unglue,unhinge,unhitch,unhook,unlace,unlatch,unlock,unleash,unpeg,unpin,unscrew,unseal,unshackle,unstaple,unstitch,untie,unzip,sieve
+hit|bang,bash,click,dash,squash,tamp,thump,thwack,whack,smite
+hit|batter,beat,bump,butt,drum,hammer,hit,jab,kick,knock,lash,pound,rap,slap,smack,smash,strike,stomp,whang,tap
+split|blow,break,cut,draw,hack,hew,kick,knock,pry,pull,push,rip,roll,saw,shove,slip,sliver,snap,split,tear,tug,yank
+judgment|abuse,assault,backbite,blame,blaspheme,condone,find fault with,gibe,imprecate,repay,slang
+judgment|accurse,applaud,approve,assail,attack,badmouth,belittle,berate,besmirch,bless,calumniate,castigate,celebrate,censure,chasten,chastise,chide,cite,commemorate,commend,compensate,compliment,condemn,congratulate,criticize,curse,damn,decry,defame,denigrate,denounce,deprecate,deride,disparage,eulogize,excoriate,excuse,extol,fault,felicitate,forgive,glorify,greet,honor,impeach,incriminate,indict,insult,lambaste,lampoon,malign,mock,pardon,penalize,persecute,prosecute,punish,rebuke,recommend,recompense,remunerate,reprimand,reproach,reprobate,reprove,repudiate,revile,reward,ridicule,salute,sanction,satirize,scold,scorn,shame,slander,snub,stigmatize,thank,toast,upbraid,vilify,welcome
+judgment|acclaim,doubt,hail,herald,judge,laud,praise
+limit|confine,limit,reduce,restrict,restrain,constrain
+create|coin,compose,compute,concoct,construct,contrive,cowrite,create,derive,fabricate,form,formulate,improvise,invent,manufacture,mass-produce,model,organize,produce,recreate,rebuild,style,synthesize,lay,author,draft,write,piece together
+create|conjure,craft,design,dig,mint,publish,rearrange,reconstitute,reorganize,schedule,stage
+snooze|catnap,doze,drowse,nap,sleep,slumber,snooze
+pit|bark,beard,bone,burl,core,gill,gut,head,hull,husk,lint,louse,milk,peel,pinion,pip,pit,pith,pod,poll,pulp,rind,scale,scalp,seed,shell,shuck,skin,snail,stalk,stem,stone,string,tail,tassel,vein,weed,wind,worm,zest
+consider|view,acknowledge,deem,esteem,rate,reckon,report
+consider|know,recognize,see
+consider|consider,remember,imagine
+consider|suspect,think,feel,suppose,posit,believe
+obtain|accept,accrue,accumulate,appropriate,borrow,cadge,commandeer,collect,exact,grab,inherit,make,receive,recoup,recover,regain,retrieve,seize,select,snatch,source,subselect,arrogate
+obtain|acquire,obtain,purchase
+discover|deduce,determine,discover,find,guess,realize,ascertain,rationalize,relearn,see,scent out,solve,chance across,chance on
+discover|pick up
+discover|hear,learn,read,study,find out,figure out
+swat|bite,chop,claw,kick,paw,peck,punch,scratch,slice,slug,stab,swat,swipe
+hunt|dig,feel,fish,hunt,mine,pan,poach,scrounge,seek
+void|annul,quash,void,avoid,invalidate,nullify
+illustrate|address,adorn,autograph,bead,brand,date,decorate,embellish,endorse,gild,ice,illuminate,illustrate,initial,label,letter,monogram,ornament,redecorate,tag
+touch|caress,fondle,grasp,graze,grip,grope,kiss,knead,lick,massage,nudge,osculate,pat,paw,peck,pet,pinch,prod,rub,squeeze,sting,stroke,tickle,touch,tug,tweak,twinge,wring,chafe
+body_internal_states|convulse,cower,quake,quiver,shake,shiver,shudder,tremble,writhe
+fill|anoint,bandage,bestrew,blacktop,blockade,blot,bombard,choke,clog,close,clutter,contaminate,dam,deluge,dirty,dope,dot,embellish,emblazon,encircle,endow,enrich,fill,fleck,flood,garland,garnish,grace,gum up,honeycomb,imbue,impregnate,infect,infest,inlay,interlace,interlard,interleave,intersperse,interweave,inundate,lard,lash,litter,mask,mottle,ornament,pad,plate,plug,prefill,replenish,repopulate,resupply,riddle,ring,ripple,sauce,season,smut,soil,splotch,staff,stipple,stop up,stud,suffuse,sully,taint,tinge,inject
+fill|adorn,bathe,bind,blanket,block,carpet,cloak,coat,cover,dapple,deck,decorate,disguise,douse,drench,edge,encrust,entangle,face,festoon,frame,line,marinate,panel,pave,redecorate,robe,saturate,shroud,smother,soak,speckle,spot,surround,swaddle,swathe,tile,tool,trim,veil,vein,stain
+disappearance|die,disappear,expire,lapse,perish,vanish
+poke|dig,jab,pierce,poke,prick,stab,stick
+establish|constitute,constitutionalize,innovate,machinate,pioneer,stage
+establish|initiate,establish,fake,feign,format,found,plant,implement,instigate,institute,organize,originate,prepare,premise,devise,mount,bring about,arrange,introduce,simulate,strike up,synthesise,launch,open,open up
+preparing|bake,blend,brew,clear,cook,cook up,fix,invent,kindle,light,mix,prepare,ready,roll,run,toss,cultivate
+preparing|barbeque,barbecue,boil,broil,clean,fry,grill,hardboil,iron,microwave,overbake,poach,pour,roast,scramble,set,softboil,toast,wash,weld
+correlate|coincide,correlate,alternate,flip-flop,co-occur
+entity_specific_modes_being|billow,bloom,blossom,bristle,bulge,burn,effervesce,fester,fizz,flow,flower,flux,foam,froth,moil,propagate,rage,ripple,roil,seethe,smolder,sprout
+keep|hoard,keep,leave,store,stock,stockpile
+enforce|control,enforce,impose
+try|try,attempt,intend
+send|convey,deliver,dispatch,handdeliver,pass on,port,post,return,shift,shunt,transfer,transport,export,import,transship
+send|airmail,express,FedEx,forward,hand,mail,pass,send,ship,slip,smuggle,sneak,transmit,UPS,wire
+sustain|maintain,sustain,prolong,protract,keep,keep up,continue,carry on
+classify|classify,class,constellate,sort,isolate,reclassify,group,regroup,bracket,lump,chunk,grade,number,catalogue,sort out,separate,seed,categorize,code,recode
+patent|copyright,patent,trademark,license,register,certify,credential,accredit,verify,evidence,imitate,impersonate
+steal|abduct,annex,cabbage,carjack,commandeer,confiscate,emancipate,embezzle,extort,filch,highjack,kidnap,knock off,liberate,lift,misappropriate,nobble,pickpocket,pinch,plagiarize,purloin,recapture,reclaim,recoup,redeem,repossess,rescue,rustle,seize,snatch away,sequester,take,thieve,weasel out,wrest
+steal|cadge,capture,cop,flog,grab,hook,nab,nick,pilfer,pirate,salvage,shoplift,smuggle,snatch,sneak,steal,swipe,wangle
+meander|angle,ascend,bend,cascade,climb,crawl,crest,crisscross,cross,cut,descend,dip,dive,drop,edge,emerge,go,meander,lance,mount,pass,plummet,plunge,rise,round,run,skirt,slant,snake,straggle,stretch,sweep,tumble,turn,twist,undulate,wander,weave,wind,range,swerve,veer,zag,zig,zigzag,converge
+contribute|betroth,forgo,lose,refer,relinquish,remit,resign,restore,gift,hand out,pass out,shell out,abnegate
+contribute|disseminate,distribute
+contribute|administer,circularize,contribute,donate,forfeit,resubmit,sacrifice,submit,surrender
+contribute|disburse,extend,proffer,return,transfer
+contribute|reimburse
+modes_of_being_with_motion|bob,bow,circulate,creep,dance,drift,eddy,falter,flap,float,flutter,hover,jiggle,joggle,oscillate,pulsate,pulse,quake,quiver,recirculate,revolve,rock,rotate,shake,stir,swag,sway,swirl,teeter,throb,totter,tremble,undulate,vacillate,vibrate,waft,wave,waver,wiggle,wobble,worm,writhe,roil
+wipe_manner|buff,distill,distil,exorcise,expunge,expurgate,flush,leach,offload,polish,purge,shave,smooth,skim,soak,strain,trim,unload,weed,whisk,winnow,wring
+wipe_manner|bail,dab,dust,erase,lick,pluck,prune,rinse,rub,scour,scrape,scratch,scrub,squeeze,strip,suck,suction,swab,sweep,wash,wear,wipe
+captain|butcher,judge,lawyer,midwife,model,prostitute,soldier,volunteer,whore
+captain|babysit,boss,bully,butler,caddy,captain,champion,chaperone,chauffeur,clerk,coach,cox,crew,doctor,emcee,escort,guard,host,mother,nurse,partner,pilot,pioneer,police,referee,shepherd,skipper,sponsor,tailor,tutor,umpire,understudy,usher,valet,witness
+captain|star
+forbid|dissuade,keep
+forbid|ban,bar,block,deter,discourage,forbid,hamper,hinder,impede,inhibit,obstruct,preclude,prevent,prohibit,restrain,stop
+investigate|canvass,explore,examine,frisk,inspect,investigate,monitor,observe,picket,quiz,raid,ransack,riffle,scan,scrutinize,surveil,survey,tap,test,tour
+stimulus_subject|feel,look,smell,sound,taste
+other_cos|abate,abbreviate,abrade,abridge,accelerate,acetify,acidify,activate,advance,age,agglomerate,air,alkalify,alkalize,alter,ameliorate,americanize,amplify,anglicize,atomize,attenuate,augment,balance,blacken,beautify,bifurcate,bisect,bleach,blunt,blur,bolshevize,brighten,broaden,burn,burst,calcify,capsize,caramelize,carbonize,centralize,change,char,cheapen,cheer up,chill,civilize,clarify,clean,clear,clog,close,cloud,coagulate,coarsen,collapse,collect,combust,compress,compact,condense,congeal,contract,constrict,cool,corrode,corrugate,corrupt,crimson,crisp,crumble,crystallize,curdle,dampen,darken,de-escalate,decelerate,decentralize,decompress,decrease,deepen,deflate,deflect,defrost,degenerate,degrade,dehydrate,demagnetize,democratize,depressurize,derail,desiccate,destabilize,deteriorate,detonate,devalue,diffuse,dilate,dilute,dim,diminish,dirty,disband,discolor,disintegrate,disperse,dissipate,dissolve,diversify,divide,double,downshift,drain,dull,ease,effeminate,emaciate,empty,emulsify,energize,enlarge,equalize,equilibrate,escalate,evaporate,even,exfoliate,expand,explode,fade,famish,fatten,federate,feminize,fill,firm,flatten,flood,fluff,fossilize,fray,freckle,freshen,frost,fructify,fuse,gasify,gelatinize,gentrify,germanize,gladden,globalize,glutenize,granulate,gray,grow,halt,harden,harmonize,hasten,heal,heat,heighten,hellenize,hush,hybridize,hydrolize,hydrate,ignite,improve,increase,incubate,indurate,industrialize,inflate,intensify,internationalize,ionize,kindle,laminate,lengthen,lessen,level,levitate,liberalize,lignify,liquefy,liquify,liven,loop,loose,loosen,macerate,mature,mellow,metabolize,mitigate,mobilize,moderate,modernize,modify,modulate,moisten,multiply,mummify,narrow,nationalize,naturalize,neutralize,normalize,occlude,open,operate,ossify,overturn,oxidize,pale,petrify,plump,polarize,polymerize,pop,privatize,proliferate,propagate,pulverize,puncture,purify,purple,putrefy,quadruple,quicken,quiet,quieten,rarefy,redden,redouble,refine,reform,rekindle,renew,reopen,replicate,reproduce,resuscitate,reverse,revive,ripen,root,roughen,rupture,saponify,scorch,sear,section,sensitize,sharpen,short,short-circuit,shorten,shrink,shrivel,shush,shut,sicken,silicify,silver,sink,slack,slacken,slim,slow,smarten,smooth,smoothen,soak,sober,soften,solidify,sour,souse,sprout,stabilize,standardize,steady,steep,steepen,stiffen,stratify,strangulate,strengthen,submerge,sunburn,sweeten,tame,tan,taper,tatter,tauten,tenderize,tense,thicken,thin,tighten,tilt,tire,tone,topple,toughen,tranquilize,treble,trip,triple,ulcerate,unionize,upload,vaporize,vary,vibrate,vitrify,volatilize,vulcanize,wake,waken,warm,weaken,westernize,wet,whiten,wizen,widen,worsen,yellow
+other_cos|awake,awaken,dry,freeze,melt,thaw
+empathize|empathize,sympathize,identify,commiserate
+advise|alert,assure,brief,educate,encourage,inform,notify
+advise|admonish,advise,caution,counsel,instruct,warn
+render|render,take
+render|make
+render|get
+herd|accumulate,aggregate,amass,assemble,cluster,collect,congregate,convene,flock,gather,group,herd,huddle,mass,reconvene
+nonvehicle|cruise,drive,fly,navigate,oar,paddle,pedal,rally,ride,row,sail,tack,voyage,wing
+butter|aromatize,asphalt,bait,black,blanket,blindfold,board,bread,brick,bridle,bronze,butter,buttonhole,calk,camouflage,cap,carpet,caulk,chrome,clay,cloak,coal,cork,crown,crumb,diaper,dope,drug,feather,fence,flour,forest,frame,frost,fuel,glaze,gag,garland,gas,gild,glass,glove,graffiti,grass,gravel,grease,groove,halter,harness,hat,heel,ice,ink,label,leash,leaven,lipstick,lubricate,mantle,mulch,muzzle,nickel,oil,ornament,paint,panel,paper,parquet,patch,pepper,perfume,plank,plaster,poison,polish,pomade,poster,postmark,powder,punctuate,putty,robe,roof,rosin,rouge,rut,saddle,salt,salve,sand,scent,seed,sequin,shawl,shingle,shoe,shutter,side,silver,slate,slime,slipcover,sod,soil,sole,spice,stain,starch,stopper,stress,string,stucco,sugar,sulphur,tag,tar,tarmac,tassel,thatch,ticket,tile,tinsel,top,turf,varnish,veil,veneer,wallpaper,water,wax,wharf,whitewash,wreathe,yoke,zipcode,insulate,sauce
+cost|carry,cost,last,net,take
+clear|clean,hollow
+clear|clear,drain,empty
+say|add,allege,blabber,disclose,divulge,exclaim,insinuate,insist,intimate,leak,reply,respond,retort,promulgate,utter,venture,vocalize,voice,volunteer,write
+say|advise,announce,articulate,blab,blurt,claim,confess,confide,convey,declare,interject,interpose,mention,observe,proclaim,propose,recount,reiterate,relate,reveal,say,state,volunteer,repeat,remark,note,report
+say|purpose,suggest,recommend
+say|hint
+rush|hasten,hurry,rush
+differ|branch,deviate,differ,diverge,vary
+dub|call,decree,dub,make,pronounce,rename,rule,stamp,term,vote,anoint,baptize,brand,christen,consecrate,crown,label,name,nickname,style
+performance|belt,chant,direct,enact,improvise,intone,perform,vocalize,scriptwrite
+performance|dance,hum,play,recite,rap,sing,whistle,heel
+performance|choreograph,compose,produce,silkscreen,take
+performance|draw,paint,replay,spin,write
+equip|charge,invest,ply
+equip|arm,equip,outfit,rearm,redress,regale,reward,saddle,treat
+equip|armor,encumber,fortify,overburden,weight,burden,compensate
+interrogate|cross-examine,question,interview,interrogate
+swarm|bustle,crawl,creep,hop,run,swarm,swim,teem,pullulate
+swarm|throng
+swarm|abound
+build|arrange,assemble,bake,bead,blow,cast,chisel,churn,compile,cook,crochet,develop,embroider,erect,fashion,fold,forge,formulate,grind,grow,hack,hammer,knit,mold,pound,reassemble,refashion,roll,sculpture,sew,spin,stitch,weave,whittle
+build|build,carve,cut,make,remake,sculpt,shape
+fulfilling|issue,leave,present,trust
+fulfilling|credit,entrust,furnish,resupply,serve,supply
+fulfilling|provide
+chew|chew,chomp,crunch,gnaw,gum,masticate,munch,nibble,pick,peck,lick,teethe
+chew|lap,sip,slurp,suck
+lodge|barrack,bivouac,board,bunk,camp,dwell,guest,live,lodge,overnight,quarter,reside,room,settle,shack up,shelter,sleep over,squat,stay over,stop,stay
+dressing_well|doll,dress,gussy,spruce,tog,trick
+ferret|ferret,nose,tease

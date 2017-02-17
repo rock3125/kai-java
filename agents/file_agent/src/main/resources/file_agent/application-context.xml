@@ -1,0 +1,50 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+                            http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <context:property-placeholder properties-ref="appProperties"/>
+
+    <bean id="appProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>file:///opt/kai/file_agent/file_agent.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- AES encryption system -->
+    <bean id="aes" class="industries.vocht.viki.agent_common.AgentAESEncryption" init-method="init" />
+    <!-- helper for creating passwords -->
+    <!--<bean id="encrypt" class="industries.vocht.viki.agent_common.utility.EncryptPassword" />-->
+
+    <!-- database configuration -->
+    <bean id="database" class="industries.vocht.viki.agent_common.database.DatabaseConnection" init-method="init" />
+
+    <!-- dao accessors -->
+    <bean id="kaiAgentDao" class="industries.vocht.viki.agent_common.database.KaiAgentDao" init-method="init"/>
+    <bean id="kaiFileDao" class="industries.vocht.viki.agent_common.database.KaiFileDao" init-method="init"/>
+    <bean id="kaiMetadataDao" class="industries.vocht.viki.agent_common.database.KaiMetadataDao" init-method="init"/>
+
+    <!-- the actual agent -->
+    <bean id="agent" class="industries.vocht.viki.file_agent.FileAgent" init-method="init" />
+
+</beans>
+

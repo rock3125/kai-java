@@ -1,0 +1,52 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# copy loaddata build
+#
+  - name: testing loaddata existence
+    stat: path={{ kai_base }}/loaddata/bin
+    register: loaddata_exists
+
+  - name: create loaddata bin folder
+    file: path={{ kai_base }}/loaddata/bin state=directory owner=kai group=kai
+    when: loaddata_exists.stat.exists == False
+
+  - name: create loaddata conf folder
+    file: path={{ kai_base }}/loaddata/conf state=directory owner=kai group=kai
+
+  - name: copying loaddata jars
+    copy: src={{ dev_base }}/loaddata/build/jars/ dest={{ kai_base }}/loaddata/bin/
+    when: loaddata_exists.stat.exists == False
+
+  - name: copying loaddata jar
+    copy: src={{ dev_base }}/loaddata/build/libs/ dest={{ kai_base }}/loaddata/bin/
+    when: loaddata_exists.stat.exists == False
+
+  - name: copying loaddata config
+    copy: src={{ dev_base }}/loaddata/loaddata.properties dest={{ kai_base }}/loaddata/conf/
+
+  - name: copying loaddata log4j2
+    copy: src={{ dev_base }}/loaddata/log4j2.xml dest={{ kai_base }}/loaddata/conf/
+
+  - name: copying loaddata binaries
+    copy: src={{ dev_base }}/loaddata/src/rpm/opt/loaddata/bin/ dest={{ kai_base }}/ mode=a+x
+
+  - name: kai-webserver.sh, setup jdk
+    replace: dest={{ kai_base }}/kai-webserver.sh regexp='export.JAVA=.*' replace='export JAVA={{ jdk_directory }}'
+
+  - name: replace port x with {{ server_port }} for loaddata configuration
+    replace: dest={{ kai_base }}/loaddata/conf/loaddata.properties regexp='web.port=.*' replace='web.port={{ s_server_port }}'
+
+  - name: loaddata.sh, setup jdk
+    replace: dest={{ kai_base }}/loaddata.sh regexp='export.JAVA_HOME=.*' replace='export JAVA_HOME={{ jdk_directory }}'
+
+  - name: loadenron.sh, setup jdk
+    replace: dest={{ kai_base }}/loadenron.sh regexp='export.JAVA_HOME=.*' replace='export JAVA_HOME={{ jdk_directory }}'

@@ -1,0 +1,15 @@
+# origin http://en.wikipedia.org/wiki/English_auxiliaries_and_contractions
+can:md,can't:md
+could:md,couldn't:md
+may:md
+might:md,mightn't:md
+must:md,mustn't:md
+shall:md,shan't:md
+should:md,shouldn't:md
+will:md,won't:md
+would:md,wouldn't:md
+ought:md,oughtn't:md
+dare:md,daren't:md
+need:md,needen't:md
+had better:md
+used to:md

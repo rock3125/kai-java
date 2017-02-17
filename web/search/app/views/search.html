@@ -1,0 +1,288 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="SearchController" class="container">
+    <div class="row extra-padding">
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right">
+            <button class="btn btn-signout" style="" data-ng-click="signout()" href="">SIGN OUT</button>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 col-xs-offset-4 col-sm-offset-5 col-md-offset-0 col-lg-offset-0">
+            <img src="./images/logo_white.png" class="header-logo">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+
+            <ul class="nav nav-tabs nav-kaiHeader">
+                <li class="active"><a data-toggle="tab" data-target="#search" href="#/search">SEARCH</a></li>
+                <li><a data-toggle="tab" data-target="#experts" href="#/experts">EXPERTS</a></li>
+                <li><a data-toggle="tab" data-target="#files" href="#/files">FIND FILE</a></li>
+                <li><a data-toggle="tab" data-target="#times" href="#/times">TIME LINE</a></li>
+                <li data-ng-repeat="tab in user_tab_list">
+                    <a data-toggle="tab" data-target="#{{tab.type}}" href="" data-ng-click="user_tab(tab.tab_name,tab.type);">{{tab.tab_name}}</a>
+                </li>
+            </ul>
+    </div>
+</div>
+<div class="viki-background-white">
+    <div class="container">
+        <div class=" row">
+        <br/>
+
+
+        <div class="dropdown col-lg-2 col-md-3 col-sm-4 col-xs-8 col-xs-offset-2 col-sm-offset-4 col-md-offset-0 col-lg-offset-1">
+            <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{searchType}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="" data-ng-click="selectSearchTypeUI('query');">QUERY</a></li>
+                <li><a href="" data-ng-click="selectSearchTypeUI('advanced search');">ADVANCED SEARCH</a></li>
+                <!--<li><a href="" data-ng-click="selectSearchTypeUI('logic builder');">LOGIC BUILDER</a></li>-->
+                <!--<li><a href="" data-ng-click="selectSearchTypeUI('natural language');">NATURAL LANGUAGE</a></li>-->
+            </ul>
+        </div>
+
+        <div id="keywordSearch" class="keywordsearch col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0">
+            <keyword-search />
+        </div>
+        <div id="nlSearch" style="display: none;" class="keywordsearch col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0">
+            <nl-search />
+        </div>
+        <div id="logicQuery" style="display: none;" class="keywordsearch col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0">
+            <logic-query />
+        </div>
+        <div id="advancedSearch" style="display: none;" class="keywordsearch col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0">
+            <advanced-search />
+        </div>
+
+        <div class="dropdown col-lg-2 col-md-3 col-sm-4 col-xs-8 col-xs-offset-2 col-sm-offset-4 col-md-offset-0" >
+            <div class="searchDistance-relative">
+                <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 150px">
+                    {{displayType}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="" data-ng-click="selectDisplay('5 blue lines');">5 blue lines</a></li>
+                    <li><a href="" data-ng-click="selectDisplay('visuals');">visuals</a></li>
+                    <li><a href="" data-ng-click="selectDisplay('relationship graph');">relationship graph</a></li>
+                    <li><a href="" data-ng-click="selectDisplay('people and places');">people and places</a></li>
+                     <li><a href="" data-ng-click="selectDisplay('time line');">time line</a></li>
+                </ul>
+
+                <div class="searchDistance-absolute" style="width:100%;">
+                    <label for="searchDistance" class="labelDistance">
+                        <div style="width:30%; display:inline-block; text-align:right;"><p>COARSE</p></div>
+                        <div style="width:45%; display:inline-block; padding-left:10%; padding-right:10%;">
+                            <input id="searchDistance" class="slider" data-slider-ticks="[0,1,2]"
+                                data-ng-model="documentDistanceValue"
+                                data-slider-tooltip="hide"
+                                data-slider-selection="none" data-slider-min="0" data-slider-max="2" data-slider-step="1" style="display: inline; width: 100%;"/>
+                        </div>
+                        <div style="width:15%; display:inline-block; text-align:left;"><p>FINE</p></div>
+                    </label>
+                </div>
+             </div>
+         </div>
+
+        <div class="col-sm-12">
+            <div><ambiguous-words /></div>
+        </div>
+
+        <div id="noResults" class="col-xs-12" style="display: none;">
+            <div style="margin-left: 100px;">no results</div>
+        </div>
+
+     </div>
+</div>
+
+
+<div class="container">
+
+        <!-- the 10 blue lines display (well 5 in our case) -->
+        <div id="div10BlueLines">
+            <div data-ng-repeat="result in result_list">
+                <div class="row" style="margin-bottom:30px; margin-top:50px;">
+                    <div class="col-xs-12">
+                        <h3 class="searchHeading" style="margin-top:0px;">{{result.title}}</h3>
+                    </div>
+                    <div class="col-xs-3 col-sm-2 col-lg-1">
+                        <button type="button" class="btn btn-info btn-kaisearch" data-ng-click="details(result.url);">
+                            <span class="glyphicon {{icon_from_url(result.url)}}"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-9 col-sm-10 col-lg-11" style="margin-bottom:30px;"><a href="" data-ng-click="view(result.url);">{{result.url}}</a></div>
+
+                    <div class="col-xs-12" data-ng-bind-html="result.result_list[fragment_index[result.index]]"></div>
+                </div>
+                <div class="row">
+                    <div data-ng-show="result.time_set.length" class="col-md-2 searchTableLabel">
+                        DATES &amp; TIMES:
+                    </div>
+                    <div data-ng-show="result.time_set.length" class="col-md-10 searchTableBody">
+                        <div data-ng-repeat="(time,count) in result.time_set" style="width:auto; display:inline-block; margin-right:5px;">{{time}}; </div>
+                    </div>
+
+                    <div data-ng-show="result.person_set.length" class="col-md-2 searchTableLabel">
+                        KNOWN PEOPLE:
+                    </div>
+                    <div data-ng-show="result.person_set.length" class="col-md-10 searchTableBody">
+                        <div data-ng-repeat="(name,count) in result.person_set" style="width:auto; display:inline-block; margin-right:5px;">{{name}}; </div>
+                    </div>
+
+                    <div data-ng-show="result.location_set.length" class="col-md-2 searchTableLabel">
+                        KNOWN LOCATIONS:
+                    </div>
+                    <div data-ng-show="result.location_set.length" class="col-md-10 searchTableBody">
+                        <div data-ng-repeat="(name,count) in result.location_set" style="width:auto; display:inline-block; margin-right:5px;">{{name}}; </div>
+                    </div>
+
+                    <div data-ng-show="result.author.length" class="col-md-2 searchTableLabel">
+                        AUTHOR:
+                    </div>
+                    <div data-ng-show="result.author.length" class="col-md-10 searchTableBody">
+                        <div style="width:auto; display:inline-block; ">{{result.author}} </div>
+                    </div>
+
+                    <div data-ng-show="result.created_date.length" class="col-md-2 searchTableLabel">
+                        CREATED:
+                    </div>
+                    <div data-ng-show="result.created_date.length" class="col-md-10 searchTableBody">
+                        <div style="width:auto; display:inline-block; ">{{result.created_date}} </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:50px;">
+                    <div class="col-xs-1">
+                        <button type="button" data-ng-show="is_visible(result.url);" class="btn btn-info btn-pagination" data-ng-click="prevf(result.index);"
+                                data-ng-disabled="fragment_index[result.index]==0" >
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-1">
+                        <button type="button" data-ng-show="is_visible(result.url);" class="btn btn-info btn-pagination" data-ng-click="nextf(result.index);"
+                                data-ng-disabled="(fragment_index[result.index]+1)>=fragment_size[result.index]" >
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                    </div>
+                </div>
+                <hr class="searchDivider">
+            </div>
+            <pagination />
+        </div>
+
+
+<!------------------------------------------------------------------------------------------------------------->
+
+
+
+        <!-- the visuals display -->
+        <div id="divVisuals" style="display: none;" >
+            <div class="kaiSearchVisual">
+                <div data-ng-repeat="result in result_list" >
+                    <div style="margin-bottom: 5px;">
+                        <button type="button" class="btn btn-info btn-kaisearchVisual" data-ng-click="details(result.url);">
+                            <div class="searchImageSubtitle" style="margin-top:0px;">{{result.title}}</div>
+                            <br/>
+                            <img ng-src="{{getImageUrl(result)}}" style="width: 320px; height: 240px;"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <pagination />
+            </div>
+        </div>
+
+
+        <!-- the graph display -->
+        <div id="divGraph" style="display: none;">
+            <div id="sigma-container"></div>
+        </div>
+
+
+        <!-- the people, place, time -->
+        <div id="divPPT" style="display: none;">
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="tdPPTLabel">PEOPLE</div>
+                </div>
+                <div class="col-md-8">
+                    <div data-ng-repeat="person in peopleList()" class="personDiv">
+                        <label data-ng-click="selectPerson(person);">{{person.word}}</label>
+                    </div>
+                </div>
+                <div class="col-md-2 tdPagination">
+                    <ul class="pagination">
+                        <li><button data-ng-click="prevPeople()" class="btn btn-pagination">prev</button></li>
+                        <li><button data-ng-click="nextPeople()" class="btn btn-pagination">next</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="tdPPTLabel">PLACES</div>
+                </div>
+                <div class="col-md-8">
+                    <div data-ng-repeat="location in placesList()" class="locationDiv col-md-8">
+                        <label data-ng-click="selectLocation(location);">{{location.word}}</label>
+                    </div>
+                </div>
+                <div class="col-md-2 tdPagination">
+                    <ul class="pagination">
+                        <li><button data-ng-click="prevLocation()" class="btn btn-pagination">prev</button></li>
+                        <li><button data-ng-click="nextLocation()" class="btn btn-pagination">next</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="tdPPTLabel">TIME</div>
+                </div>
+                <div class="col-md-8">
+                    <div data-ng-repeat="t in timeList()" class="timeDiv">
+                        <label data-ng-click="selectTime(t);">{{t.word}}</label>
+                    </div>
+                </div>
+                <div class="col-md-2 tdPagination">
+                    <ul class="pagination">
+                        <li><button data-ng-click="prevTime()" class="btn btn-pagination">prev</button></li>
+                        <li><button data-ng-click="nextTime()" class="btn btn-pagination">next</button></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div  data-ng-repeat-start="item in entity_view">
+                    <div style="background-color: #eeeeee; padding: 10px;">
+                        <a href="" data-ng-click="details(item.url);">{{item.url}}</a>
+                    </div>
+                </div>
+                <div data-ng-repeat-end="">
+                    <div style="padding: 10px;" data-ng-bind-html="item.html"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- the time line display -->
+        <div id="divTime" style="display: none;">
+            <svg id="gridVisualisation"></svg>
+        </div>
+
+
+
+    <document-viewer />
+
+</div>
+</div>

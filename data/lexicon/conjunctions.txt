@@ -1,0 +1,52 @@
+# source http://www.esldesk.com/vocabulary/conjunctions
+after:in
+although:in
+and:cc
+as:in
+as far as:in
+as how:in
+as if:in
+as long as:in
+as soon as:in
+as though:in
+as well as:in
+because:in
+before:in
+both:in
+but:cc
+either:in
+even if:in
+even:in
+though:in
+for:cc
+how:in
+however:in
+if only:in
+in case:in
+in order that:in
+neither:in
+nor:cc
+now:in
+once:in
+only:in
+or:cc
+provided:in
+rather:in
+than:in
+since:in
+so:in
+so that:in
+than:cc
+that:in
+though:in
+till:in
+unless:in
+until:in
+when:in
+whenever:in
+where:in
+whereas:in
+wherever:in
+whether:in
+while:in
+yet:cc

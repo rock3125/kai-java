@@ -1,0 +1,240 @@
+/*
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+description = 'loaddata'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.netflix.nebula:gradle-ospackage-plugin:3.4.0'
+    }
+}
+
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    all*.exclude group: 'org.springframework.boot', module: 'logback-classic'
+    all*.exclude group: 'ch.qos.logback'
+}
+
+task createJarDependencies(type: Copy) {
+    into "build/jars"
+    from configurations.runtime
+}
+
+dependencies {
+    // my dependencies
+    compile project(':domain')
+
+    compile group: "org.codehaus.groovy", name: "groovy-all", version: groovyVersion
+    compile group: "commons-cli", name: "commons-cli", version: commonsCliVersion
+
+    // spring core
+    compile(group: 'org.springframework', name: 'spring-core', version: springFrameworkVersion) {
+        exclude(module: 'commons-logging')
+    }
+    compile group: 'org.springframework', name: 'spring-context', version: springFrameworkVersion
+
+    // logging
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+
+    // jackson json
+    compile group: 'com.fasterxml.jackson.core', name:'jackson-core', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.jaxrs', name:'jackson-jaxrs-json-provider', version: jacksonVersion
+
+    compile group: 'org.yaml', name: 'snakeyaml', version: snakeYamlVersion
+    compile group: 'org.jsoup', name: 'jsoup', version: jsoupVersion
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: apacheHttpclientVersion
+    compile group: 'org.apache.httpcomponents', name: 'httpmime', version: apacheHttpclientVersion
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version: commonsFileuploadVersion
+    compile group: 'commons-io', name: 'commons-io', version: commonsIoVersion
+
+    compile group: 'org.apache.commons', name: 'commons-compress', version: commonsCompressVersion
+
+    // base64 and other utils
+    compile group: 'org.bouncycastle', name: 'bcpg-jdk15on', version: bouncyCastleJdk15onVersion
+    compile group: 'org.bouncycastle', name: 'bcpg-jdk16', version: bouncyCastleJdk16
+}
+
+// copy files to /opt/kai/
+task setupFiles(description: 'setup the files for the loaddata system') {
+
+    def wsConf = new File("/opt/kai/loaddata/conf")
+    wsConf.mkdirs()
+
+    copy {
+        from ('loaddata.properties','log4j2.xml')
+        into wsConf
+    }
+
+    def wsConf2 = new File("/opt/kai/data/lexicon/names")
+    wsConf2.mkdirs()
+
+    copy {
+        from ('../data/lexicon/names/entity_countries.csv','../data/lexicon/names/entity_names_1.csv')
+        into wsConf2
+    }
+
+    def wsConf3 = new File("/opt/kai/data/lexicon")
+
+    copy {
+        from ('../data/lexicon/adjectives.txt','../data/lexicon/adverbs.txt','../data/lexicon/auxiliaries.txt',
+        '../data/lexicon/conjunctions.txt', '../data/lexicon/determiner.txt', '../data/lexicon/google-1grams.txt',
+        '../data/lexicon/interjections.txt', '../data/lexicon/modals.txt', '../data/lexicon/nouns.txt',
+        '../data/lexicon/plurals.txt', '../data/lexicon/prepositions.txt', '../data/lexicon/prime-tags.txt',
+        '../data/lexicon/pronouns.txt', '../data/lexicon/stemming.txt', '../data/lexicon/synonyms.txt',
+        '../data/lexicon/synonyms-filtered.txt', '../data/lexicon/verbs.txt', '../data/lexicon/wordassociations.txt')
+        into wsConf3
+    }
+
+    def wsConf3a = new File("/opt/kai/data/wordnet")
+
+    copy {
+        from ('../data/wordnet/wordnet-3.1-relationship-graph.txt')
+        into wsConf3a
+    }
+
+
+    def wsConf4 = new File("/opt/kai/data/vader")
+
+    copy {
+        from ('../data/vader/vader_idioms.txt', '../data/vader/vader_sentiment_lexicon.txt')
+        into wsConf4
+    }
+
+    def wsConf5 = new File("/opt/kai/data/opennlp")
+
+    copy {
+        from ('../data/opennlp/en-parser-chunking.bin', '../data/opennlp/en-pos-maxent.bin',
+        '../data/opennlp/en-sent.bin', '../data/opennlp/en-token.bin')
+        into wsConf5
+    }
+
+    def wsConf6 = new File("/opt/kai/data/grammar")
+
+    copy {
+        from ('../data/grammar/grammar-rules.txt')
+        into wsConf6
+    }
+
+    def wsConf7 = new File("/opt/kai/data/wordnet")
+    wsConf7.mkdirs()
+
+    copy {
+        from ('../data/wordnet/wordnet-3.1-relationship-graph.txt', '../data/wordnet/ambiguous-nouns.txt')
+        into wsConf7
+    }
+
+    def wsConf8 = new File("/opt/kai/data/nnet")
+    wsConf8.mkdirs()
+
+    copy {
+        from ('../data/nnet/*')
+        into wsConf8
+    }
+
+    def wsConf9 = new File("/opt/kai/data/stanford/3.6.0")
+
+    copy {
+        from ('../data/stanford/3.6.0/english_UD.gz')
+        into wsConf9
+    }
+
+}
+
+
+// setup the rpm
+apply plugin: 'nebula.rpm'
+
+task rpm(type: Rpm) {
+
+    packageName 'loaddata'
+    version= vikiVersion
+    os LINUX
+
+    preInstall file('src/rpm/preInstall.sh')
+    postInstall file('src/rpm/postInstall.sh')
+    preUninstall file('src/rpm/preRemove.sh')
+    postUninstall file('src/rpm/postRemove.sh')
+
+    into '/opt/viki'
+
+    directory('/opt/kai/loaddata/bin', 644)
+    directory('/opt/kai/loaddata/conf', 644)
+    directory('/opt/kai/data', 644)
+
+    from(jar.outputs.files) {
+        into 'loaddata/bin'
+    }
+
+    from (configurations.runtime) {
+        into 'loaddata/bin'
+    }
+
+    from('src/rpm/opt/loaddata/bin') {
+        into 'loaddata/bin'
+        include('*.sh')
+        fileMode 0550
+    }
+
+    from('./') {
+        fileType CONFIG | NOREPLACE
+        into 'loaddata/conf'
+        include('log4j2.xml','loaddata.properties')
+    }
+
+    from('../data/lexicon') {
+        into 'data/lexicon'
+        include '**/*'
+    }
+
+    from('../data/wordnet') {
+        into 'data/wordnet'
+        include 'wordnet-3.1-relationship-graph.txt'
+    }
+
+    from('../data/vader') {
+        into 'data/vader'
+        include '**/*'
+    }
+
+    from('../data/opennlp') {
+        into 'data/opennlp'
+        include '**/*'
+    }
+
+    from('../data/nnet') {
+        into 'data/nnet'
+        include '**/*'
+    }
+
+    from('../data/grammar') {
+        into 'data/grammar'
+        include '**/*'
+    }
+
+    from('../data/stanford') {
+        into 'data/stanford'
+        include '**/*'
+    }
+
+    from('../data/aiml') {
+        into 'data/aiml'
+        include '**/*'
+    }
+
+}
+

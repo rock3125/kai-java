@@ -1,0 +1,82 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- add a new metadata field to the document -->
+<div id="ExportDocumentDialog" data-ng-controller="ExportDocument" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+
+            <div class="modal-header viki-modal-header-colour row">
+                <h3>EXPRT DOCUMENT</h3>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropDownUnit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                                    PROTOCOL
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropDownMenuUnit">
+                                    <li><a href="" data-ng-click="selectProto('ftp');">FTP</a></li>
+                                    <li><a href="" data-ng-click="selectProto('sftp');">SFTP</a></li>
+                                    <li><a href="" data-ng-click="selectProto('samba');">Samba</a></li>
+                                </ul>
+                                {{protocol}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <input type="text" class="form-control text-kaisearch" data-ng-model="url" placeholder="Server">
+                        </div>
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <input type="text" class="form-control text-kaisearch" data-ng-model="path" placeholder="Path on Server">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <input type="text" class="form-control text-kaisearch" data-ng-model="username" placeholder="Username">
+                        </div>
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <input type="password" class="form-control text-kaisearch" data-ng-model="password" placeholder="Password">
+                        </div>
+
+                        <div class="col-md-4 margin-bottom-20">
+                            <input type="text" class="form-control text-kaisearch" data-ng-model="domain" placeholder="Domain (if applicable)">
+                        </div>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer row">
+                <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="modalOK();">OK</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="btn btn-kaisearch-alt" data-ng-click="closeModal();">CANCEL</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

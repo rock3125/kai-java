@@ -1,0 +1,10 @@
+Human Resources,HR,human,work force,staff,resources,personnel,hiring,hire,employee,employees,manager,managers,paycheck,salary,salaries,scale,scales,compensation,package,packages,worker,workers
+Marketing,product,products,market,marketplace,survey,surveys,consumer,consumers,strategy,strategies,price,prices,pricing,marchandise,outlet,outlets,advertising,advertise
+Customer Service,telephone,client service,troubleshooting,calls,help line,helpdesk,helpdesks,customer,customers,technical support,customer-serice,representative,inquiry,inquiries
+Accounting,tax,accounts receivable,payroll,debts,invoices,invoice,taxation,supplies,depreciation,cost,interest,entertainment,meal,meals,accountant,accounting,payroll,deduct,deductable
+Training,books,seminar,seminars,book,reading,read,programme,programmes,skill,skills,upskill,education,mentor,mentoring,teaching,schooling,tuition,tutelage,guidance,guide,exercise
+Utilities,electricity,telephone,Internet services,internet,network,water,rubbish,garbage,kitchen,serviceability,AC,DC,heat,heating,spark,voltage,volt,volts,light,lights
+Insurance,policies,policy,loss,liability,healthcare,coverage,premiums,premium,operations,cover,indemnity,assurance,indemnification,warrant,warranty,safeguard,provision,guarantee,coverage
+Maintenance,repair,repairing,equipment,upkeep,repair,repairs,overhaul,replacement,patch,mend,new part,new parts,improvement,improvements,refactor,refactoring
+Wages,benefits,pay,compensation,contractor,contractors,expense,expenses,income,salary,earnings,cash flow,net,payoff,wage,proceeds
+Rent,office space,storage,area,areas,premise,premises,lease,rental unit,furnish,shelter

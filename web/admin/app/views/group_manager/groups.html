@@ -1,0 +1,137 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="groupService" class="container-class" data-ng-controller="GroupManagerController">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <!--<li><a data-toggle="tab" href="#/entity-manager">ENTITIES</a></li>-->
+            <!--<li><a data-toggle="tab" href="#/document-manager">DOCUMENTS</a></li>-->
+            <!--<li><a data-toggle="tab" href="#/user-manager">USERS</a></li>-->
+            <li class="active"><a data-toggle="tab" href="#/group-manager">GROUPS</a></li>
+        </ul>
+    </div>
+    <div class="viki-background-white">
+        <div class="container">
+            <br />
+
+            <div class="row">
+                <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right kaisearch ">
+
+                    <div class="btn-group" role="group" style="width: 100%;">
+                        <button type="button" class="btn btn-kaisearch" data-ng-click="search()" style="height: 34px; width: 100%;">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-xs-9 pull-right kaisearch ">
+                    <input type="text" class="form-control text-kaisearch" data-ng-enter="search()" data-ng-model="filter" id="search" placeholder="Search">
+                </div>
+
+                <div class="col-lg-6">
+                    <table id="groupTable" class="table table-striped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>GROUP</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                        </thead>
+                        <tbody data-ng-repeat="group in groupList">
+                        <tr>
+                            <td>{{group.name}}</td>
+                            <td><a href="" data-ng-click="edit(group.name);"><img src="images/edit.png" title="edit" alt="edit"></a>&nbsp;&nbsp;<a href="" data-ng-click="delete(group.name);"><img src="images/delete.png" title="delete" alt="delete"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-kaiadd" data-ng-click="newGroup()" style="height: 32px;">
+                            <span class="glyphicon glyphicon-plus" title="add new entity" aria-hidden="true"></span>
+                        </button>
+                        <!--<a href="" data-ng-click="newGroup();">-->
+                            <!--<img src="images/plus-button.png" title="add new group" alt="add new group">-->
+                        <!--</a>-->
+                    </td>
+                    <td>&nbsp;</td>
+                    <td><ul id="pagination" class="pagination btn-pagination"></ul></td>
+                </tr>
+            </table>
+
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="addGroup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content container">
+                <div class="modal-header viki-modal-header-colour row panel-heading">
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <div class="col-xs-3 col-sm-2 col-md-1 pull-right">
+                        <a href="" class="btn btn-signout" data-dismiss="modal">X</a>
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <h4 id="modalTitle" class="modal-title">ADD GROUP</h4>
+                    </div>
+                </div>
+                <div class="modal-body panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>GROUP</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_group" class="sr-only">GROUP</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="name" id="reg_group" name="reg_group" placeholder="name">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>USER CSV LIST</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_users" class="sr-only">USER CSV LIST</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="user_list" id="reg_users" name="reg_users" placeholder="user csv list">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                </div>
+                <div class="modal-footer row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                        <button type="button" class="btn btn-kaisearch" onclick="$('#groupService').scope().save();">SAVE</button>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <button type="button" class="btn btn-kaisearch-alt" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

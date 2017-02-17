@@ -1,0 +1,151 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="entityService" class="container-class" data-ng-controller="EntityManagerController">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="#/entity-manager">ENTITIES</a></li>
+            <!--<li><a data-toggle="tab" href="#/document-manager">DOCUMENTS</a></li>-->
+            <!--<li><a data-toggle="tab" href="#/user-manager">USERS</a></li>-->
+            <!--<li><a data-toggle="tab" href="#/group-manager">GROUPS</a></li>-->
+        </ul>
+    </div>
+    <div class="viki-background-white">
+        <div class="container">
+
+            <br />
+
+            <div class="row">
+                <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right kaisearch ">
+
+                    <div class="btn-group" role="group" style="width: 100%;">
+                        <button type="button" class="btn btn-kaisearch" data-ng-click="search()" style="height: 34px; width: 100%;">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-xs-9 pull-right kaisearch ">
+                    <input type="text" class="form-control text-kaisearch" data-ng-enter="search()" data-ng-model="filter" id="search" placeholder="Search">
+                </div>
+                <div class="col-lg-7">
+                    <table id="entityTable" class="table table-striped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>IS A</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody data-ng-repeat="entity in entityList">
+                        <tr>
+                            <td>{{entity.name}}</td>
+                            <td>{{entity.isa}}</td>
+                            <td><a href="" data-ng-click="edit(entity.id);"><img src="images/edit.png" title="edit" alt="edit"></a>&nbsp;&nbsp;
+                                <a href="" data-ng-click="delete(entity.id);"><img src="images/delete.png" title="delete" alt="delete"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-kaiadd" data-ng-click="newEntity()" style="height: 32px;">
+                            <span class="glyphicon glyphicon-plus" title="add new entity" aria-hidden="true"></span>
+                        </button>
+                        <!--<a href="" data-ng-click="newEntity();">-->
+                            <!--<img src="images/plus-button.png" title="add new entity" alt="add new entity">-->
+                        <!--</a>-->
+                    </td>
+                    <td>&nbsp;</td>
+                    <td><ul id="pagination" class="pagination btn-pagination"></ul></td>
+                </tr>
+            </table>
+
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="addEntity" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content container">
+                <div class="modal-header viki-modal-header-colour row panel-heading">
+                    <div class="col-xs-3 col-sm-2 col-md-1 pull-right">
+                        <a href="" class="btn btn-signout" data-dismiss="modal">X</a>
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <h4 id="modalTitle" class="modal-title">ADD ENTITY</h4>
+                    </div>
+                </div>
+                <div class="modal-body panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>ENTITY</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_entity" class="sr-only">entity</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="name" id="reg_entity" name="reg_entity" placeholder="Entity">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>IS A</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_isa" class="sr-only">is a</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="isa" id="reg_isa" name="reg_isa" placeholder="is a">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>ALIAS CSV LIST</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_aliases" class="sr-only">alias csv list</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="alias_list" id="reg_aliases" name="reg_aliases" placeholder="Alias CSV List">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                </div>
+                <div class="modal-footer row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                        <button type="button" class="btn btn-kaisearch" onclick="$('#entityService').scope().save();">SAVE</button>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <button type="button" class="btn btn-kaisearch-alt" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

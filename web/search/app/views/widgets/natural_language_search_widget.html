@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div data-ng-controller="NLSearchController">
+
+    <!-- view-source:https://www.google.com/intl/en/chrome/demos/speech.html -->
+
+    <div class="row" style="width:100%; margin:0px;">
+        <div class="form-group col-md-9 col-xs-11 no-padding">
+            <div class="input-group" style="width: 100%; margin: 0 auto;">
+                <label for="final_span"></label>
+                <input placeholder="Search" type="text" data-ng-enter="search()" class="sr-final form-control text-kaisearch" id="final_span" style="width:100%;"/>
+            </div>
+        </div>
+        <div class="form-group col-md-1 col-xs-1 no-padding">
+            <div class="btn-group" role="group" style="width: 100%;">
+                <button id="sr_start_button" data-ng-click="startButton(event)" style="height: 34px; width: 100%;">
+                    <img alt="Start" id="start_img" src="/search/images/mic.gif" class="sr_mic">
+                </button>
+            </div>
+        </div>
+        <div class="form-group col-md-2 col-md-offset-0 col-xs-8 col-xs-offset-2 no-padding">
+            <div class="btn-group" role="group" style="width: 100%;">
+                <button type="button" class="btn btn-primary btn-kaisearch" data-ng-click="search()" style="height: 34px; width: 100%;">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="aimlResponse" class="span12 alert alert-info" style="display: none;">
+        <a class="close" onclick="$('#aimlResponse').hide();">&nbsp;</a><label id="txtResult"></label>
+    </div>
+
+    <audio id="audio" src=""></audio>
+
+</div>

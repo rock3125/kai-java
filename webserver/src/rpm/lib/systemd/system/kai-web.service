@@ -1,0 +1,14 @@
+[Unit]
+Description=KAI web server
+After=kai-node.service
+
+# Ubuntu systemd service, lives in /lib/systemd/system/multi-user.target.wants/
+
+[Service]
+User=kai
+Type=forking
+ExecStart=/opt/kai/kai-webserver.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

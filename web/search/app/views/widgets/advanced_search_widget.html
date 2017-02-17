@@ -1,0 +1,233 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div data-ng-controller="AdvancedSearchController">
+
+
+
+
+            <div class="row" style="width:100%;margin:0px;">
+                <div class="form-group col-md-2 no-padding pull-right" style="z-index:2;">
+                    <input type="checkbox" data-ng-model="exact_who">
+                    <label class="labelExact">EXACT</label>
+                </div>
+                <div class="form-group col-md-10 no-padding">
+                    <div class="input-group date" style="width: 100%; margin: 0 auto;">
+                        <label for="who" class="labelAdv">WHO</label>
+                        <input id="who" type='text' class="form-control text-kaisearch" title="who" data-ng-model="who" style="width: 100%;" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+                <div class="form-group col-md-2 no-padding pull-right" style="z-index:2;">
+                    <input type="checkbox" data-ng-model="exact_where">
+                    <label class="labelExact">EXACT</label>
+                </div>
+                <div class="form-group col-md-10 no-padding">
+                    <div class="input-group date" style="width: 100%; margin: 0 auto;">
+                        <label for="where" class="labelAdv">WHERE</label>
+                        <input id="where" type='text' class="form-control text-kaisearch" title="where" data-ng-model="where" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+
+    <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+        <div class="form-group col-md-2 no-padding pull-right" style="z-index:5;">
+            <div class="dropdown-exact">
+                <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="font-size: 10px;">
+                    {{dateRangeType}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="z-index:5;">
+                    <li><a href="" data-ng-click="selectDateRange('exact');">exact</a></li>
+                    <li><a href="" data-ng-click="selectDateRange('between');">between</a></li>
+                    <li><a href="" data-ng-click="selectDateRange('before');">before</a></li>
+                    <li><a href="" data-ng-click="selectDateRange('after');">after</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group col-md-6 no-padding">
+            <div class="input-group date" id="datetimepicker1" style="width: 100%; margin: 0 auto; z-index:4;">
+                <label for="date1" class="labelAdv">WHEN</label>
+                <input type='text' class="form-control text-kaisearch" id="date1" title="date-time picker" style="width: 100%;" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group col-md-4 no-padding">
+            <div class="input-group date" id="datetimepicker1" style="width: 100%; margin: 0 auto; z-index:4;">
+                <input type='text' class="form-control text-kaisearch" id="time1" title="date-time picker" style="width: 100%;" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </div>
+
+        <div  id="divAnd" class="col-md-12 no-padding" style="display: none; margin-top: 30px;">
+            <div class="input-group date" style="width: 100%; margin: 0px auto; z-index:4;">
+                <label class="labelAdv">/</label>
+            </div>
+        </div>
+
+        <div id="divEndDate1" class="form-group col-md-6 no-padding" style="display: none;">
+            <div class='input-group date' id='datetimepicker2' style="width: 100%; margin: 0 auto;">
+                <input type='text' id="date2" class="form-control text-kaisearch" id="date2" title="date-time picker 2" style="width: 100%;" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div id="divEndTime1" class="form-group col-md-4 no-padding" style="display: none;">
+            <div class='input-group date' id='datetimepicker2' style="width: 100%; margin: 0 auto;">
+                <input type='text' id="date2" class="form-control text-kaisearch" id="time2" title="date-time picker 2" style="width: 100%;" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<table>
+        <tr>
+            <td>when</td>
+
+            <td colspan="5"></td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+
+            <td>
+                <div class="form-group" style="width: 200px;">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class='input-group date'>
+                        <input type='text' class="form-control" data-ng-model="time1" title="date-time picker" />
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div id="divAnd" style="display: none;">&nbsp;and&nbsp;</div>
+            </td>
+
+            <td>
+                <div id="divEndDate1" class="form-group" style="width: 200px; display: none;">
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' id="date2" class="form-control" id="date2" title="date-time picker 2" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div id="divEndTime1" class="form-group" style="display: none;">
+                    <div class='input-group date' id='datetimepicker4'>
+                        <input type='text' class="form-control" data-ng-model="time2" title="date-time picker" />
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 120px">
+                        {{dateRangeType}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="" data-ng-click="selectDateRange('exact');">exact</a></li>
+                        <li><a href="" data-ng-click="selectDateRange('between');">between</a></li>
+                        <li><a href="" data-ng-click="selectDateRange('before');">before</a></li>
+                        <li><a href="" data-ng-click="selectDateRange('after');">after</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+
+</table>-->
+
+
+    <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+        <div class="form-group col-md-2 no-padding pull-right" style="z-index:2;">
+            <input type="checkbox" data-ng-model="exact_title" >
+            <label class="labelExact">EXACT</label>
+        </div>
+        <div class="form-group col-md-10 no-padding">
+            <div class="input-group date" style="width: 100%; margin: 0 auto;">
+                <label for="title" class="labelAdv">TITLE</label>
+                <input id="title" type='text' class="form-control text-kaisearch" data-ng-model="title" title="title contains" style="width: 100%;" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+        <div class="form-group col-md-2 no-padding pull-right" style="z-index:2;">
+            <input type="checkbox" data-ng-model="exact_summary" >
+            <label class="labelExact">EXACT</label>
+        </div>
+        <div class="form-group col-md-10 no-padding">
+            <div class="input-group date" style="width: 100%; margin: 0 auto;">
+                <label for="summary" class="labelAdv">SUMMARY</label>
+                <input id="summary" type='text' class="form-control text-kaisearch" data-ng-model="summary" title="summary data  contains" style="width: 100%;" />
+            </div>
+        </div>
+    </div>
+
+
+        <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+            <div class="form-group col-md-2 no-padding pull-right" style="z-index:2;">
+                <input type="checkbox" data-ng-model="exact_body" >
+                <label class="labelExact">EXACT</label>
+            </div>
+            <div class="form-group col-md-10 no-padding">
+                <div class="input-group date" style="width: 100%; margin: 0 auto;">
+                    <label for="body" class="labelAdv">BODY</label>
+                    <input id="body" type='text' class="form-control text-kaisearch" data-ng-model="body" title="body contains" style="width: 100%;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="width:100%;margin:30px 0px 0px 0px;">
+            <div class="form-group col-md-10 no-padding">
+                <div class="input-group" style="width: 100%; margin: 0 auto;">
+                    <label for="url" class="labelAdv">URL</label>
+                    <input id="url" type='text' class="form-control text-kaisearch" data-ng-model="url" title="url contains" style="width: 100%;" />
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-0 col-xs-8 col-xs-offset-2 no-padding">
+                <div class="btn-group" role="group" style="width: 100%;">
+                    <button type="button" class="btn btn-primary btn-kaisearch" data-ng-click="search()" style="height: 34px; width: 100%;">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+</div>

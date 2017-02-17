@@ -1,0 +1,78 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# REMOVE most of KAI from the cluster machines
+#        folders /opt, /import, /var/log/kai
+#        services all
+#
+
+---
+- hosts: kai-cluster-one
+  remote_user: root
+
+  tasks:
+
+  - name: stop marytts service
+    shell: systemctl stop marytts-server
+    when: inventory_hostname != play_hosts[0]
+
+  - name: stop kai-node service
+    shell: systemctl stop kai-node
+
+  - name: stop kai-web service
+    shell: systemctl stop kai-web
+    when: inventory_hostname == play_hosts[0]
+
+  - name: stop spacy service
+    shell: systemctl stop spacy
+
+  - name: stop cassandra service
+    shell: systemctl stop cassandra
+
+
+  - name: remove all /opt folders
+    file: path=/opt state=absent
+
+  - name: removing CMU voice folder 1
+    file: path=/usr/share/festival/voices/english/cmu_us_slt_arctic_clunits state=absent
+
+  - name: removing CMU voice folder 2
+    file: path=/usr/share/festival/voices/english/cmu_us_slt_arctic state=absent
+
+  - name: re-add /opt folder
+    file: path=/opt state=directory owner=root group=root
+
+  - name: remove /var/log/kai folder
+    file: path=/var/log/kai state=absent
+
+  - name: remove /import folder
+    file: path=/import state=absent
+
+  - name: removing kai-node service
+    file: path=/lib/systemd/system/kai-node.service state=absent
+
+  - name: removing kai-web service
+    file: path=/lib/systemd/system/kai-web.service state=absent
+
+  - name: removing cassandra service
+    file: path=/lib/systemd/system/cassandra.service state=absent
+
+  - name: removing spacy service
+    file: path=/lib/systemd/system/spacy.service state=absent
+
+  - name: removing mary service
+    file: path=/lib/systemd/system/marytts-server.service state=absent
+
+  - name: reloading services
+    shell: systemctl daemon-reload
+
+  - name: restarting servers
+    shell: shutdown -r now

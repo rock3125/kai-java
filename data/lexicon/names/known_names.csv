@@ -1,0 +1,12 @@
+#
+# set of basic entities
+#
+# format:  id(uuid),name,isa,alternatives csv list(optional)
+#
+
+69fa8d5b-d541-443d-b4b5-87ebb9e6733c,Peter de Vocht,man,Peter,de Vocht,Rock
+c7aa002e-ae8c-4800-8f90-a2ced8557f79,Mark de Vocht,man,Mark,de Vocht,Punk
+2413ce4a-ddb4-470c-80d4-041fccebf6cd,Sherry de Vocht,woman,Sherry,de Vocht,Bunny
+925c6e51-bafc-49c1-810f-667cec3fea1f,Aidan de Vocht,man,Aidan,de Vocht,Wolfie
+a4885804-d5e3-4544-a7ed-7bfa50516a14,Ben de Vocht,man,Ben,de Vocht,Programmer
+

@@ -1,0 +1,28 @@
+# origin Peter de Vocht, the killer himself
+# to be
+be:vb
+am:vbp
+is:vbz
+are:vbz
+was:vbd
+were:vbd
+being:vbg
+been:vbn
+
+# to do
+do:vb
+do:vbp
+do:vbz
+does:vbz
+did:vbd
+doing:vbg
+done:vbn
+
+# to have
+have:vb
+have:vbp
+has:vbz
+have:vbz
+had:vbd
+having:vbg
+had:vbn

@@ -1,0 +1,153 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- add a new metadata field to the document -->
+<div id="ReportEntityTimeDialog" data-ng-controller="ReportEntityTime" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content">
+
+            <div class="modal-header viki-modal-header-colour">
+                <h3>Entity Time Report</h3>
+            </div>
+
+            <div class="modal-body">
+
+                <table class="table table-hover">
+
+                    <tr>
+
+                        <td style="border: none;">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropDownUnit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                                    Protocol
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropDownMenuUnit">
+                                    <li><a href="" data-ng-click="selectProto('ftp');">ftp</a></li>
+                                    <li><a href="" data-ng-click="selectProto('sftp');">sftp</a></li>
+                                    <li><a href="" data-ng-click="selectProto('samba');">samba</a></li>
+                                </ul>
+                                {{protocol}}
+                            </div>
+                        </td>
+
+                        <td style="border: none; width: 150px;">
+                            <input type="text" class="form-control" data-ng-model="url" placeholder="server">
+                        </td>
+
+                        <td style="border: none; width: 150px;">
+                            <input type="text" class="form-control" data-ng-model="path" placeholder="path on server">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td style="border: none; width: 150px;">
+                            <input type="text" class="form-control" data-ng-model="username" placeholder="username">
+                        </td>
+
+                        <td style="border: none; width: 150px;">
+                            <input type="password" class="form-control" data-ng-model="password" placeholder="password">
+                        </td>
+
+                        <td style="border: none; width: 150px;">
+                            <input type="text" class="form-control" data-ng-model="domain" placeholder="domain (if applicable)">
+                        </td>
+
+
+
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <div class='input-group'>
+                                    <input type='text' data-ng-model="word" class="form-control" title="word" placeholder="the word" />
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group login-group-checkbox">
+                                <input type="checkbox" data-ng-model="exact" class="viki-checkbox">
+                                <label>exact match</label>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                                    Type
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="" data-ng-click="selectType('any');">any / don't care</a></li>
+                                    <li><a href="" data-ng-click="selectType('noun');">noun</a></li>
+                                    <li><a href="" data-ng-click="selectType('proper noun');">proper noun</a></li>
+                                    <li><a href="" data-ng-click="selectType('verb');">verb</a></li>
+                                    <li><a href="" data-ng-click="selectType('adjective');">adjective</a></li>
+                                </ul>
+                                &nbsp;{{currentType}}
+                            </div>
+                        </td>
+
+
+                        <td>
+                            <button class="btn" type="button" data-ng-click="add('and')">AND</button>&nbsp;
+                            <button class="btn" type="button" data-ng-click="add('or')">OR</button>
+                            <button class="btn" type="button" data-ng-click="add('and not')">AND NOT</button>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td colspan="5">
+                            <table class="table table-hover" style="background-color: #eeeeee">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>word</th>
+                                    <th>exact match</th>
+                                    <th>word type</th>
+                                    <th>next word join</th>
+                                </tr>
+                                </thead>
+                                <tr data-ng-repeat="item in wordList">
+                                    <td style="float: right;"><button class="btn" data-ng-click="removeWord(item.word);" type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                    <td>{{item.word}}</td>
+                                    <td>{{item.exact}}</td>
+                                    <td>{{item.type}}</td>
+                                    <td>{{item.logic}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+
+
+
+                    </tr>
+
+                </table>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="" class="btn" data-ng-click="closeModal();">Cancel</a>
+                <a href="" class="btn btn-primary" data-ng-click="modalOK();">OK</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

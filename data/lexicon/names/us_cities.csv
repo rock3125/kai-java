@@ -1,0 +1,348 @@
+#
+# set of country entities
+#
+# format:  id(uuid),name,isa,related csv list(optional)
+#
+
+# cities with more than 100,000 inhabitants
+99edc64e-42ca-4b0d-a807-d7c3271d5e61,New York,city,New York
+1ce04b2e-ff84-4f27-9c38-0e12aeef5cb9,Los Angeles,city,California
+b9668a93-9d06-449c-90f4-c4520491b8bb,Chicago,city,Illinois
+60a64be6-1772-4f73-82b6-8c2f8ff30a10,Houston,city,Texas
+68b18e7d-32f0-4550-89a4-ab6a42d1922f,Philadelphia[8],city,Pennsylvania
+932fa45b-4d5e-48a0-9736-0d38aa971ef1,Phoenix,city,Arizona
+c373aea8-2bf3-4bf9-b6d7-23f62efa4947,San Antonio,city,Texas
+ddc0b015-cdf6-48a4-903d-7e3344fb5432,San Diego,city,California
+c3738a7e-f878-41d1-8805-88d6f6fcd022,Dallas,city,Texas
+1d2567c3-3e5d-4a85-bd78-75bdc244ecb5,San Jose,city,California
+d1d4fed6-b222-4bc4-b085-a5141c9933d2,Austin,city,Texas
+9decb7f6-a873-4330-950e-d0bc757b6219,Jacksonville,city,Florida
+35aa93ce-19dc-4f91-8c70-1cfa65a57f10,San Francisco,city,California
+416a0edb-bbaf-4b62-8c48-5d45b384fd61,Indianapolis,city,Indiana
+82bb1853-fd50-4687-bbd2-fd8dadbab271,Columbus,city,Ohio
+1fd518cb-23a8-4ecb-a42b-19fa6a650c08,Fort Worth,city,Texas
+a36b8d67-b55e-432f-9352-e3b36d6d62f9,Charlotte,city,North Carolina
+28727385-fba0-4444-8c40-648fff26be65,Seattle,city,Washington
+315901fd-cca2-4863-a335-d2097be84108,Denver,city,Colorado
+9978fadd-4e2b-4939-a5cd-e35f6f5eeb84,El Paso,city,Texas
+9f25fb8b-29df-46fb-bfe2-99f44eda5ba5,Detroit,city,Michigan
+4781a560-1ffd-4883-b5d8-e8f0f50a2a3e,Washington,city,District of Columbia
+20e39d12-bf3c-4c3d-bcc4-b1be4cebec3a,Boston,city,Massachusetts
+cd91a0b1-9d63-485a-b932-47144baefc4f,Memphis,city,Tennessee
+1ce0efdc-32d5-400d-b57a-5d72b53a15af,Nashville,city,Tennessee
+3efc4fc7-ebfb-4f9a-b118-6ad2e924a223,Portland,city,Oregon
+41f3be97-e636-43da-bb86-22caf4d595ab,Oklahoma City,city,Oklahoma
+f5c3972e-7bf6-4157-af02-cd8b1521e6bf,Las Vegas,city,Nevada
+91045688-6760-4056-8fb3-392b16134a12,Baltimore,city,Maryland
+ed0f6fc3-6572-4df1-9d93-2272f218d207,Louisville,city,Kentucky
+d3c1fa75-24dd-4efa-a354-ada0cfd54bc5,Milwaukee,city,Wisconsin
+555e24bc-a6da-4f6f-9990-d528c9c5ae66,Albuquerque,city,New Mexico
+4337659b-a2d6-4721-bf66-ff7bf453c48d,Tucson,city,Arizona
+066c5506-2f01-4a9a-815f-ba51fb43c361,Fresno,city,California
+1a196e98-9e8b-4e65-bb54-b3fbd892e14c,Sacramento,city,California
+a6cefa31-429c-4ea0-ba7c-7f621101c21d,Kansas City,city,Missouri
+e4abc2fb-5830-4cc5-91a6-b0825bcb2f2c,Long Beach,city,California
+5e402ed3-8ecf-41a6-9f93-fa84af523698,Mesa,city,Arizona
+8173df13-d729-4c5c-b8c5-92a9a17609a6,Atlanta,city,Georgia
+389b097f-53cb-4d38-b2c0-0590356163e8,Colorado Springs,city,Colorado
+3969794d-4492-4681-acb7-b0598085e43c,Virginia Beach,city,Virginia
+77fcfc49-c806-4c7d-a751-80d30cef9c9e,Raleigh,city,North Carolina
+1c2f1b2b-4090-4ef8-afa1-20a0dd3e74e1,Omaha,city,Nebraska
+3f346bcf-19b0-4aa3-8320-fbeea60606d8,Miami,city,Florida
+d6a19b2b-6240-43ff-bb1e-642d0ce3e0ac,Oakland,city,California
+34bd6c7c-2ac2-49b3-bb5c-2531dc8bb9d9,Minneapolis,city,Minnesota
+5167f52f-5864-4124-96c0-d67bbf874ac0,Tulsa,city,Oklahoma
+9b0a0a06-e866-4401-a151-a4c27e004864,Wichita,city,Kansas
+a600a7bb-681b-49a9-a913-0e0233bc80d2,New Orleans,city,Louisiana
+8de8fe7e-3060-412e-95c5-ff68532b93c3,Arlington,city,Texas
+9fe1c702-949e-4190-af1e-53add04f2e43,Cleveland,city,Ohio
+49cd8d7b-0e1f-4ec4-9c24-7760c9cca0c3,Bakersfield,city,California
+d0cad8b3-84e1-4d72-98ab-c243e79e92de,Tampa,city,Florida
+5002d7ad-8c20-47ef-87a3-804b6b284cbc,Aurora,city,Colorado
+83a04db6-6e3a-4656-a9ae-26f1e7683178,Honolulu,city,Hawai'i
+e3f63635-0c8e-4973-b4c5-4e31fb6a4877,Anaheim,city,California
+8e0e41ea-ffc2-4ee2-9e8d-f79c7506ff6d,Santa Ana,city,California
+cfdaab36-0dc9-4774-8a11-2e21494124df,Corpus Christi,city,Texas
+0e949dcb-6431-4eca-91a4-d56bf4f09fc9,Riverside,city,California
+36809ac2-47a6-4e6c-85f0-fef61ce95f1f,St. Louis,city,Missouri
+4baa776a-c59f-4526-aa4a-1d8f0ad8308a,Lexington,city,Kentucky
+cfe94bb8-7fbf-4fd0-bea5-613b6f633dc1,Stockton,city,California
+26adfd85-b0a8-48c8-988e-8526a44200cc,Pittsburgh,city,Pennsylvania
+87d967a4-07a9-4ed2-ae91-0f3a31ff04b7,Saint Paul,city,Minnesota
+02d672bb-65b0-4c6e-8afd-86bd6ff383ab,Anchorage,city,Alaska
+424b9cf4-c4f2-4e28-be30-b24b552da144,Cincinnati,city,Ohio
+fb73c079-1be9-47ef-932c-dec7e546d69f,Henderson,city,Nevada
+c99a186b-1400-43ee-a964-6a4c70d56333,Greensboro,city,North Carolina
+50082d53-d216-4aad-af79-51e18c95202b,Plano,city,Texas
+ae442b60-8634-4f9d-9e47-ddabd68bc77e,Newark,city,New Jersey
+3e59f035-c785-418a-9dce-6a436f5a5117,Toledo,city,Ohio
+3e3385e8-3fdb-4de2-a0fa-b2cacd67a10f,Lincoln,city,Nebraska
+6ee05197-f0b1-4e04-9cc9-dd3237b5e541,Orlando,city,Florida
+949d2c2d-7c58-4943-97d1-00bc9746a3ea,Chula Vista,city,California
+ad0ed8d2-a0ef-4aea-9d1e-13a3d1a8cf65,Jersey City,city,New Jersey
+f586fc78-d9f2-4bf9-8091-16fbe67a707c,Chandler,city,Arizona
+60635c97-f756-42d4-94fa-e2b3fa934133,Fort Wayne,city,Indiana
+3d8c988c-cb40-4e48-83e3-a172fee15769,Buffalo,city,New York
+bdb3b934-1747-44c6-9884-e509034eae5c,Durham,city,North Carolina
+0d756b43-7860-43d2-807f-81c123bbe0c0,St. Petersburg,city,Florida
+9ae8b5ca-59a0-4d4d-abb6-5729c3636e6c,Irvine,city,California
+bdb72109-2c71-4a82-aef6-62d8cc5f9683,Laredo,city,Texas
+72907d16-61ef-4577-bae3-da05964b61cc,Lubbock,city,Texas
+814ce485-2240-4328-8d0d-d692cd7cb53a,Madison,city,Wisconsin
+8317d4af-b94f-4396-bf7f-2c31f143fe41,Gilbert,city,Arizona
+8cb86885-0512-461c-a2c0-1776f2ab698f,Norfolk,city,Virginia
+fc81d177-0f9e-4675-abbb-981aa84c4a8f,Reno,city,Nevada
+6e940ff3-dbe1-4adb-8d6a-5920b1bb08fd,Winston–Salem,city,North Carolina
+bd3819b3-4ece-45cc-9410-3a1c8dc45c86,Glendale,city,Arizona
+b2f6f61b-0189-498f-8ed8-d899f287d163,Hialeah,city,Florida
+686e46b1-5da0-4c1e-902b-9c7abaa67a5d,Garland,city,Texas
+e69c8b4d-7fca-4cbe-b091-cc4cb6066a8a,Scottsdale,city,Arizona
+50d9b668-29c1-4ea2-b479-2ab742f71d4c,Irving,city,Texas
+8e12f059-dc97-4f14-9eea-518b9bcc7085,Chesapeake,city,Virginia
+f3b6816d-0b67-4daa-95fc-872f3fc9965b,North Las Vegas,city,Nevada
+b22ad06b-9265-427c-832b-22d34d8468f7,Fremont,city,California
+748a9bed-1e61-449c-a5db-8461fbf67120,Baton Rouge,city,Louisiana
+22b245b9-d0ac-4e45-b287-622a79d5568a,Richmond,city,Virginia
+f2b5acab-4e52-4cb8-9f4b-e450845848bf,Boise,city,Idaho
+0aa59104-d519-4ab1-8bd2-09bc90161c11,San Bernardino,city,California
+a94607b8-37a7-4ace-bc49-48e2e74a902a,Spokane,city,Washington
+1990ccb5-f757-4ae5-b085-78a2412f0100,Birmingham,city,Alabama
+6740f2b9-1b09-4f9f-a465-bb671a12b177,Modesto,city,California
+8f948dff-34f4-42eb-8485-6bad7690c980,Des Moines,city,Iowa
+9134f8b7-5767-4721-883a-f7f614da7894,Rochester,city,New York
+403b214e-b74d-4548-860c-859e3ff3ee2d,Tacoma,city,Washington
+9c6d6c03-fcc4-42a9-abce-e59f92840cb8,Fontana,city,California
+ac8bde77-cda3-4813-9eed-761ca369faac,Oxnard,city,California
+d07f539d-b697-453e-ae2b-6f968bbef85f,Moreno Valley,city,California
+035ca7ed-36d4-45a3-b448-b39afa03c039,Fayetteville,city,North Carolina
+45275906-a2b0-4419-a81a-2b37b59ee7e3,Huntington Beach,city,California
+c25d71d0-6d17-4d03-923f-bbda2ab2076b,Yonkers,city,New York
+acafb9ae-ce76-4121-8bbd-76139b8b5b03,Glendale,city,California
+f4f3877b-b2f3-41c3-ac07-bfcae1a921df,Aurora,city,Illinois
+dd11274b-8a0a-457e-a98a-454e621008eb,Montgomery,city,Alabama
+cb39f74d-1dd4-41be-9106-f196cfde0141,Columbus,city,Georgia
+7676660d-83fb-4622-939d-c6799145f8d8,Amarillo,city,Texas
+f798f4ac-3dc8-4293-863e-025e3d36c8c8,Little Rock,city,Arkansas
+7eeaaa41-c05a-409e-a044-60ac162bcd49,Akron,city,Ohio
+5bb775a6-1b96-4005-99f1-d2731d1f94ea,Shreveport,city,Louisiana
+a00087f0-a45a-467a-8f14-db6151540dee,Augusta,city,Georgia
+bab24dde-9045-4683-9ccd-143e2e639841,Grand Rapids,city,Michigan
+aed29f7a-09f2-483d-b92b-5520b3fa7112,Mobile,city,Alabama
+c45db824-4694-4737-8f35-00fa09ff807d,Salt Lake City,city,Utah
+271857e0-6edf-4e8d-9f93-d338df988853,Huntsville,city,Alabama
+76f9d974-7d99-4c9f-be51-c44fd4aa5779,Tallahassee,city,Florida
+94fa7166-d691-4cb4-bdea-c5421565255b,Grand Prairie,city,Texas
+ad626fbb-4119-4f36-a68c-c99bbf813acc,Overland Park,city,Kansas
+e5380a1e-1692-4377-9fd2-4917ae50f7ba,Knoxville,city,Tennessee
+28bd1d3d-4cff-40ef-b7cf-42fbd06d2890,Worcester,city,Massachusetts
+090665be-5d66-4ea6-93e1-d052082ee950,Brownsville,city,Texas
+05b4d8c7-cdb3-4b80-8832-9d1bfb9d84a7,Newport News,city,Virginia
+50d6a35b-49c4-4bcd-b1ac-95c098d584bb,Santa Clarita,city,California
+296e0932-6be8-42f8-831a-d73b453b5204,Port St. Lucie,city,Florida
+21706824-8ae0-4eb3-868b-734b53a08154,Providence,city,Rhode Island
+8718c02e-4db0-4d53-b86b-51f112d98d65,Fort Lauderdale,city,Florida
+e3f8ee9d-4ba6-4476-9f4c-921e69b302ff,Chattanooga,city,Tennessee
+3eadd1c1-bdcb-49f8-a717-07854c51d747,Tempe,city,Arizona
+61393b49-44c0-41b2-856a-d1bf40188e1c,Oceanside,city,California
+9dcdfa6b-b62a-4a51-8951-d94cc04049c2,Garden Grove,city,California
+3e2d0bbb-de47-478a-806c-414a123f055a,Rancho Cucamonga,city,California
+ef94fcf7-c4bb-4884-92c6-8ae5d40f5953,Cape Coral,city,Florida
+7bdc16ac-5b3d-4e16-9409-d305895c87dc,Santa Rosa,city,California
+4d5895d5-c4d0-449d-926b-64e1207293e2,Vancouver,city,Washington
+5fa91a01-acaa-466f-ae74-7a46b886346c,Sioux Falls,city,South Dakota
+e2c01e8f-1345-4034-bf95-2961c7f0dbbc,Peoria,city,Arizona
+7525a21d-1f63-43d7-a350-e1503a90e82d,Ontario,city,California
+62490033-4a8a-41ac-84cb-0fdeb30a16a1,Jackson,city,Mississippi
+a719066e-850c-46dd-8844-f42d055b2425,Elk Grove,city,California
+7cc6784c-0fe1-4166-a36f-0c1b511f8483,Springfield,city,Missouri
+a4fb9dcd-bc5c-4cc7-b35b-b69f7fdf2a66,Pembroke Pines,city,Florida
+26f7994f-cedb-49ec-abb7-fc780e77ecf3,Salem,city,Oregon
+2b058427-8b6f-4aa4-9246-4d915f90444d,Corona,city,California
+3cc91160-662e-4f74-b1a2-c6b6d1b07bdd,Eugene,city,Oregon
+6abd7040-f0c1-4bca-8df8-50cc4f2154c6,McKinney,city,Texas
+6b420484-9ac2-4e86-b9a4-5dfdc6653d70,Fort Collins,city,Colorado
+8354124a-c3a9-4f1a-a56f-7be59f366f68,Lancaster,city,California
+4e82e274-2bc2-436a-be64-296c83c5d93c,Cary,city,North Carolina
+b4ca39db-44d1-4698-951a-d8aa61be688a,Palmdale,city,California
+ef70773a-1760-4b15-b3fe-19c646830719,Hayward,city,California
+a6cf369a-cff7-41a8-b654-a3e9c3d0263a,Salinas,city,California
+d6f26856-dbbf-4237-b231-6ff3265e58f2,Frisco,city,Texas
+dcb2bf85-f2d4-464f-aeb1-a006a29c8723,Springfield,city,Massachusetts
+1e158b8c-ece6-4353-a3fa-f7b68229925c,Pasadena,city,Texas
+1a8c7449-57b9-42cb-9409-6327cc3ff08f,Macon,city,Georgia
+53259c8d-3c2c-47fe-a3ca-43492f3a012a,Alexandria,city,Virginia
+9b4f677e-6522-46bc-b546-c81c08085c88,Pomona,city,California
+c5a72001-e8ba-436e-8edb-487dff9121f5,Lakewood,city,Colorado
+5ec6e847-6ecf-4da7-9fc9-0d3a3553a76b,Sunnyvale,city,California
+da7a9c35-0c0c-46ef-98e0-e7ceffecbac6,Escondido,city,California
+906d9873-0651-4f8b-b76e-0b8421c16069,Kansas City,city,Kansas
+28c6c4eb-f9c5-465e-867d-311349da3d43,Hollywood,city,Florida
+3b8c7c93-9012-40ce-afe8-04a0eb41d44b,Clarksville,city,Tennessee
+9a21a540-9f5c-4a20-88bd-a86cb307ac2c,Torrance,city,California
+7bcf4b5c-170b-4ca1-8a1e-59499938e534,Rockford,city,Illinois
+1b4730b0-c784-45cf-a300-179b89d9d173,Joliet,city,Illinois
+939a2b26-57df-4178-8a39-01edd847a805,Paterson,city,New Jersey
+4824e434-2504-49a8-89f0-d70cb40f41ad,Bridgeport,city,Connecticut
+19a9e4b5-edf8-4085-84f2-f4ce025b5b86,Naperville,city,Illinois
+ce89e023-40ba-433b-b762-db1054bf29a1,Savannah,city,Georgia
+b255d9f0-db2d-4aa5-9e22-7f17663ecaad,Mesquite,city,Texas
+a9b39220-7071-4f60-9b71-d350c9263403,Syracuse,city,New York
+b794ca81-b028-43a9-aafd-e8479c143801,Pasadena,city,California
+df2a8cd6-1c21-41e8-bcc3-bb3594392959,Orange,city,California
+a6189ec0-22ab-415c-be09-35c1da850ca6,Fullerton,city,California
+41d2c1ff-30ef-4e3d-bed8-77bbb542f708,Killeen,city,Texas
+7cc3558b-33a2-4796-90fd-fac78dbf7576,Dayton,city,Ohio
+8bd1c5e5-1f93-4e75-9174-de20ce5f28c4,McAllen,city,Texas
+518dcf29-6066-4771-8dd5-15f3e11b80c1,Bellevue,city,Washington
+46c1a38b-002d-4dc3-b158-654f330ac169,Miramar,city,Florida
+1d48342d-acf0-45f9-af83-f7a123345962,Hampton,city,Virginia
+f9085f93-a999-410e-a49b-0ce01a0ac674,West Valley City,city,Utah
+15a7fc95-fa78-4c5e-bdf1-1c687e96a3c1,Warren,city,Michigan
+b0d330a8-7833-4eb6-9311-9784019d9ae4,Olathe,city,Kansas
+127f1589-91b9-4f6d-9748-9b0c911e8187,Columbia,city,South Carolina
+6f0353ed-f578-4f97-8191-8aad714bba5f,Thornton,city,Colorado
+5a1bc275-5d07-47a0-bf08-1c6b0c7d6eec,Carrollton,city,Texas
+6dbbcbcc-2b24-4916-bd83-c26d2171cb16,Midland,city,Texas
+d0d7aa03-32dd-4b6d-bd5f-00f73928ddb8,Charleston,city,South Carolina
+cb579d0b-662a-4cfc-a1a0-c805c38ac77e,Waco,city,Texas
+d52465c6-1180-4f96-b8c2-679e5c54a6b5,Sterling Heights,city,Michigan
+e88bce1c-81e6-4722-bd18-381f52e410d5,Denton,city,Texas
+9da83cb2-cd0a-495f-88f1-061fad43a852,Cedar Rapids,city,Iowa
+eab2e581-254b-4860-b2a5-ac3d4af176ae,New Haven,city,Connecticut
+b473b516-fae2-4b58-8f98-f5991b1b7fdc,Roseville,city,California
+ec9db774-5d7d-4a72-a292-44edc7e0e783,Gainesville,city,Florida
+ef56a369-e3cf-4dbb-bcdd-ef5136b338c8,Visalia,city,California
+fa4919e3-924d-4a60-b1ed-7c34c8d7e560,Coral Springs,city,Florida
+a2f484ba-49b0-42de-87dd-76f0df00dff2,Thousand Oaks,city,California
+dd68305d-2e29-4d25-a15d-1d0cc3c8db08,Elizabeth,city,New Jersey
+f35650c7-9436-42d4-a6e8-e4a3801ba71e,Stamford,city,Connecticut
+5f38b943-ffd5-42e0-96af-0e174df0cb0e,Concord,city,California
+b72d3195-1607-453a-9fb6-13b662100ea3,Surprise,city,Arizona
+b06a7c62-3c3b-4d94-80ac-c4339f8db73a,Lafayette,city,Louisiana
+ac939dfd-e49c-4acf-8f4f-e2dc9f1540ab,Topeka,city,Kansas
+a30bb9ac-9f20-49ba-9e63-f56698dcf0fa,Kent,city,Washington
+2592d20e-5d91-432a-89ab-d509eb795cd6,Simi Valley,city,California
+c7f8adbe-8b4d-4607-be6b-2ae8601bb1a9,Santa Clara,city,California
+e92b133d-1539-490a-8e13-b767409a01db,Murfreesboro,city,Tennessee
+d81fad47-d2d8-4b99-bfe5-508f4e133854,Hartford,city,Connecticut
+3ff03eed-0f8f-403c-98bf-4a4700516d0a,Athens,city,Georgia
+1f054021-382b-4886-9e56-b3e2a16bcff6,Victorville,city,California
+4a86338a-ef45-43dc-98f0-2cefb90b9e87,Abilene,city,Texas
+a0bd528b-813f-44f5-8593-4aaee6b0ca2d,Vallejo,city,California
+c7dbaa9e-dacb-4f7d-b51a-a6e92504b08c,Berkeley,city,California
+c5082dca-47ac-4a1b-84b4-61f904d1d357,Norman,city,Oklahoma
+1754e915-d2eb-4cc9-93e8-4f84d4e9164b,Allentown,city,Pennsylvania
+d9752c20-eb7f-4330-8c51-c1a91e817527,Evansville,city,Indiana
+488dd6b0-7b43-426b-86b7-9b8c6e065ddd,Columbia,city,Missouri
+daad00e1-5a2c-465e-b740-1a4be6085315,Odessa,city,Texas
+b9aa4bb4-b26c-42c9-9bf8-0af4e2dfce85,Fargo,city,North Dakota
+5af4c65d-15c9-4289-a7de-b161352e46cc,Beaumont,city,Texas
+9a49cfe5-0be9-4740-820b-ad395eb158ea,Independence,city,Missouri
+45f45914-18ee-4a8d-9d3b-96c9e0bbf2ce,Ann Arbor,city,Michigan
+8a703fc0-0691-43be-b81a-3eb90e13d0db,El Monte,city,California
+106e8bb4-1d49-4887-81c3-9db1e21502d5,Springfield,city,Illinois
+af713fb8-425d-4036-9ca1-c114826b9824,Round Rock,city,Texas
+c41350b9-991c-47ea-8a3a-996bc3d23986,Wilmington,city,North Carolina
+883a7fea-5f61-43b6-a54e-a653192684c4,Arvada,city,Colorado
+33603e73-4be6-457e-82d2-eb99e8497047,Provo,city,Utah
+443e4146-949d-465c-96d0-275602d7fffc,Peoria,city,Illinois
+b533f8d4-5987-40c7-a69b-5febc8f1fc1e,Lansing,city,Michigan
+7c3c7d2c-f53b-4616-afd7-79ec09a7b65d,Downey,city,California
+7b60cae9-4e47-4686-9fcf-fcae731feeea,Carlsbad,city,California
+1196f338-0167-4a59-a4f1-b0c963eb02d3,Costa Mesa,city,California
+7923a194-223f-41e4-9566-d5909832818c,Miami Gardens,city,Florida
+61e205c3-d46e-4f90-a76d-c78ed40d8dc0,Westminster,city,Colorado
+b98867a8-a582-4b1f-be38-94545d56c70d,Clearwater,city,Florida
+f5d3d114-647d-4fea-b1f9-80e2eba49c7f,Fairfield,city,California
+c3bf2475-da0c-4df6-8f3d-172a2905255c,Rochester,city,Minnesota
+6986e01e-3350-44fa-ba6f-211890c7b88b,Elgin,city,Illinois
+8ed0e85c-bdf3-4261-b0e7-94d3ca9b0610,Temecula,city,California
+a39d7b79-2f3f-43c3-9655-6cf4d9c0e709,West Jordan,city,Utah
+56725cbd-c276-4184-a5bf-21145bcd689d,Inglewood,city,California
+c6c051fd-c0c0-456d-93e2-b491a2ccbd8c,Richardson,city,Texas
+e7b45d54-323a-4429-8f51-07b599378955,Lowell,city,Massachusetts
+200a34e9-9f83-451e-a340-53b544aadff6,Gresham,city,Oregon
+104ae01b-5387-4009-9c42-ddce8e9bb66b,Antioch,city,California
+64c1774a-596f-4426-8c51-e1a3a760e47e,Cambridge,city,Massachusetts
+3ffdf152-31e8-40ed-b241-206ca37e0d5c,High Point,city,North Carolina
+192f5cfa-3936-4d4b-b273-26b2e98d153c,Billings,city,Montana
+54d38319-c7fc-4dc4-b6b9-95bcd3f1fc48,Manchester,city,New Hampshire
+e4ebcaac-eb4a-4807-948c-0703bce37f2d,Murrieta,city,California
+05d21296-5230-40c6-90f6-cfb50a251f77,Centennial,city,Colorado
+722dbd2d-e58c-465c-b6c1-7435f590dcfc,Pueblo,city,Colorado
+03e8057d-fc4e-40ed-bd37-e197586c1595,Pearland,city,Texas
+5ceb203c-cb7b-45c2-bc42-ece1d7f426a5,Waterbury,city,Connecticut
+fd4b28e7-ac56-454c-8d44-773d4624cca8,West Covina,city,California
+b00c4121-827f-4374-9853-e9e92f0ef307,North Charleston,city,South Carolina
+21aa5715-8dc6-4afe-8dea-9ca450150e62,Everett,city,Washington
+166d79d2-198e-4415-904b-42303c1a7863,College Station,city,Texas
+f486dfff-c879-4c04-a9af-9f1f0d8443cd,Palm Bay,city,Florida
+50617000-a08f-4b1f-a36f-c0a55192385a,Pompano Beach,city,Florida
+e4ea0d92-94ba-4c6c-9bac-5ea5ccd257ab,Boulder,city,Colorado
+8bdb8db9-15e6-4cf2-8914-fd2e805af066,Norwalk,city,California
+cd53bd42-2f46-489d-9bd9-8090e63ab8f8,West Palm Beach,city,Florida
+3047f839-ff11-4968-b683-6b3bca95fea6,Broken Arrow,city,Oklahoma
+3021dc4d-76d0-4108-b059-00badd523aaa,Daly City,city,California
+20a9ced0-9b6e-4259-b4b7-faa4ae68738d,Sandy Springs,city,Georgia
+a94d13c9-82cb-49e4-9989-7d6579beb40c,Burbank,city,California
+42059762-5b0f-4533-b3e3-097d01fb9420,Green Bay,city,Wisconsin
+0f2f505e-23ad-4f76-9d81-b38e2d14dc47,Santa Maria,city,California
+50bc973e-1b74-4792-a63b-d70a468726c3,Wichita Falls,city,Texas
+b9afcc8a-b480-42bc-bd1d-4117032bf014,Lakeland,city,Florida
+f43f02e6-1bea-4fd4-9264-cb90a0e6314c,Clovis,city,California
+20bcb5d2-3224-4473-a5b8-40ca0dfe0916,Lewisville,city,Texas
+6d5bcee5-8a5a-45b5-a19d-90d29c177abd,Tyler,city,Texas
+ed94f41d-a7f1-4612-84c1-39113c4636eb,El Cajon,city,California
+2743787d-9c3f-4778-affa-36bfc034baf2,San Mateo,city,California
+fe0956d0-85a4-4fcb-9678-efeedcee91cb,Rialto,city,California
+8881fe4d-8351-431e-8e05-1292fcfe398f,Edison,city,New Jersey
+eef34c0f-5a1c-497b-ae1c-8db2c48ce633,Davenport,city,Iowa
+b30b732f-1ad8-4bb2-b924-60f29c8ae783,Hillsboro,city,Oregon
+b21f0729-5a85-4048-bdb3-56097dfac12f,Woodbridge,city,New Jersey
+34b04950-c8a5-4a11-abcc-95476bdf9548,Las Cruces,city,New Mexico
+3442aa00-f669-461f-8a97-787c881d2497,South Bend,city,Indiana
+751903a9-8a59-4705-8fe3-a0ef68a37a02,Vista,city,California
+80e575da-ca95-4507-94f2-798cf2680f4f,Greeley,city,Colorado
+acaaf5e9-3b87-4511-b611-a3cda7342ebf,Davie,city,Florida
+d2f35cd2-9288-4439-ac39-7ab6753db9a4,San Angelo,city,Texas
+8130070a-06be-4330-9202-36af6f858411,Jurupa Valley,city,California
+aeff2f98-028a-4342-bce9-1b8c86fe1902,Renton,city,Washington
+
+# census cities (not all)
+1b0c56c2-54e3-4086-a295-1a40dcc8594e,Arlington,city,Virginia
+a6fa8469-ded5-47ae-b77d-1937b2795a34,Sunrise Manor,city,Nevada
+630a996f-2d6d-4711-81a1-e757f36c9b7a,Spring Valley,city,Nevada
+804d8e0e-294d-40c9-8f0c-b1efb7589f15,Metairie,city,Louisiana
+c78315fe-8722-44d5-a586-684b857c60bd,East Los Angeles,city,California
+74d629fd-98da-4f03-b997-faeb4b764918,Los Angeles,city,California
+9f1df60e-913a-448c-b6bd-3ec2cb105605,Brandon,city,Florida
+
+# cities previously with more than 100,000 citizens 2015
+ddc195c0-b5c0-4aea-9741-abc11ad4bb2d,Albany,city,New York
+46d5f441-601e-4232-ab56-36f85b3b4960,Allegheny,city,Pennsylvania
+104efeaf-6eb1-42b4-a04d-3a4a174bc18e,Brooklyn,city,New York
+1fda7c55-39db-420c-9240-fb678bc98d19,Camden,city,New Jersey
+a004e948-e31c-47ef-9ca7-c8f6859e29b7,Canton,city,Ohio
+ade4bc54-ecda-4cb3-8440-fe86d781301b,Dearborn,city,Michigan
+22091afa-eff1-4457-840b-dc88b7506ff9,Duluth,city,Minnesota
+42dee614-d7fd-4ae3-af33-72210c51d792,Erie,city,Pennsylvania
+e602a025-6b49-4409-80a9-738e67ad0ed6,Fall River,city,Massachusetts
+e91113c3-4e0d-4fe4-ac09-1d9fb7b06fc3,Flint,city,Michigan
+5765fb5a-2d83-4da9-b285-cc25f8076e3f,Gary,city,Indiana
+5b2d89eb-e11b-4488-a5fb-52d16b45bfd7,Hammond,city,Indiana
+35f1010b-c440-48bd-a26d-2ec8d5cd656e,Kenosha,city,Wisconsin
+6a346cb1-210a-423b-806c-f0625a47bdf1,Livonia,city,Michigan
+874c3d5d-0767-46eb-bfb0-41aecedf2529,Lynn,city,Massachusetts
+7a85166a-2478-4f1a-8f22-4eb0d5d719a3,New Bedford,city,Massachusetts
+241d2393-a8e6-41e4-9042-65fcfd274410,Niagara Falls,city,New York
+dfd7e4a7-996e-4445-ac24-14634a795bc6,Parma,city,Ohio
+3154a98d-2fff-4265-8f8d-a079443e3460,Portsmouth,city,Virginia
+8eb5ba58-eb0b-4137-a207-953dc7ec6ced,Reading,city,Pennsylvania
+fac611d1-f4e3-43da-bcd3-ee9f74ed9332,Roanoke,city,Virginia
+84ded228-8c00-4262-81e8-7d98127dd1aa,Scranton,city,Pennsylvania
+b8b06a45-805d-4d0a-b680-a8b1fa653289,Somerville,city,Massachusetts
+f58f4bb9-839e-492f-88b2-e71a1096bb88,St. Joseph,city,Missouri
+2ce0abb9-f7de-4037-b22f-5bc915e378d1,Trenton,city,New Jersey
+f581a94c-0fd0-460c-b54e-a05a0e6bce3f,Utica,city,New York
+234cc0ea-93f7-4c56-869f-5c72b7b63ec0,Wilmington,city,Delaware
+dd227df7-3297-42aa-beb8-a9daf64910cd,Youngstown,city,Ohio

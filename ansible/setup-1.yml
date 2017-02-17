@@ -1,0 +1,103 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+# this is an Ansible KAI Server setup script
+# make sure you install Ansible first on your OS
+#
+
+###########################################################################################
+# NB:
+# (1) ssh-copy-id peter@dsvocht for the ROOT account on each installation server
+# (2) ssh-copy-id root@each_machine from the installation machine to use Ansible
+# (3) for cassandra cluster: each of the cluster names of each machine in the cluster
+#     needs to be proper ip resolvable, not 127.0.x.x otherwise Cassandra won't work
+# (4) run setup_for_ansbile.sh in the root to build all needed for the deployment
+###########################################################################################
+
+# e.g. (can't use 8080 for web server, as its used by Server)
+# --extra-vars "web_port=8085 server_port=10080 rf=1 cert_name=kai"
+
+---
+- hosts: kai-cluster-one
+  remote_user: root
+  vars:
+    file_base: /opt/kai
+    software_base: peter@dsvocht:/volume1/store/software
+    jdk: jdk-8u121-linux-x64.tar.gz
+    spacy: spacy.tgz
+    nnet: nnet-1.0.tar.gz
+    mary: marytts-server.tgz
+    jdk_dir: /opt/jdk1.8.0_121
+
+    protocol: http
+    cert_name: kai
+
+    # python 3.5, CUDA 8, x64
+    tensorflow_cpu: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp35-cp35m-linux_x86_64.whl
+    tensorflow_gpu: https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.0-cp35-cp35m-linux_x86_64.whl
+
+    cassandra: apache-cassandra-3.9-bin.tar.gz
+    cassandra_dir: /opt/apache-cassandra-3.9
+    cassandra_cluster_name: KAI Cluster
+
+    dev_base: /home/peter/dev/kai
+
+
+  tasks:
+
+# echo extra vars to make sure they're defined
+  - name: checking extra vars (--extra-vars "web_port=8085 server_port=10080 rf=1 external_name=vm-name cert-name=kai, protocol=http" on {{ inventory_hostname }} and external name {{ external_name }})
+    shell: echo webserver port = {{ web_port }}, server port = {{ server_port }}, rf = {{ rf }}, ext name = {{ external_name }}, protocol = {{ protocol }}, cert-name = {{cert_name}}
+
+  - name: testing web_port != 8080
+    fail: msg="Do not use web_port = 8080 for setup as it is used by other parts of the system"
+    when: web_port == "8080"
+
+  - name: testing web_port != 443
+    fail: msg="Do not use web_port = 443, you need to forward from 443, e.g. to 8443"
+    when: web_port == "443"
+
+  - name: ping internal hostname is a proper ip address
+    shell: ping -n {{ inventory_hostname }} -c1 | grep PING
+    register: ping
+
+  - name: testing internal hostname is a proper ip address
+    fail: msg="you must set proper ip address for the hosts in /etc/hosts, instead found {{ ping.stdout }}"
+    when: '"(127.0." in ping.stdout'
+
+  - include: package/os.yml
+
+  - include: package/os-software.yml s_tensorflow_cpu={{ tensorflow_cpu }}
+
+  - include: package/kai-folders.yml kai_base={{ file_base }}
+
+  - include: package/spacy.yml soft_base={{ software_base }} spacy_file={{ spacy }} kai_base={{ file_base }}
+
+  - include: package/mary.yml kai_base={{ file_base }} jdk_directory={{ jdk_dir }} s_mary={{ mary }} s_software_base={{ software_base }}
+
+  - include: package/nnet.yml kai_base={{ file_base }} nnet_file={{ nnet }}
+
+  - include: package/jdk-install.yml jdk_file={{ jdk }} soft_base={{ software_base }} cass_dir={{ cassandra_dir }}
+
+  - include: package/kai-web.yml kai_base={{ file_base }} s_server_port={{ server_port }} s_web_port={{ web_port }} s_protocol={{ protocol }} s_en={{ external_name }}
+
+  - include: package/kai-loaddata.yml kai_base={{ file_base }} s_server_port={{ server_port }} jdk_directory={{ jdk_dir }}
+
+  - include: package/kai-service.yml kai_base={{ file_base }} s_server_port={{ server_port }} s_jdk_dir={{ jdk_dir }} s_en={{ external_name }}
+
+  - include: package/kai-data.yml kai_base={{ file_base }}
+
+  - include: package/cassandra.yml s_cassandra={{ cassandra }} s_software_base={{ software_base }} s_cassandra_dir={{ cassandra_dir }}
+
+  - include: package/kai-folder-permissions.yml s_cassandra_dir={{ cassandra_dir }} s_jdk_dir={{ jdk_dir }}
+
+  - include: package/systemctl.yml s_cassandra_dir={{ cassandra_dir }} s_jdk_dir={{ jdk_dir }}
+
+  - include: package/https.yml s_software_base={{ software_base }} s_cert_name={{ cert_name }} kai_base={{ file_base }}
+    when: protocol == "https"

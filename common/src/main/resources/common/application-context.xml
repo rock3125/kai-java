@@ -1,0 +1,53 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+                            http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <context:property-placeholder properties-ref="config" />
+
+    <bean id="config" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:common.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- setup the database system -->
+    <bean id="dao" class="industries.vocht.viki.cassandra_db.CassandraDao" init-method="init">
+        <property name="canCreateCluster" value="false" />
+    </bean>
+
+    <bean id="aes" class="industries.vocht.viki.utility.AESEncryption" init-method="init" />
+
+    <bean id="step1" class="industries.vocht.viki.nnet_wsd_create.NNetStep1" />
+
+    <bean id="undesirables" class="industries.vocht.viki.lexicon.Undesirables" />
+    <bean id="tupleUndesirables" class="industries.vocht.viki.lexicon.TupleUndesirables" />
+
+    <bean id="grammarLibrary" class="industries.vocht.viki.grammar.GrammarLibrary" init-method="init" />
+
+    <bean id="parser" class="industries.vocht.viki.parser.NLParser" init-method="init" />
+
+    <bean id="lexicon" class="industries.vocht.viki.lexicon.Lexicon" init-method="init" />
+
+</beans>
+
+

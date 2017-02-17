@@ -1,0 +1,83 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="UserTabController" class="container">
+    <div class="row extra-padding">
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right">
+            <button class="btn btn-default btn-signout" style="" data-ng-click="signout()" href="">SIGN OUT</button>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 col-xs-offset-4 col-sm-offset-5 col-md-offset-0 col-lg-offset-0">
+            <img src="./images/logo_white.png" class="header-logo">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li><a data-toggle="tab" data-target="#search" href="#/search">SEARCH</a></li>
+            <li><a data-toggle="tab" data-target="#experts" href="#/experts">EXPERTS</a></li>
+            <li><a data-toggle="tab" data-target="#files" href="#/files">FIND FILE</a></li>
+            <li><a data-toggle="tab" data-target="#times" href="#/times">TIME LINE</a></li>
+            <li class="active" data-ng-repeat="tab in user_tab_list">
+                <a data-toggle="tab" data-target="#{{tab.type}}" href="" data-ng-click="user_tab(tab.tab_name,tab.type);">{{tab.tab_name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="viki-background-white">
+    <div class="container">
+        <br/>
+        <div class=" row">
+
+            <div class="dropdown col-lg-2 col-md-3 col-sm-4 col-xs-8 col-xs-offset-2 col-sm-offset-4 col-md-offset-0 col-lg-offset-1">
+                <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{selectedField}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li data-ng-repeat="field in field_list"><a href="" data-ng-click="selectField(field);">{{field}}</a></li>
+                </ul>
+            </div>
+
+            <div id="keywordSearch" class="keywordsearch col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0">
+                <keyword-search />
+            </div>
+
+            <div class="col-sm-12">
+                <div><ambiguous-words /></div>
+            </div>
+
+            <div id="noResults" class="col-xs-12" style="display: none;">
+                <div style="margin-left: 100px;">no results</div>
+            </div>
+
+        </div>
+
+
+
+        <ul id="pagination" class="pagination"></ul>
+
+    </div>
+
+    <div class="container">
+
+        <!-- the 10 blue lines display (well 5 in our case) -->
+        <div id="div10BlueLines">
+            <div data-ng-repeat="result in result_list">
+                <div class="col-xs-12" data-ng-bind-html="result.html"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+

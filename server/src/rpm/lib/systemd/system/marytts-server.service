@@ -1,0 +1,14 @@
+[Unit]
+Description=KAI Speech Server
+After=cassandra.service
+
+# Ubuntu systemd service, lives in /lib/systemd/system/multi-user.target.wants/
+
+[Service]
+User=kai
+Type=forking
+ExecStart=/opt/marytts/bin/marytts-server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

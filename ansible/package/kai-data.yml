@@ -1,0 +1,50 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# install System data
+#
+  - name: testing KAI data folder exists
+    stat: path={{ kai_base }}/data/aiml
+    register: data_exists
+
+  - name: create KAI data folder
+    file: path={{ kai_base }}/data/wordnet state=directory owner=kai group=kai
+    when: data_exists.stat.exists == False
+
+  - name: copying data/aiml
+    copy: src={{ dev_base }}/data/aiml dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/grammar
+    copy: src={{ dev_base }}/data/grammar dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/lexicon
+    copy: src={{ dev_base }}/data/lexicon dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/cmu_models
+    copy: src={{ dev_base }}/data/cmu_models dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/wav
+    copy: src={{ dev_base }}/data/wav dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/vader
+    copy: src={{ dev_base }}/data/vader dest={{ kai_base }}/data/
+    when: data_exists.stat.exists == False
+
+  - name: copying data/wordnet/wordnet-3.1-relationship-graph.txt
+    copy: src={{ dev_base }}/data/wordnet/wordnet-3.1-relationship-graph.txt dest={{ kai_base }}/data/wordnet/
+    when: data_exists.stat.exists == False
+
+

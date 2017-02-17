@@ -1,0 +1,56 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="clusterManagerController" class="container-class">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="">DOCUMENT CLUSTERS</a></li>
+        </ul>
+    </div>
+
+    <div class="viki-background-white">
+        <div class="container">
+
+            <div data-ng-repeat="result in cluster_set" class="col-md-4">
+                <div>
+                    <a href="" data-ng-click="view(result.cluster_id);"><b>cluster {{result.cluster_id}}</b>, {{result.numEntries}} entries</a>
+                </div>
+                <div>
+                <table class="table table-borderless">
+                    <thead>
+                    <tr style="font-weight: 900;">
+                        <td>DESCRIPTION</td>
+                        <td>
+                            <button type="button" class="btn btn-info btn-kaisearch" title="view details of cluster {{result.cluster_id}}" data-ng-click="details(result.cluster_id);">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><div style="display: inline-block" data-ng-repeat="description in result.clusterDescription">{{description}}, </div></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+        </div>
+
+    </div>
+
+</div>

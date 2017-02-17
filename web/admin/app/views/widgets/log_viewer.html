@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- modal dialog for viewing logs -->
+<div id="LogViewerDialog" data-ng-controller="LogViewerController" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content">
+            <div class="modal-header viki-modal-header-colour">
+                <h3 id="LogViewerDialogTitle">log</h3>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable">
+                    <ul id="navTabs" class="nav nav-tabs">
+                        <li class="active"><a data-target="#tab1" data-toggle="tab">contents</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <div data-ng-repeat="line in text_list" style="text-align: left;">
+                                {{line}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" data-ng-click="closeModal();">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+

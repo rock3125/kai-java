@@ -1,0 +1,939 @@
+/*!
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+$brand-primary: #d00040 !default;
+$brand-secondary: #0e264d !default;
+$brand-primary-light: #ea5a5a !default;
+$brand-secondary-light: #5E7DAF !default;
+$navbar-default-color: $brand-primary !default;
+$navbar-default-bg: #bbb !default;
+
+$round-border-radius:        20px !default;
+$square-border-radius:       0px !default;
+
+@mixin bg-gradient-l2r($start-colour, $end-colour) {
+        background-color: $start-colour;
+        //background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
+        background-image: -webkit-linear-gradient(135deg, $start-colour, $end-colour 70%);
+        background-image:    -moz-linear-gradient(135deg, $start-colour, $end-colour 70%);
+        background-image:     -ms-linear-gradient(135deg, $start-colour, $end-colour 70%);
+        background-image:      -o-linear-gradient(135deg, $start-colour, $end-colour 70%);
+        background-image:         linear-gradient(135deg, $start-colour, $end-colour 70%);
+        //filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+    }
+
+$navbar-default-link-color: #333 !default;
+$navbar-default-link-hover-color: #777 !default;
+$navbar-default-border: $navbar-default-bg;
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+// don't like the round corner icon
+$border-radius-base:        0px !default;
+$border-radius-large:       0px !default;
+$border-radius-small:       0px !default;
+$text-default-colour:       #5f5f5f;
+
+.img-center {
+    margin: 0 auto;
+}
+
+// bower:scss
+@import "datatables-responsive/css/responsive.dataTables.scss";
+// endbower
+
+///////////////////////////////////////////////////////////////////
+// anomaly graph
+
+.axis path {
+  fill: none;
+  stroke: #777;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  font-family: $font-family-sans-serif;
+  font-size: 13px;
+}
+
+///////////////////////////////////////////////////////////////////
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+  border: none;
+}
+
+.viki-background-white {
+  background: #ffffff;
+  color: #999999;
+  padding: 50px 20px;
+  border: 1px solid #dddddd;
+  border-top-color: transparent;
+}
+
+.viki-round-button-div {
+  display: inline-block;
+}
+.viki-round-button {
+  margin-left: 10px;
+  width:20px;
+  height:20px;
+  display: inline-block;
+  line-height:50px;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  color:#f5f5f5;
+  text-align:center;
+  text-decoration:none;
+  background: #464646;
+  box-shadow: 0 0 3px gray;
+  font-size:20px;
+  font-weight:bold;
+}
+.viki-near-button-move {
+  position: relative;
+  margin-left: 10px;
+  top: -20px;
+}
+.viki-round-button:hover {
+  background: #262626;
+}
+.viki-left-summary {
+  padding-left: 20px;
+}
+.viki-anomaly-text {
+  font-family: $font-family-sans-serif;
+  font-size: 12px;
+}
+
+.modal-dialog.large {
+  width: 80%;
+}
+
+.viki-modal-header-colour {
+  background: #5bc0de;
+  color: #ffffff;
+}
+.viki-tabledata-width {
+  width: 200px;
+}
+.viki-tabledata-text {
+  color: #aaaaaa;
+}
+
+#js-navbar-collapse {
+  border: 0px;
+  float: right;
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.btn, .dropdown-menu {
+  border-radius: $round-border-radius;
+  border-color: $brand-secondary;
+  color: $brand-secondary;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all .2s;
+  width: 100% !important;
+  overflow: auto;
+  white-space: normal;
+}
+.dropdown-menu {
+  margin-top: 10px;
+  padding: 0px 0px;
+  width: 250% !important;
+  overflow: auto;
+  border: 0px;
+  box-shadow: 0 0px 15px rgba(14,38,77,.2);
+  text-align: left;
+}
+.dropdown-menu > li > a {
+  padding: 10px;
+}
+.dropdown-menu > li > a:hover {
+  background: $brand-primary-light;
+  color: #fff;
+  padding: 15px 10px;
+}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:active {
+  background: $brand-primary;
+  color: #fff;
+  padding: 15px 10px;
+  transition: all .0s;
+}
+
+.dropdown {
+  margin-bottom: 30px;
+}
+
+.btn-dropdown, .dropdown-toggle {
+  text-align: left !important;
+}
+.caret {
+  float: right;
+  margin-top: 6px;
+}
+.btn:hover, .btn:active, btn:focus,
+.open > .dropdown-toggle.btn-default,
+.open > .dropdown-toggle.btn-default:hover,
+.open > .dropdown-toggle.btn-default:focus {
+  border-radius: $round-border-radius;
+  border-color: $brand-secondary !important;
+  color: #fff !important;
+  background: $brand-secondary !important;
+  transition: all .2s;
+}
+
+.btn-remove {
+    background: #fff;
+    color: $brand-primary;
+    border-color: #fff;
+ }
+
+////////////////////////////////////////////////////////////////////
+//////////////////////////  GENERAL EDITS  /////////////////////////
+////////////////////////////////////////////////////////////////////
+
+html,
+body {
+  //background: #fff;
+  background-image: url("../images/bg1.jpg");
+      -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+  //padding: 10px;
+}
+.logoHeading {
+    color: #fff;
+    text-align: center;
+    line-height: .9;
+    font-weight: 900;
+}
+.navbar-default .navbar-toggle {
+    border: 0px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: $brand-secondary !important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.dashboard-icon {
+    text-transform: uppercase;
+    min-height: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+.dashboard-icon:hover {
+    opacity: 1;
+}
+.dashboard-icon img {
+    height: 80px;
+    margin-bottom: 10px;
+}
+.dashboard-icon a {
+    //color: $brand-primary !important;
+}
+.nav li {
+        width: 75%;
+        margin: 0 auto;
+   }
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.navbar-default{
+    border: 0;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 6px 12px;
+    margin: 0 2em;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-class {
+    //background: #fff;
+}
+.signin-out {
+    border-radius: $round-border-radius;
+    border: 1px solid #fff;
+    font-size: 9px !important;
+    font-weight: bold;
+}
+.navbar-default .navbar-nav > li > .signin-out:hover, .navbar-default .navbar-nav > li > .signin-out:focus {
+  background-color: $brand-secondary !important;
+  border: 1px solid $brand-secondary;
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    font-weight: 900;
+    color: #fff;
+}
+
+.nav-kaiHeader > li.active > a, .nav-kaiHeader > li.active > a:hover, .nav-kaiHeader > li.active > a:focus {
+  border: 0px;
+  border-bottom: 1px solid #fff;
+  border-radius: $square-border-radius !important;
+  color: $brand-secondary;
+}
+
+.nav-kaiHeader > li > a {
+  color: #fff;
+  padding: 5px 15px;
+  border: 0px;
+  text-transform: uppercase;
+    //border-bottom: 1px solid #fff;
+}
+.nav-kaiHeader > li:hover > a, .nav-kaiHeader > li.focus > a {
+  background: $brand-secondary;
+  border: 0px;
+  //border-bottom: 1px solid #fff;
+  border-radius: $square-border-radius !important;
+}
+
+.nav-kaiHeader {
+    border-bottom: 0px solid $brand-primary;
+}
+.kaisearch {
+    margin-bottom: 50px;
+    overflow: auto;
+}
+.text-kaisearch, text-kaisearch:hover {
+  border-radius: 0 !important;
+  border: 0;
+  box-shadow: none;
+  border-bottom: 1.5px solid $brand-secondary !important;
+  color: $brand-secondary !important;
+  font-size: 16px !important;
+  outline: none !important;
+}
+.text-kaisearch:focus, .text-kaisearch:active {
+  border-bottom: 1.5px solid $brand-secondary;
+}
+input:focus, input, input:active, button, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.text-kaisearch::-webkit-input-placeholder {
+   color: #999999;
+   font-style: italic;
+}
+.text-kaisearch:-moz-placeholder,
+.text-kaisearch::-moz-placeholder,
+.text-kaisearch:-ms-input-placeholder {
+   color: #999999;
+   font-style: italic;
+}
+.btn-kaisearch {
+  background: $brand-secondary;
+  color: #fff;
+  padding: 6px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px !important;
+  border: 1px solid $brand-secondary;
+  transition: all 0.3s;
+}
+.btn-kaisearch-alt {
+  background: #fff;
+  color: $brand-secondary;
+  padding: 7px 24px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px !important;
+  border: 1px solid $brand-secondary;
+  transition: all 0.3s;
+}
+.btn-kaisearch-alt:hover {
+  background: $brand-secondary;
+  color: #fff;
+  transition: all 0.3s;
+}
+.btn-pagination > li > a {
+  font-size: 9px;
+  font-weight: bold;
+  padding: 6px 12px;
+  background: $brand-secondary !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+  border-radius: $round-border-radius !important;
+  opacity: 1;
+  margin: 0 .2em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btn-pagination > .disabled > a {
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+.btn-kaisearch:hover, .btn-pagination > li:last-child > a:hover {
+  background: $brand-primary !important;
+  color: #fff !important;
+  border: 1px solid $brand-primary !important;
+  transition: all 0.3s;
+}
+.btn-kaisearch:focus, .btn-pagination > li:last-child > a:focus, .btn-kaisearch:active, .btn-pagination > li:last-child > a:active {
+  background: $brand-primary-light !important;
+  border: 1px solid $brand-primary-light !important;
+  color: #fff;
+  trasition: all 0s;
+}
+.btn-kaiadd {
+  background: none;
+  border: 0px;
+  color: $brand-primary;
+  font-size:18px;
+  transition: all 0.3s;
+}
+.btn-kaiadd:hover , .btn-kaiadd:focus, .btn-kaiadd:active {
+  background: none !important;
+  border: 0px !important;
+  color: $brand-primary-light !important;
+  transition: all 0.3s;
+}
+.viki-modal-header-colour {
+  @include bg-gradient-l2r($brand-primary, $brand-primary-light);
+  color: #fff;
+}
+.modal-dialog {
+  margin: 20px auto;
+}
+.nav-kaiModal > li.active > a, .nav-kaiModal > li.active > a:hover, .nav-kaiModal > li.active > a:focus {
+  border: 1px solid $brand-secondary;
+  border-radius: $square-border-radius !important;
+  color: #fff !important;
+  background: $brand-secondary;
+}
+
+.nav-kaiModal > li > a {
+  color: $brand-secondary;
+  padding: 5px 15px;
+  border: 0px;
+  border: 1px solid #fff;
+  border-left: 1px solid $brand-secondary;
+  border-radius: $square-border-radius !important;
+  margin-right: 0px;
+}
+.nav-kaiModal > li:first-child > a {
+  border-left: 0px !important;
+}
+
+.nav-kaiModal > li:hover > a {
+  background: $brand-primary;
+  color: #fff;
+  border: 0px;
+  border: 1px solid $brand-primary;
+  border-radius: $square-border-radius !important;
+}
+.nav-kaiModal > li.active > a {
+  color: $brand-secondary;
+  font-weight: 700;
+}
+
+.nav-kaiModal {
+    border-bottom: 0px solid $brand-primary;
+}
+.btn-signout {
+  border-color: #fff;
+  border-radius: $round-border-radius;
+  color: #fff !important;
+  background: rgba(255,255,255,0);
+  font-size: 9px;
+  font-weight: bold;
+  padding: 6px 0;
+  transition: all 0.3s;
+  float:right;
+}
+.btn-signout:hover {
+  font-size: 9px;
+  background: $brand-secondary;
+  border-color: $brand-secondary;
+  color: #fff;
+  transition: all 0.3s;
+}
+.modal-title {
+    text-transform: uppercase;
+    color: #fff;
+    padding: 15px;
+}
+.heading {
+    text-transform: uppercase;
+}
+.rule-label {
+    float: right;
+}
+input[type='file'] {
+    border: 0 !important;
+}
+input[type='file']:hover, input[type='file']:focus {
+    border: 0 !important;
+    background: none !important;
+    color: $brand-secondary !important;
+}
+.goback a {
+   background: none !important;
+   color: #fff !important;
+   font-size: 18px;
+}
+.goback:hover a {
+   background: none !important;
+   color: $brand-secondary !important;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+.input-group-addon {
+    color: $brand-primary;
+    border: none;
+    background: none;
+}
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+.about-text-offset {
+    margin: 20px;
+    font-size: 25px;
+}
+
+.viki-offset-left {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+.about1 {
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  padding:10px;
+  height: 400px;
+  color: #333;
+}
+
+.about2 {
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  padding:10px;
+  height: 400px;
+  color: #fff;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.vics-header {
+  background-color: rgba(0,0,0,0);
+  padding:10px;
+  height: 125px;
+}
+
+// cursor wait style
+.wait {
+  cursor: wait;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+}
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+.hl3 {
+    background-color: #ffff00;
+    display:inline;
+}
+
+.hl2 {
+  background-color: #7373db;
+  color: #ffffff;
+  display:inline;
+}
+
+.hl1 {
+    background-color: #ffcc00;
+    display:inline;
+}
+
+/* about screen */
+
+.promotional-circles {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Custom page header */
+.header {
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0px;
+    padding-bottom: 5px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+        max-width: 85%;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 10;
+  }
+}
+
+#remuneration-slider-inside{
+  width:60%;
+}
+
+.slider-selection, .slider-handle  {
+    background: $brand-primary;
+}
+
+
+/*/////////////// login form /////////////////////// */
+
+a {
+  color: #aaaaaa;
+  transition: all ease-in-out 200ms;
+}
+a:hover {
+  color: #333333;
+  text-decoration: none;
+}
+/*=== 3. Text Outside the Box ===*/
+.etc-login-form {
+  color: #919191;
+  padding: 10px 20px;
+}
+.etc-login-form p {
+  margin-bottom: 5px;
+}
+/*=== 4. Main Form ===*/
+.login-form-1 {
+  //max-width: 300px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.main-login-form {
+  position: relative;
+}
+.login-form-1 .form-control {
+  border: 0;
+  box-shadow: 0 0 0;
+  border-radius: 0;
+  background: transparent;
+  color: #555555;
+  padding: 7px 0;
+  font-weight: bold;
+  height:auto;
+}
+.login-form-1 .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-control:-moz-placeholder,
+.login-form-1 .form-control::-moz-placeholder,
+.login-form-1 .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-group {
+  margin-bottom: 40px;
+  border-bottom: 0px solid #efefef;
+  padding-right: 20px;
+  position: relative;
+}
+.login-form-1 .form-group:last-child {
+  border-bottom: 0;
+}
+.login-group {
+  background: #ffffff;
+  color: #999999;
+  border-radius: 8px;
+  padding: 30px 20px;
+}
+.login-group-checkbox {
+  padding: 5px 0;
+}
+/*=== 5. Login Button ===*/
+.login-form-1 .login-button {
+  position: absolute;
+  right: -25px;
+  bottom: 15%;
+  background: $brand-secondary;
+  color: #fff;
+  padding: 11px 0;
+  width: 100px;
+  height: 100px;
+  margin-top: -25px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms;
+}
+.login-form-1 .login-button:hover {
+  transform: rotate(450deg);
+}
+.login-form-1 .login-button.clicked {
+  color: #555555;
+}
+.login-form-1 .login-button.clicked:hover {
+  transform: none;
+}
+.login-form-1 .login-button.clicked.success {
+  color: #2ecc71;
+}
+.login-form-1 .login-button.clicked.error {
+  color: #e74c3c;
+}
+/*=== 6. Form Invalid ===*/
+label.form-invalid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  display: block;
+  margin-top: -25px;
+  padding: 7px 9px;
+  background: #777777;
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 11px;
+}
+label.form-invalid:after {
+  top: 100%;
+  right: 10px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-top-color: #777777;
+  border-width: 6px;
+}
+/*=== 7. Form - Main Message ===*/
+.login-form-main-message {
+  background: #ffffff;
+  color: #999999;
+  border-left: 3px solid transparent;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  height: 0;
+  padding: 0 20px 0 17px;
+  opacity: 0;
+  transition: all ease-in-out 200ms;
+}
+.login-form-main-message.show {
+  height: auto;
+  opacity: 1;
+  padding: 10px 20px 10px 17px;
+}
+.login-form-main-message.success {
+  border-left-color: #2ecc71;
+}
+.login-form-main-message.error {
+  border-left-color: #e74c3c;
+}
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid #f6f6f6 !important;
+}
+
+
+/* search table results checboxes */
+
+.hl-text {
+  font-weight: 100;
+  font-size: 1.4em;
+}
+
+/////////////////////////////////////////
+
+
+
+/*=== 9. Misc ===*/
+.logo {
+  padding: 15px 0;
+  font-size: 25px;
+  color: #aaaaaa;
+  font-weight: bold;
+}
+
+.fa-chevron-right {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+//////////////////////////////////////////////////////////////////
+// search drop down
+
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////
+// speech form
+
+#sr_div_start {
+  float: right;
+}
+#sr_results {
+  font-size: 12px;
+  font-family: $font-family-sans-serif;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+}
+#sr_start_button {
+  border: 0;
+  background-color:transparent;
+  padding: 0;
+}
+.sr-interim {
+  color: gray;
+}
+.sr-final {
+  color: black;
+  padding-right: 3px;
+}
+.sr-marquee {
+  margin: 20px auto;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+.error-style {
+  width: 35%;
+  text-align: center;
+  left: 340px;
+  top: 10px;
+  background: rgb(156,30,40);
+  border: 3px solid #fff;
+  border-radius: 2em;
+  color: #fff;
+  position:fixed;
+}
+
+@media screen and (min-width: 768px) {
+   .logoHeading {
+   }
+   .navbar-nav {
+       float: right;
+   }
+   .nav li {
+        width: auto;
+   }
+}
+@media screen and (min-width: 992px) {
+   .logoHeading {
+        text-align: left;
+   }
+}

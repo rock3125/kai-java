@@ -1,0 +1,195 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="kbFieldService" class="container-class" data-ng-controller="KBField">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/kb-manager"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="#/kb-field">FIELDS OF "{{get_name()}}"</a></li>
+        </ul>
+    </div>
+    <div class="viki-background-white">
+        <div class="container">
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-3">
+                    <b>ENTITY NAME</b>
+                </div>
+                <div class="col-md-9">
+                    <label for="reg_entity_name" class="sr-only">entity</label>
+                    <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled"
+                           data-ng-model="entity_name" id="reg_entity_name" name="reg_entity_name" placeholder="name of the entity">
+                </div>
+            </div>
+            <div class="row"><br/></div>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>VISIBLE TAB</b>
+                </div>
+                <div class="col-md-9">
+                    <label for="reg_tab_visible" class="sr-only">visible</label>
+                    <input type="checkbox" class="form-control" data-ng-disabled="disabled"
+                           data-ng-model="tab_visible" id="reg_tab_visible" name="reg_tab_visible" placeholder="name of the new entity group">
+                </div>
+            </div>
+            <div class="row"><br/></div>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>TAB NAME</b>
+                </div>
+                <div class="col-md-9">
+                    <label for="reg_tab_name" class="sr-only">tab display name</label>
+                    <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled"
+                           data-ng-model="tab_name" id="reg_tab_name" name="reg_tab_name" placeholder="name of the visible tab">
+                </div>
+            </div>
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <b>HTML TEMPLATE</b>
+                </div>
+                <div class="col-md-9">
+                    <label for="reg_html_template" class="sr-only">html</label>
+                    <textarea class="form-control" id="reg_html_template" data-ng-model="html_template" cols="60" rows="5"
+                              placeholder="html template with field names in diamond braces, e.g. <field_1>, <field_2>."></textarea>
+                </div>
+            </div>
+
+            <div class="row"><br/></div>
+
+            <div class="row">
+                <div class="col-lg-7">
+                    <table id="entityTable" class="table table-striped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>FIELDS</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody data-ng-repeat="field in field_list">
+                        <tr>
+                            <td>{{field.name}}</td>
+                            <td>
+                                <div>
+                                    <a href="" data-ng-click="edit($index,field.name,field.indexed);">
+                                        <img src="images/edit.png" title="edit" alt="edit"></a>&nbsp;&nbsp;
+                                    <a href="" data-ng-click="delete($index,field.name);">
+                                        <img src="images/delete.png" title="delete" alt="delete"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-3">
+                    <div class="row"><br/></div>
+                    <button type="button" class="btn btn-kaisearch-alt" data-ng-disabled="!kb_has_id()" data-ng-click="aiml();">AI/ML</button>
+                    <div class="row"><br/></div>
+                    <button type="button" class="btn btn-kaisearch-alt" data-ng-disabled="!kb_has_id()" data-ng-click="instances();">INSTANCES</button>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-kaiadd" data-ng-click="newField()" style="height: 32px;">
+                            <span class="glyphicon glyphicon-plus" title="add new field" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td><ul id="pagination" class="pagination btn-pagination"></ul></td>
+                </tr>
+            </table>
+
+            <div class="row"><br/></div>
+
+            <div class="row"><br/></div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" style="margin-bottom:30px;">
+                    <button type="button" class="btn btn-kaisearch" data-ng-click="saveEntity();">SAVE</button>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <button type="button" class="btn btn-kaisearch-alt" data-ng-click="cancelEntity();">CANCEL</button>
+                </div>
+            </div>
+
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="addField" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content container">
+                <div class="modal-header viki-modal-header-colour row panel-heading">
+                    <div class="col-xs-3 col-sm-2 col-md-1 pull-right">
+                        <a href="" class="btn btn-signout" data-dismiss="modal">X</a>
+                    </div>
+                    <div class="col-xs-12 col-md-10">
+                        <h4 id="fieldModalTitle" class="modal-title">ADD FIELD TO ENTITY</h4>
+                    </div>
+                </div>
+                <div class="modal-body panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>FIELD NAME</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_field_name" class="sr-only">name</label>
+                            <input type="text" class="form-control text-kaisearch" data-ng-disabled="disabled" data-ng-model="field_name"
+                                   id="reg_field_name" name="reg_field_name" placeholder="Field name">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>FIELD SEARCHABLE</b>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="reg_field_indexed" class="sr-only">searchable</label>
+                            <input type="checkbox" id="reg_field_indexed"
+                                   data-ng-disabled="disabled" data-ng-model="field_indexed" name="reg_field_indexed">
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                </div>
+                <div class="modal-footer row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                        <button type="button" class="btn btn-kaisearch" onclick="$('#kbFieldService').scope().save();">SAVE</button>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <button type="button" class="btn btn-kaisearch-alt" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

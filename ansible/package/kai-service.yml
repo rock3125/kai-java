@@ -1,0 +1,75 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# copy KAI Service
+#
+  - name: testing KAI service existence
+    stat: path={{ kai_base }}/node01/bin
+    register: node01_exists
+
+  - name: create service bin folder
+    file: path={{ kai_base }}/node01/bin state=directory owner=kai group=kai
+    when: node01_exists.stat.exists == False
+
+  - name: create service conf folder
+    file: path={{ kai_base }}/node01/conf state=directory owner=kai group=kai
+
+  - name: create service web folder
+    file: path={{ kai_base }}/node01/web/swagger state=directory owner=kai group=kai
+
+  - name: copying KAI jars
+    copy: src={{ dev_base }}/server/build/jars/ dest={{ kai_base }}/node01/bin/
+    when: node01_exists.stat.exists == False
+
+  - name: copying KAI jar
+    copy: src={{ dev_base }}/server/build/libs/ dest={{ kai_base }}/node01/bin/
+    when: node01_exists.stat.exists == False
+
+  - name: copying KAI server config
+    copy: src={{ dev_base }}/server/server.properties dest={{ kai_base }}/node01/conf/
+
+  - name: copying KAI node config
+    copy: src={{ dev_base }}/server/node.properties dest={{ kai_base }}/node01/bin/
+
+  - name: copying KAI log4j2
+    copy: src={{ dev_base }}/server/log4j2.xml dest={{ kai_base }}/node01/conf/
+
+  - name: copying KAI shell script
+    copy: src={{ dev_base }}/server/src/rpm/opt/node01/ dest={{ kai_base }}/ mode=a+x
+
+  - name: node01.sh, setup jdk
+    replace: dest={{ kai_base }}/node01.sh regexp='export.JAVA=.*' replace='export JAVA={{ s_jdk_dir }}'
+
+  - name: replace port x with {{ s_server_port }} for node configuration
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='web.port=.*' replace='web.port={{ s_server_port }}'
+
+  - name: setting main cluster on node "cassandra.keyspace.can.create" true for main node
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='^cassandra.keyspace.can.create=.*' replace="cassandra.keyspace.can.create=true"
+    when: inventory_hostname == play_hosts[0]
+
+  - name: setting main cluster on node "cassandra.keyspace.can.create" false for all other nodes
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='^cassandra.keyspace.can.create=.*' replace="cassandra.keyspace.can.create=false"
+    when: inventory_hostname != play_hosts[0]
+
+  - name: replace hostname with {{ s_en }} for node configuration
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='host.name=.*' replace='host.name={{ s_en }}'
+
+
+# set cassandra properties in node01 configuration
+
+  - name: node.properties, setup cassandra.server
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='cassandra.server=.*' replace='cassandra.server={{ play_hosts[0] }}'
+
+  - name: node.properties, setup cassandra.replication.factor
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='cassandra.replication.factor=.*' replace='cassandra.replication.factor={{ rf }}'
+
+  - name: node.properties, setup hazelcast.tcp.group.csv.ip
+    replace: dest={{ kai_base }}/node01/bin/node.properties regexp='hazelcast.tcp.group.csv.ip=.*' replace='hazelcast.tcp.group.csv.ip={{ play_hosts[0] }}{{':'}}5701'

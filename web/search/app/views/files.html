@@ -1,0 +1,79 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="SearchController" class="container">
+    <div class="row extra-padding">
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right">
+            <button class="btn btn-signout" style="" data-ng-click="signout()" href="">SIGN OUT</button>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 col-xs-offset-4 col-sm-offset-5 col-md-offset-0 col-lg-offset-0">
+            <img src="./images/logo_white.png" class="header-logo">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li><a data-toggle="tab" data-target="#search" href="#/search">SEARCH</a></li>
+            <li><a data-toggle="tab" data-target="#experts" href="#/experts">EXPERTS</a></li>
+            <li class="active"><a data-toggle="tab" data-target="#files" href="#/files">FIND FILE</a></li>
+            <li><a data-toggle="tab" data-target="#times" href="#/times">TIME LINE</a></li>
+            <li data-ng-repeat="tab in user_tab_list">
+                <a data-toggle="tab" data-target="#{{tab.type}}" href="" data-ng-click="user_tab(tab.tab_name,tab.type);">{{tab.tab_name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="viki-background-white">
+    <div class="container">
+
+
+        <div class="row">
+            <br/>
+            <div class="col-md-8">
+                <h4>select a document and find the closest matching document in Kai</h4>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="col-md-2">
+                select document
+            </div>
+            <div class="col-md-5">
+                <label for="documentUpload" class="sr-only">select document</label>
+                <input type="file" id="documentUpload" class="btn btn-default" fileread="myFile" name="file">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-default" data-ng-click="compareClick()">compare</button>
+            </div>
+            <br />
+        </div>
+        <br />
+
+        <table class="table">
+            <thead>
+                <td>url</td>
+                <td>similarity score</td>
+            </thead>
+            <tr data-ng-repeat="document in documentList">
+                <td><a href="" data-ng-click="details(document.url);">{{document.url}}</a></td>
+                <td>{{document.percent}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <document-viewer />
+
+</div>
+

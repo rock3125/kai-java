@@ -1,0 +1,43 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+# and then you discover that MaryTTS uses the CMU voices and have to setup those too
+# to test a voice after this has run: echo "hello world!" | /usr/bin/text2wave > hello_world.wav
+
+  - name: testing CMU files exist
+    stat: path=/import/software/cmu_us_slt_arctic-0.95-release.tar.bz2
+    register: file_exists
+
+  - name: download CMU voices (if dne)
+    shell: scp {{ soft_base }}/cmu/cmu_us_slt_arctic-0.95-release.tar.bz2 /import/software/
+    when: file_exists.stat.exists == False
+
+  - name: Install CMU voice system base
+    shell: apt install -y --no-install-recommends autoconf festival festlex-cmu festlex-poslex libestools1.2 unzip bzip2 festvox-kallpc16k festvox-kdlpc16k
+    when: file_exists.stat.exists == False
+
+  - name: create CMU voice folder
+    file: path=/usr/share/festival/voices/english/ state=directory owner=root group=root
+    when: file_exists.stat.exists == False
+
+  - name: installing CMU voices
+    shell: tar jxf /import/software/cmu_us_slt_arctic-0.95-release.tar.bz2
+    args:
+      chdir: /usr/share/festival/voices/english/
+    when: file_exists.stat.exists == False
+
+  - name: renaming CMU voice folder
+    shell: mv /usr/share/festival/voices/english/cmu_us_slt_arctic /usr/share/festival/voices/english/cmu_us_slt_arctic_clunits
+    when: file_exists.stat.exists == False
+
+  - name: setting CMU default voice
+    shell: echo "(set! voice_default 'voice_cmu_us_slt_arctic_clunits)" >> /etc/festival.scm
+    when: file_exists.stat.exists == False
+

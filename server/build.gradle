@@ -1,0 +1,112 @@
+/*
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+
+description = 'server'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.netflix.nebula:gradle-ospackage-plugin:3.4.0'
+    }
+
+}
+
+dependencies {
+    compile project(':common')
+    compile project(':domain')
+    compile project(':rules_engine')
+
+    compile group: "org.codehaus.groovy", name: "groovy-all", version: groovyVersion
+}
+
+// copy files to /opt/kai/
+task setupFiles(description: 'setup the files for the security service') {
+
+    def wsConf = new File("/opt/kai/server/conf")
+    wsConf.mkdirs()
+    def wsWeb = new File("/opt/kai/server/web/swagger")
+    wsWeb.mkdirs();
+
+    copy {
+        from ('server.properties','log4j2.xml')
+        into wsConf
+    }
+
+    copy {
+        from '../web/swagger'
+        into wsWeb
+        include '**/*'
+    }
+
+}
+
+task createJarDependencies(type: Copy) {
+    into "build/jars"
+    from configurations.runtime
+}
+
+// setup the rpm
+apply plugin: 'nebula.rpm'
+
+task rpm(type: Rpm) {
+
+    packageName 'node01'
+    version= vikiVersion
+    os LINUX
+
+    preInstall file('src/rpm/preInstall.sh')
+    postInstall file('src/rpm/postInstall.sh')
+    preUninstall file('src/rpm/preRemove.sh')
+    postUninstall file('src/rpm/postRemove.sh')
+
+    directory('/opt/kai/node01', 644)
+    directory('/opt/kai/node01/web', 644)
+
+    into '/opt/kai/node01'
+
+    from(jar.outputs.files) {
+        into './'
+    }
+
+    from (configurations.runtime) {
+        into './'
+    }
+
+    from('src/rpm/etc/init.d/node01') {
+        into '/etc/init.d/'
+        fileMode 0550
+    }
+
+    from('src/rpm/opt/node01/node01.sh') {
+        into './'
+        fileMode 0550
+    }
+
+    from('./') {
+        fileType CONFIG | NOREPLACE
+        into './'
+        include('log4j2.xml','server.properties', 'node.properties')
+    }
+
+    from('../web/server/dist') {
+        into 'web'
+        include '**/*'
+    }
+
+    from('../web/swagger') {
+        into 'web/swagger'
+        include '**/*'
+    }
+
+}

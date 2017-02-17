@@ -1,0 +1,134 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div data-ng-controller="LogicQueryController">
+
+
+    <div class="row" style="width:100%;margin:0px;">
+          <div class="form-group col-md-3 col-md-offset-0 col-xs-3 no-padding">
+               <div class="dropdown-exact">
+                    <button class="btn btn-default dropdown-toggle btn-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 150px">
+                        {{searchType}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="height: 200px;">
+                        <li><a href="" data-ng-click="selectSearchTypeUI('person','A single person\'s name');">person</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact person','A single person\'s name');">exact person</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('location','A single location');">location</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact location','A single location');">exact location</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('title','Text found in a title');">title</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact title','Text found in a title');">exact title</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('summary','Text found in summary');">summary</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact summary','Text found in summary');">exact summary</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('url','Part of a url');">url</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('body text','Text from the main text');">body text</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact body Text','text from the main text');">exact body text</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('time before','');">time before</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('time after','');">time after</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('exact time','');">exact time</a></li>
+                        <li><a href="" data-ng-click="selectSearchTypeUI('time range','');">time range</a></li>
+                    </ul>
+               </div>
+          </div>
+    </div>
+
+
+
+    <div class="row" style="width:100%;margin:0px;">
+            <div id="tdTextInput">
+                <div class="form-group col-md-9 no-padding">
+                    <div class='input-group date' style="width: 100%; margin: 0 auto;">
+                        <input type='text' class="form-control text-kaisearch" title="{{searchType}}" data-ng-enter="addComponent()"
+                               data-ng-model="text" style="width: 100%;" placeholder="{{searchTypeText}}" />
+                    </div>
+                </div>
+            </div>
+            <div id="tdDate1Input" style="display: none;">
+                <div class="form-group col-lg-5 no-padding">
+                    <div class='input-group date' id='datetimepicker1' style="width: 100%; margin: 0 auto;">
+                        <input type='text' class="form-control text-kaisearch" id="date1" title="date-time picker" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="tdTime1Input" style="display: none;">
+                <div class="form-group col-lg-4 no-padding">
+                    <div class='input-group date' style="width: 100%; margin: 0 auto;">
+                        <input type='text' class="form-control text-kaisearch" data-ng-model="time1" title="date-time picker" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div  id="tdTo" class="col-md-12 no-padding" style="display: none; padding-top:10px;">
+                <div class="input-group date" style="width: 100%; margin: 0px auto; z-index:4;">
+                    <label class="labelAdv">TO</label>
+                </div>
+            </div>
+
+            <div id="tdDate2Input" style="display: none;">
+                <div class="form-group col-lg-5 no-padding">
+                    <div class='input-group date' id='datetimepicker2' style="width: 100%; margin: 0 auto;">
+                        <input type='text' class="form-control text-kaisearch" id="date2" title="date-time picker" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="tdTime2Input" style="display: none;">
+                <div class="form-group col-lg-4 no-padding">
+                    <div class='input-group date' style="width: 100%; margin: 0 auto;">
+                        <input type='text' class="form-control text-kaisearch" data-ng-model="time2" title="date-time picker" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group col-md-1 col-md-offset-0 col-xs-2 col-xs-offset-5 no-padding">
+                    <button type="button" class="btn btn-primary btn-kaiadd" data-ng-click="addComponent()" style="height: 32px;">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                </div>
+            </div>
+            <div>
+                <div class="form-group col-md-2 col-md-offset-0 col-xs-8 col-xs-offset-2 no-padding">
+                    <button type="button" class="btn btn-primary btn-kaisearch" data-ng-click="search()" style="height: 32px;font-size:18px;">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="row" style="margin-top:20px; margin-bottom:10px;">
+        <div class="col-xs-12">
+            <div id="tdTotals" style="display: none;">{{hits}} Hits in {{documents}} Documents</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+             <div data-ng-repeat="item in grid_list" style="display: inline;">
+                 <label class="viki-item-box {{item.class}}" style="width: {{item.width}};" data-ng-click="editItem(item.id)">{{item.description}}
+                     <img src="images/close.png" data-ng-click="removeItem(item.id);" style="float: right; margin-right: 5px;"></label>
+                 <label class="viki-logic-box" data-ng-click="changeLogic(item.id);" style="{{item.display}}">{{item.logic}}</label>
+             </div>
+        </div>
+    </div>
+
+</div>

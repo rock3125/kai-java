@@ -1,0 +1,211 @@
+#
+# set of country entities
+#
+# format:  id(uuid),name,isa,alternatives csv list(optional)
+#
+
+bf4f7196-ad52-4dc3-8428-b4daeeeb02c3,Afghanistan,country
+ff8c98ea-38cd-415e-af0d-50c37789a226,Akrotiri,country
+62edd53a-1660-4a9f-a037-ec6e522031df,Albania,country
+f9e2fb7e-9d80-4219-869f-8c8df8214216,Algeria,country
+85c1da70-cd63-4656-9886-543806834cc6,American Samoa,country
+1d87278f-41dd-4e5d-a856-e774bd655f4d,Andorra,country
+ca720881-dd64-4b24-8b76-3a82b8a6f997,Angola,country
+603ce024-0fb0-4feb-a9fd-8d9927cf3850,Anguilla,country
+365aafb2-2292-44a6-bf37-b439356cf31b,Antarctica,country
+e0bbd977-6514-4a1e-8a1b-fe1d59f336cb,Antigua and Barbuda,country,Antigua,Barbuda
+5600c7cb-e884-4c80-b456-cb8cc57e73d5,Argentina,country
+b679fec7-aca9-4a2f-880f-830906af5b4e,Armenia,country
+3982a921-37d6-4cee-8d32-fb7fcbd17256,Aruba,country
+ee7e7ea5-7803-4467-a8c7-54b6f820d30b,Ashmore and Cartier Islands,country,Cartier Islands,Ashmore
+9f291f60-5090-4fba-a262-5f0f7e91871b,Australia,country
+715a34fc-a67d-4462-beec-8fc9b6411022,Austria,country
+15458f2b-3763-401f-9cab-6d61a7d862f8,Azerbaijan,country
+020beb09-cf7c-419b-838c-4382ef4bb23b,the Bahamas,country
+cfbd6205-c04c-48ef-b968-99730ff8e66e,Bahrain,country
+9d3bf424-d43f-4064-a4b3-3a702e246e3c,Bangladesh,country
+35db6818-9bef-4ec3-833f-d9a179205003,Bassas da India,country,Bassas
+d722ba97-5825-4e2c-b1c3-37a762eb322b,Belarus,country
+17b18d93-b976-491c-bd5b-6dd1b9df5f88,Belgium,country
+6cba685a-06a2-4dd7-92d2-4b59b6dd9020,Belize,country
+f3fa2812-5852-43aa-8b58-12fd77eaa2c3,Benin,country
+f1b2387f-8427-468e-a8ac-773f05f08192,Bermuda,country
+f1fc007d-24fd-439d-aa18-6d20ed66aa68,Bhutan,country
+d30f0495-afd5-4311-892e-e86d7f67bc2e,Bolivia,country
+2788984f-9555-4c27-ae7b-4d5c18788f8a,Bosnia and Herzegovina,country,Bosnia,Herzegovina
+969b56b1-e249-466c-a8b1-c9e7ccedb43e,Brazil,country
+1c39d09d-ed2e-4a11-801e-c1d5f3321991,British Indian Ocean Territory,country
+96141396-68ab-4e16-879a-2161f8b77049,British Virgin Islands,country,Virgin Islands
+63cc1a97-ac5c-4c22-b909-c2b215e76a88,Brunei,country
+4da4516c-d99b-4c90-a3fe-dda71492ec30,Bulgaria,country
+9ebae089-9ba5-4f48-8de4-89d1ebf2d62e,Burkina Faso,country
+4e165c27-2244-4f35-bff7-9052fb81aad7,Burma,country
+513e48a6-7164-4a4b-b872-4ef650f44ef2,Burundi,country
+fbdfd3bf-fe3c-41da-9c7f-6b7a8f8341f3,Cape Verde,country
+67d9e152-e3ef-4620-9c39-4717cf206a50,Cayman Islands,country,Caymans
+b2259946-a4e1-4198-b586-cb2d6b58aa51,Central African Republic,country,CAR
+c3115f4e-c922-4651-bdc9-b67dfe52555b,Chad,country
+83a52c55-6f48-4fd5-a587-1b19731c2b07,Chile,country
+49d7e442-5889-400a-9208-f38ede4184ee,China,country
+7c075745-a59b-413b-a933-88290ea764b6,Christmas Island,country
+5ea9190c-a956-4eed-8ea3-03036347cfbd,Democratic Republic of the Congo,country,Congo,Republic of the Congo
+0eea87c9-0ec1-4e65-b8cd-82d87b5d8e88,Cook Islands,country
+bf5c7b56-8a73-47c8-97be-ec9d18af570e,Coral Sea Islands,country
+878101fc-7c31-47fc-b1e2-83cef5ba98ae,Costa Rica,country
+2650ac6c-3a50-408e-b590-9fe270efc940,Cote d'Ivoire,country
+30aebb38-1ce6-4902-8182-487c28f0fcae,Dhekelia,country
+51a61c46-9d18-4c9b-817e-bc190be9eb06,Djibouti,country
+8a6b956b-23b2-4e47-9c57-fcbe8ba4e2d1,Dominica,country
+94a69d53-9189-482e-8930-7ba6e4a029da,Dominican Republic,country
+9dd0085f-d411-4a7a-9c22-c3289a8e7267,Ecuador,country
+a5ce6694-4302-4841-999d-4735ab94fa59,Europa Island,country
+606adbf4-b735-4d89-885d-c8f20e980cc6,Falkland Islands,country,Islas Malvinas
+04bb25b9-70fb-4cb8-ae25-a742c1b86569,Faroe Islands,country
+ebcc1b4e-f308-4626-9022-2f4d2a5f1817,Fiji,country
+9a3adf28-5ddf-49b0-ba60-e7129ec26501,Gaza Strip,country,Gaza
+da609ebd-ee2f-45dd-9ac7-8f0ddfdb6424,Georgia,country
+06a40c72-a1a2-4775-89c2-1543547a057b,Germany,country
+8ecfbff4-3ff0-408b-afb1-1f8d3cae08ec,Guatemala,country
+1c628229-ec4c-4ce5-b9ae-c8c0ee0201f7,Guernsey,country
+4c66dc30-11d9-4957-8777-7defd5771b9a,Guinea,country
+24190d4e-50c0-4749-b0e4-59eadfc9cde3,Guinea-Bissau,country
+30420a14-a349-48c7-be63-503e7df40a1b,Guyana,country
+fb622482-4b58-4ce7-9f5a-45a37b914227,Haiti,country
+c25f4b73-f91f-425c-8db8-ed99a66e34de,Heard Island and McDonald Islands,country,Heard Island,McDonald Islands
+7c356220-c942-480e-9c54-33eef7b4e081,Holy See,country,Vatican City
+5af07e6e-e0fb-431f-b867-7eb2f474b445,Honduras,country
+38a7a7b4-451f-4eee-9ab7-fc28787a97d1,Hong Kong,country
+f5fbd9cb-76fb-4b84-8a48-c87ed8240a60,Hungary,country
+fa8ebdb8-67e9-43cd-b6a5-94a729b990d6,Iceland,country
+6d9c4fe8-1889-48a7-b96f-36d4c8bb1856,India,country
+83576479-0d56-480d-b45b-2d7001ff2efe,Indonesia,country
+29f21976-d612-4990-ae0d-1db549475cae,Iran,country
+306cb8e3-8d24-4b35-90fb-36b953a63675,Iraq,country
+6879957a-4eeb-4123-b6fb-629a8ed10358,Ireland,country
+6314dfb1-10c6-4f07-ad58-b9eba978e60f,Isle of Man,country
+6b0b9d4b-bff2-4fec-b620-3ce34fabca98,Israel,country
+f3b76de9-3d9a-429b-8710-101d4a23dfb1,Italy,country
+8b84f129-2b95-4c6e-9e9c-07395e72a81d,Jamaica,country
+03f0e355-64f0-413d-87a1-5ca4bc0088e2,Jan Mayen,country
+db04b2b9-ceb7-4ad3-a2b5-9ff46505c930,Japan,country
+ba7b1cc8-c57d-4f23-b2f9-7776f1f80557,Jersey,country
+d35beb8f-3281-4efd-84cd-db5d0ece2660,Jordan,country
+f8270e76-b675-49a0-a6a2-aba3b62b188e,Juan de Nova Island,country,Juan de Nova
+ce9bddf6-78a0-4929-92bc-39d483f91ae0,Kazakhstan,country
+979712c4-bdfb-4346-b172-273865be8adc,Kenya,country
+8c6f5fd9-1949-409b-8322-77d58eb09cc8,Kiribati,country
+0e093f88-8879-484e-95a7-ca0185494a6b,North Korea,country
+f9ecd8cc-6eab-41c8-8f41-c6449cf44877,South Korea,country
+d7a7edc8-a3c3-421c-b60a-3b95523d4f87,Kuwait,country
+879196a7-36a5-4a96-8c6c-7326aaade929,Kyrgyzstan,country
+185b5379-d7af-4a91-8263-d1fe2892a0ba,Laos,country
+f80a1898-3593-4ef3-a640-76d91d69473e,Latvia,country
+afa09825-14c6-4820-ad82-7f5e838e1e0a,Lebanon,country
+79d37ff2-b284-4f1d-8f70-460be0cbc9b3,Lesotho,country
+ecbade4a-9e50-401e-a0c6-8f5b9decc8c7,Liberia,country
+ffa283f0-14f7-4e55-aa92-a2bdd3aa391b,Libya,country
+09ea7986-1d78-4b7d-bd3d-5896529dd318,Liechtenstein,country
+f502eeba-9a7b-40da-bd71-79a2df04d54d,Lithuania,country
+43b41434-da7b-4e8b-a1c5-99ea81efe152,Luxembourg,country
+a6f40d8a-e7d7-469e-a260-75cb69ab76c7,Macau,country
+314c6193-3770-4c5e-bd7d-40351d488988,Macedonia,country
+d828578e-c523-4f27-9bc0-c8f78685f8e3,Madagascar,country
+3aed5274-b223-4ee0-ad6d-ed105b32279f,Malawi,country
+34e5fd6b-d57d-4e68-afe4-9b7ebebe948a,Malaysia,country
+226ccfe8-8904-48cf-bdd7-30e30cf8272f,Maldives,country
+748ebf26-95c6-46b9-ba6a-c8c993a22642,Mali,country
+7c064e8a-5b49-42df-9f4b-28c75377c8e5,Malta,country
+67d079cc-78ba-4c98-9454-a92f0036dd96,Marshall Islands,country
+ef57ae78-e70b-4180-a3d5-792a17c92746,Martinique,country
+b4429249-1801-4e7c-8fb8-d858e2d2d34c,Mauritania,country
+1f930399-d60f-4989-aa02-baa894144ffb,Mauritius,country
+dc4baa44-e528-43e6-8471-5c982ed8f98c,Mayotte,country
+3faf9a82-e097-4a4b-abeb-252145445a20,Mexico,country
+d22cddca-1ed7-4461-b845-1b3e00e44418,Federated States of Micronesia,country,Micronesia
+d8dff8f7-797a-43b0-8ea9-a424efa56c28,Moldova,country
+7e01bd67-3e14-47d2-b1e7-6b9bfb9f3041,Monaco,country
+5e1cf921-dd98-4bb8-9aba-17a028207669,Mongolia,country
+2e13e3a8-7c60-4cf1-927d-0daf5aa21090,Montserrat,country
+5729162c-14a7-4af0-952f-206be8a2f0a8,Morocco,country
+07e08afd-df9a-4649-9027-56da5880aa98,Mozambique,country
+92431b40-83c6-4134-a65b-a273c82936bf,Namibia,country
+0f0e4273-531e-4e9f-b2b3-0f69b2f6f0f1,Nauru,country
+8e7e1188-bb07-4aac-8df7-7c5ac52e6c37,Navassa Island,country
+0f3d5e5f-965a-4e1a-9bab-1f038e6e6224,Nepal,country
+5bc95140-0140-4654-9f70-7c75a256ce20,the Netherlands,country,Holland
+cfe7f764-02a7-44f9-8d97-1bf739196bb0,Netherlands Antilles,country,Antilles
+fb768394-1b6c-4f9f-ad32-237349a59931,New Caledonia,country
+d284f171-4eb3-4d6b-98ba-c75c52b54970,New Zealand,country,Aotearoa
+4b8e259a-ee6a-4f39-877b-291b99105402,Nicaragua,country
+475a6101-40be-4cd3-8610-bdf3eb644ae2,Niger,country
+c6ad0944-5803-4ee3-888f-ae84777a1910,Nigeria,country
+3a3609db-5b8d-4db2-92dd-51a4cc69c0fd,Niue,country
+4fbee32d-b166-4a74-b130-1be3a48e633a,Norfolk Island,country
+55a8326a-f654-49bb-873e-c679ca0b72ae,Northern Mariana Islands,country,Mariana Islands
+592813fc-a634-4da3-8d3a-a9e61dbad498,Norway,country
+5aaf8823-db68-46cc-8dfd-9d32a3a54375,Oman,country
+f2f59a67-040f-4657-8661-776c6515aa6b,Pakistan,country
+ac9e9b40-d08e-45aa-b434-85f490eaf4f3,Palau,country
+494b19ea-c063-4699-b4ab-bd59517f25d2,Panama,country
+da445fac-8162-418d-b1d1-a43d5cd7196f,Papua New Guinea,country,PNG
+21db2702-39b1-409e-91e1-33e0d2f715a3,Paracel Islands,country
+6d1c2c90-4de8-4d26-83fd-bb0ecd90bd5a,Paraguay,country
+c6426702-35b1-40a7-b435-b01835cedfb1,Peru,country
+3e3cd447-15c7-4d61-a949-8159bf47d083,Philippines,country
+ae45a290-6d6b-458f-ad45-8ece8bf0db33,Pitcairn Islands,country,Pitcairn
+6b95b258-723e-4a9d-81c8-5a8e399b3f9e,Poland,country
+48f745d3-38b5-4806-8460-5bcf111e6d60,Portugal,country
+9f2996a9-3895-48a4-90ed-26047d195a06,Puerto Rico,country
+3665a164-e691-4353-9200-199402e52f73,Qatar,country
+1e6535d6-b753-44d2-878d-3ca8614a9042,Reunion,country
+92a793ab-cdcb-4a3c-bab4-266cb5eb2ec5,Romania,country
+532f8106-59a5-452b-b307-98977b0c8f04,Russia,country
+61a44f4d-a2f8-4c49-ba1f-d6b901bb6375,Rwanda,country
+2513e94c-949f-44db-9566-c2e65fd775da,Saint Helena,country
+be3fda61-4730-4eff-8ea9-223e40328cb6,Saint Kitts and Nevis,country
+7ecd21a9-e7ee-4985-8d6f-a53e08fab699,Saint Lucia,country,Santa Lucia
+2c2d0310-b3d4-430b-a306-c51727129011,Saint Pierre and Miquelon,country,Saint Pierre,Miquelon
+dde26fef-0e21-4932-951a-f01a5d43231e,Saint Vincent and the Grenadines,country,Saint Vincent,Grenadines
+00e5eae6-8040-41f9-9974-3b27096e91cc,Samoa,country
+89bdfdc8-4d1d-4a20-bb33-c0963decb64b,Sao Tome and Principe,country,Sao Tome,Principe
+2a195ecd-0e0b-4aa6-ada0-0944a34fea10,Saudi Arabia,country
+77f14398-51d2-4910-b186-c78a9d882a4a,Senegal,country
+26fa01d6-f011-4562-a4af-685cc64c19ec,Serbia and Montenegro,country,Serbia,Montenegro
+15c725d0-a05d-4343-a9f9-01cce326b8ee,Seychelles,country
+e45db434-b32e-4c77-9064-7c0235c9913e,Sierra Leone,country
+e8d5350e-fcd0-4669-8e3a-00bf08b7d12e,Singapore,country
+f1660c36-6972-4184-93ad-7bd40fd8acda,Slovakia,country
+09afd819-5bf7-4828-be83-e1c030845b49,Svalbard,country
+cedab8e5-c9f1-4626-a7f3-050ff46cba71,Sweden,country
+f8376ae0-c0a7-4fba-8938-e8cac4564b23,Switzerland,country
+754502ec-2914-46d2-a696-82beb853ab76,Syria,country
+05324f9d-3b03-4635-9932-ebcff9b18024,Taiwan,country
+650d9710-133f-476a-8cb1-3951b4d783e7,Tajikistan,country
+c0ab6f4b-5f7a-40b5-9db3-5c3284b274c5,Tanzania,country
+4c79c75c-1569-4dd9-85e9-a7dfac04fe55,Thailand,country
+7111886f-cf66-4c76-a909-ddc10fb18cfe,Timor-Leste,country,Timor,Leste
+61f8448c-1f71-40d8-929a-736ea2f024b7,Togo,country
+561de195-08bd-475c-86fa-a8e42102d354,Tonga,country
+24b62ac5-b321-42b2-bc62-8f6908177df4,Trinidad and Tobago,country,Trinidad,Tobago
+0cfca84e-6623-4ff9-978c-65a798af5cea,Tromelin Island,country
+11fc518e-c5a3-4295-b180-ac937245a0f8,Tunisia,country
+ebfe0c45-077d-443b-8b4b-7136b9fb5a83,Turkey,country
+021a7940-f997-43a0-93ef-31dd8766ad2d,Turkmenistan,country
+a1f8edc4-d717-49c4-8f52-3544d77015c5,Turks and Caicos Islands,country,Caicos Islands,Turks Islands
+368ae2c4-832d-4e2f-a97d-0496a01869a6,Tuvalu,country
+b338ac3e-8d99-4652-ad87-d7eaa000b7d8,Uganda,country
+cc4f0ccc-873a-4680-bac5-8a719dea3ab2,United Arab Emirates,country,UAE
+cd15bfa0-2c41-4fa3-93a9-41858e1757a3,United Kingdom,country,UK
+bbfebca5-ce14-4261-a837-ef0b39dbe79c,United States,country,US,USA,America
+8e95fad9-18a3-47b8-9c2b-ab23fa5e9074,Uruguay,country
+8ff1ab0b-f272-4510-9dd6-75a025998adc,Uzbekistan,country
+723e5fcf-ea7b-4c22-ae39-f775c4e8e7ca,Vanuatu,country
+4ff2f586-b8a8-41ce-99da-4991ee7a27c7,Venezuela,country
+05228f5b-9107-4aee-8e37-87ff67bbbc4f,Vietnam,country
+5de21156-0a4f-4e18-9f68-9538cd7a65ce,Virgin Islands,country
+4aafe6d3-3573-4eb2-a7b5-c8d45da4ddbd,Wallis and Futuna,country,Wallis,Futuna
+aca809e5-f277-4cd1-bddd-f88ccaeb6a2f,West Bank,country
+5cf5daa5-17af-44a2-9713-265832d4f90c,Western Sahara,country
+d69e8eeb-d10a-438e-a13f-961703ca9f2f,Yemen,country
+cdadb881-8a6e-463b-a58b-27cd331bb721,Zambia,country
+6244310b-26cd-4da8-b6ba-6be141ec4b07,Zimbabwe,country

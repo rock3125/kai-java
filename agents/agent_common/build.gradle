@@ -1,0 +1,55 @@
+
+/*
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+
+dependencies {
+
+    // spring core
+    compile(group: 'org.springframework', name: 'spring-core', version: springFrameworkVersion) {
+        exclude(module: 'commons-logging')
+    }
+    compile group: 'org.springframework', name: 'spring-context', version: springFrameworkVersion
+
+    // logging
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+
+    // joda time
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+
+    // postgres driver
+    compile(group: 'org.postgresql', name: 'postgresql', version: postgresDriverVersion) {
+        exclude(module: 'slf4j-simple')
+    }
+
+    // jackson json and bson
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.7.3'
+
+    compile group: 'org.yaml', name: 'snakeyaml', version:'1.5'
+    compile group: 'org.jsoup', name: 'jsoup', version:'1.8.3'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.3.4'
+    compile group: 'org.apache.httpcomponents', name: 'httpmime', version:'4.3.4'
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version:'1.3.1'
+    compile group: 'commons-io', name: 'commons-io', version:'2.4'
+
+    // base64 and other utils
+    compile group: 'org.bouncycastle', name: 'bcpg-jdk15on', version:'1.52'
+    compile group: 'org.bouncycastle', name: 'bcpg-jdk16', version:'1.46'
+
+    // unit testing
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework', name: 'spring-test', version: springFrameworkVersion
+}
+

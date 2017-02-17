@@ -1,0 +1,36 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="dayTimeManagerController" class="container-class">
+
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#time">by month</a></li>
+        <li class="active"><a data-toggle="tab" href="#day-time">by day</a></li>
+    </ul>
+
+    <div id="day-time" class="viki-background-white">
+
+        <svg id="timeVisualisation" width="1450" height="600"></svg>
+
+        <br/>
+
+        <button class="button glyphicon glyphicon-arrow-left" data-ng-click="previousDay();" />
+        <button class="button glyphicon glyphicon-arrow-right" data-ng-click="nextDay();" />
+
+    </div>
+
+    <!-- modal dialog for viewing document details -->
+    <div document-viewer />
+
+</div>
+
+

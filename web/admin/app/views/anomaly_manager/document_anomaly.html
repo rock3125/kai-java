@@ -1,0 +1,57 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="documentAnomalyManagerController" class="container-class">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="">anomalous documents</a></li>
+    </ul>
+    <div class="viki-background-white">
+        <table class="table table-borderless">
+
+            <tbody data-ng-repeat="result in anomaly_list">
+            <tr>
+                <td>
+                    <label>{{result.title}}</label><br/>
+                    <button type="button" class="btn btn-info" data-ng-click="details(result.url);">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <a href="" data-ng-click="view(result.url);">{{result.url}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{result.author}}</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            </tbody>
+
+        </table>
+
+        <div class="row"><br/></div>
+        <div class="row"><br/></div>
+
+        <!-- pagination -->
+        <div class="row">
+            <div class="col-lg-6">
+                <ul id="pagination" class="pagination"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- modal dialog for viewing document details -->
+    <div document-viewer />
+
+</div>
+
+
+

@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- new document arrives event dialog -->
+<div id="DocumentEventDialog" data-ng-controller="DocumentEvent" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+            <div class="modal-header viki-modal-header-colour row">
+                <div class="col-xs-12 col-md-10">
+                    <h3 id="DocumentEventTitle">NEW DOCUMENT EVENT</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+
+
+
+                    <div class="row">
+                        <div class="col-md-4 margin-bottom-20">
+                            <b>FILTER BY DOCUMENT ORIGIN</b> <br/><i>(leave blank to ignore)</i>
+                        </div>
+                        <div class="col-md-8 margin-bottom-20">
+                            <div class="form-group">
+                                <div class="input-group date" style="width:100%;">
+                                    <input type='text' data-ng-model="origin" class="form-control text-kaisearch" title="document origin" placeholder="Origin" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+
+                    <div class="row">
+                        <div class="col-md-4 margin-bottom-20">
+                            <b>FILTER BY DOCUMENT TYPE</b><br/><i>(leave blank to ignore)</i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="input-group date" style="width:100%;">
+                                    <input type='text' data-ng-model="document_type_csv" class="form-control text-kaisearch" title="document type" placeholder="e.g. pdf, html, txt" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+
+            <div class="modal-footer row">
+                <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="modalOK();">OK</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="btn btn-kaisearch-alt" data-ng-click="closeModal();">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+#!/bin/bash
+# viki webserver daemon
+# chkconfig: 345 20 80
+# description: webserver daemon
+# processname: webserver
+
+. /etc/init.d/functions
+
+DAEMON_USER=viki
+DAEMON_PATH=/opt/kai/webserver/bin
+DAEMON=viki-webserver.sh
+DAEMONOPTS=""
+
+case "$1" in
+start)
+      	output=`ps aux | grep viki.webserver.Main | grep -v grep`
+        set -- $output
+        pid=$2
+	    if [ -z "$pid" ]; then
+            cd $DAEMON_PATH
+            PID=`daemon --user=$DAEMON_USER $DAEMON_PATH/$DAEMON $DAEMONOPTS > /dev/null 2>&1 & echo $!`
+            if [ -z $PID ]; then
+                printf "%s\n" "Fail"
+            else
+                printf "%s\n" "Ok"
+            fi
+	    else
+            echo "viki-webserver running"
+        fi
+;;
+status)
+       	output=`ps aux | grep viki.webserver.Main | grep -v grep`
+        set -- $output
+        pid=$2
+	    if [ -z "$pid" ]; then
+            echo "stopped"
+        else
+            echo "running"
+        fi
+;;
+stop)
+     	output=`ps aux | grep viki.webserver.Main | grep -v grep`
+        set -- $output
+        pid=$2
+	    if [ -z "$pid" ]; then
+            echo "viki-webserver not running"
+        else
+            echo "stopping viki-webserver"
+            kill -TERM $pid
+        fi
+;;
+
+restart)
+        $0 stop
+        $0 start
+;;
+
+*)
+        echo "Usage: $0 {status|start|stop|restart}"
+        exit 1
+esac

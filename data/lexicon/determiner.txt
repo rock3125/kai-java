@@ -1,0 +1,58 @@
+# wh determiner list
+where:wrb
+when:wrb
+why:wrb
+how:wrb
+
+# progressive determiner list
+my:prps
+his:prps
+her:prps
+our:prps
+your:prps
+its:prps
+their:prps
+
+what:wp
+whatever:wp
+
+who:wp
+whoever:wp
+
+whom:wp
+whomever:wp
+
+whose:wps
+whosever:wps
+
+which:wp
+whichever:wp
+
+# general determiner list
+these:dt
+some:dt
+a few:dt
+a little:dt
+all:dt
+another:dt
+any:dt
+both:dt
+each:dt
+either:dt
+enough:dt
+every:dt
+few:dt
+fewer:dt
+less:dt
+little:dt
+many:dt
+more:dt
+most:dt
+much:dt
+neither:dt
+no:dt
+other:dt
+several:dt
+a:dt
+an:dt
+the:dt

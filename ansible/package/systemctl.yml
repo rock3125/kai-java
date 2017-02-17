@@ -1,0 +1,71 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# setup KAI services
+#
+  - name: copying kai-node service
+    copy: src={{ dev_base }}/server/src/rpm/lib/systemd/system/kai-node.service dest=/lib/systemd/system/
+
+  - name: copying kai-web service
+    copy: src={{ dev_base }}/webserver/src/rpm/lib/systemd/system/kai-web.service dest=/lib/systemd/system/
+
+  - name: copying cassandra service
+    copy: src={{ dev_base }}/server/src/rpm/lib/systemd/system/cassandra.service dest=/lib/systemd/system/
+
+  - name: copying spacy service
+    copy: src={{ dev_base }}/server/src/rpm/lib/systemd/system/spacy.service dest=/lib/systemd/system/
+
+  - name: copying marytts service
+    copy: src={{ dev_base }}/server/src/rpm/lib/systemd/system/marytts-server.service dest=/lib/systemd/system/
+
+  - name: set correct cassandra folder
+    replace: dest=/lib/systemd/system/cassandra.service regexp='/opt/cassandra/bin' replace='{{ s_cassandra_dir }}/bin'
+
+  - name: set correct jdk folder
+    replace: dest=/lib/systemd/system/cassandra.service regexp='JAVA_HOME=.*' replace='JAVA_HOME={{ s_jdk_dir }}'
+
+  - name: create /var/lib/cassandra PID folder
+    file: path=/var/lib/cassandra state=directory owner=kai group=kai
+
+  - name: set permissions on the /var/lib/cassandra PID folder
+    file: path=/var/lib/cassandra state=directory owner=kai group=kai recurse=yes mode=u+rw
+
+  - name: set permissions on the /opt/kai/marytts-1.0 foldder
+    file: path=/opt/kai/marytts-1.0 state=directory owner=kai group=kai recurse=yes mode=u+rw
+
+  - name: reloading services
+    shell: systemctl daemon-reload
+
+  - name: enabling cassandra service
+    shell: systemctl enable cassandra
+
+  - name: enabling marytts service
+    shell: systemctl enable marytts-server
+    when: inventory_hostname != play_hosts[0] or {{play_hosts | length}} == 1
+
+  - name: disable marytts service (if more than one server and main server)
+    shell: systemctl disable marytts-server
+    when: inventory_hostname == play_hosts[0] and {{play_hosts | length}} > 1
+
+  - name: enabling spacy service
+    shell: systemctl enable spacy
+
+  - name: enabling kai-node service
+    shell: systemctl enable kai-node
+
+  - name: enabling kai-web service
+    shell: systemctl enable kai-web
+    when: inventory_hostname == play_hosts[0]
+
+  - name: disable kai-web service
+    shell: systemctl disable kai-web
+    when: inventory_hostname != play_hosts[0]
+

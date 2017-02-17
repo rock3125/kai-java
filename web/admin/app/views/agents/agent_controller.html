@@ -1,0 +1,56 @@
+
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="AgentController" class="container-class">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="">AGENTS</a></li>
+        </ul>
+    </div>
+
+    <div class="viki-background-white">
+        <div class="container">
+
+            <br />
+
+            <div>Here is a list of the available agents for transferring data into KAI.  You can download these agents and their instructions to enable KAI to read data from the specified sources.</div>
+
+
+            <br />
+            <br />
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>description & download</th>
+                        <th>technology</th>
+                        <th>platform</th>
+                        <th>manual</th>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="item in agentList">
+                    <td><a href="" data-ng-click="download(item.url);">{{item.description}}</a></td>
+                    <td>{{item.technology}}</td>
+                    <td>{{item.platform}}</td>
+                    <td><a href="" data-ng-click="instructions(item.instructions);"><img src="images/view-logs.png"></a></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+

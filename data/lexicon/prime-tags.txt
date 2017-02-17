@@ -1,0 +1,14 @@
+# tags that can't be interfered with (always picked)
+
+# coordinating conjunctives
+cc
+
+# modals
+md
+
+# some determiners (possessive and question words)
+wp
+wps
+
+# unique words
+ex

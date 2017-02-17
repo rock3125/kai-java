@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2016 by Peter de Vocht
+ *
+ * All rights reserved. No part of this publication may be reproduced, distributed, or
+ * transmitted in any form or by any means, including photocopying, recording, or other
+ * electronic or mechanical methods, without the prior written permission of the publisher,
+ * except in the case of brief quotations embodied in critical reviews and certain other
+ * noncommercial uses permitted by copyright law.
+ *
+ */
+
+group 'industries.vocht.viki'
+
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+
+    // high performance primitive collection
+    compile group: 'com.carrotsearch', name: 'hppc', version: hppcVersion
+
+    // cassandra
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: cassandraVersion
+
+    // hazelcast
+    compile group: 'com.hazelcast', name: 'hazelcast-all', version: hazelcastVersion
+
+    // spring core
+    compile(group: 'org.springframework', name: 'spring-core', version: springFrameworkVersion) {
+        exclude(module: 'commons-logging')
+    }
+    compile group: 'org.springframework', name: 'spring-context', version: springFrameworkVersion
+
+    // jackson json and bson
+    compile group: 'com.fasterxml.jackson.core', name:'jackson-core', version: jacksonVersion
+
+    compile group: 'de.undercouch', name:'bson4jackson', version: bson4JacksonVersion
+
+    // joda date-time
+    compile group: 'joda-time', name:'joda-time', version: jodaTimeVersion
+
+    // unit testing
+    testCompile group: 'junit', name: 'junit', version: junitVersion
+    testCompile group: 'org.springframework', name: 'spring-test', version: springFrameworkVersion
+}
+
+

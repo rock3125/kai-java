@@ -1,0 +1,79 @@
+# origin http://www.esldesk.com/vocabulary/pronouns
+
+# indefinite pronouns
+none:prp
+everything:prp
+all:prp
+any:prp
+another:prp
+anybody:prp
+anyone:prp
+anything:prp
+each:prp
+either:prp
+less:prp
+much:prp
+neither:prp
+nothing:prp
+none:prp
+one:prp
+other:prp
+somebody:prp
+someone:prp
+something:prp
+both:prp
+few:prp
+many:prp
+others:prp
+several:prp
+more:prp
+most:prp
+some:prp
+
+# personal pronouns
+you:prp
+yourself:prp
+yourselves:prp
+I:prp
+me:prp
+them:prp
+they:prp
+she:prp
+he:prp
+him:prp
+us:prp
+we:prp
+it:prp
+
+your:prps
+yours:prps
+our:prps
+ours:prps
+their:prps
+theirs:prps
+her:prps
+hers:prps
+his:prps
+its:prps
+my:prps
+mine:prps
+
+
+# reflexive pronouns
+herself:prp
+himself:prp
+itself:prp
+myself:prp
+each other:prp
+everybody:prp
+everyone:prp
+no one:prp
+nobody:prp
+one another:prp
+ours:prp
+ourselves:prp
+that:prp
+themselves:prp
+these:prp
+this:prp
+those:prp

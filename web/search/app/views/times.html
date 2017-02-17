@@ -1,0 +1,72 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="SearchController" class="container">
+    <div class="row extra-padding">
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 pull-right">
+            <button class="btn btn-default btn-signout" style="" data-ng-click="signout()" href="">SIGN OUT</button>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4 col-xs-offset-4 col-sm-offset-5 col-md-offset-0 col-lg-offset-0">
+            <img src="./images/logo_white.png" class="header-logo">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li><a data-toggle="tab" data-target="#search" href="#/search">SEARCH</a></li>
+            <li><a data-toggle="tab" data-target="#experts" href="#/experts">EXPERTS</a></li>
+            <li><a data-toggle="tab" data-target="#files" href="#/files">FIND FILE</a></li>
+            <li class="active"><a data-toggle="tab" data-target="#times" href="#/times">TIME LINE</a></li>
+            <li data-ng-repeat="tab in user_tab_list">
+                <a data-toggle="tab" data-target="#{{tab.type}}" href="" data-ng-click="user_tab(tab.tab_name,tab.type);">{{tab.tab_name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="viki-background-white">
+    <div class="container">
+        <br/>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group" style="width: 200px;">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" id="date1" title="date-time picker" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </td>
+                <td style="padding-left: 20px;">
+                    <button class="button glyphicon glyphicon-arrow-left" data-ng-click="previousMonth();" />
+                    <button class="button glyphicon glyphicon-arrow-right" data-ng-click="nextMonth();" />
+                </td>
+            </tr>
+        </table>
+
+        <svg id="timeVisualisation" width="1450" height="600"></svg>
+
+        <br/>
+
+        <ul id="ulPagination" class="pagination">
+            <li><button id="liPrev" data-ng-click="prev()" class="btn btn-default">prev</button></li>
+            <li><button id="liNext" data-ng-click="next()" class="btn btn-default">next</button></li>
+        </ul>
+
+    </div>
+
+    <!-- modal dialog for viewing document details -->
+    <div document-viewer />
+
+</div>

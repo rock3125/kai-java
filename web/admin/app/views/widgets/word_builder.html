@@ -1,0 +1,117 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- setup word selections -->
+<div id="WordBuilderDialog" data-ng-controller="WordBuilder" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+            <div class="modal-header viki-modal-header-colour row">
+                <div class="col-xs-12 col-md-10">
+                    <h3 id="WordBuilderTitle">WORD BUILDER</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div id="trShowMetadata" class="col-md-12 margin-bottom-20">
+                        <b>METADATA</b>
+                    </div>
+                    <div class="col-md-offset-3 col-md-6 margin-bottom-20">
+                        <div class="form-group">
+                            <div class='input-group date' style="width:100%;">
+                                <input type='text' data-ng-model="metadata" class="form-control text-kaisearch" title="metadata field name" placeholder="Fetadata Field Name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6 margin-bottom-20">
+                        <div class="form-group">
+                            <div class='input-group' style="width:100%;">
+                                <input type='text' data-ng-model="word" class="form-control text-kaisearch" title="word" placeholder="The Word" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 margin-bottom-20">
+                        <div class="form-group login-group-checkbox">
+                            <input type="checkbox" data-ng-model="exact" class="viki-checkbox">
+                            <label>EXACT MATCH</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 120px">
+                                {{currentType}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="" data-ng-click="selectType('any');">Any / Don't care</a></li>
+                                <li><a href="" data-ng-click="selectType('noun');">Noun</a></li>
+                                <li><a href="" data-ng-click="selectType('proper noun');">Proper Noun</a></li>
+                                <li><a href="" data-ng-click="selectType('verb');">Verb</a></li>
+                                <li><a href="" data-ng-click="selectType('adjective');">Adjective</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <button class="btn btn-kaisearch" type="button" data-ng-click="add()">ADD</button>&nbsp;
+                    </div>
+                </div>
+
+                    <tr>
+                        <td colspan="5">
+                            <table class="table table-hover" style="background-color: #eeeeee">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Word</th>
+                                        <th>Exact Match</th>
+                                        <th>Word Type</th>
+                                        <th>Next Word Join</th>
+                                    </tr>
+                                </thead>
+                                <tr data-ng-repeat="item in wordList">
+                                    <td style="float: right;"><button class="btn" data-ng-click="removeWord(item.word);" type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                    <td>{{item.word}}</td>
+                                    <td>{{item.exact}}</td>
+                                    <td>{{item.type}}</td>
+                                    <td>
+                                        <div id="logic_{{item.id}}" style="display: none;">
+                                            <label><input type="radio" name="logic_{{item.id}}" data-ng-click="setLogic(item.id,'and');" checked>and</label>
+                                            <label><input type="radio" name="logic_{{item.id}}" data-ng-click="setLogic(item.id,'or');">or</label>
+                                            <label><input type="radio" name="logic_{{item.id}}" data-ng-click="setLogic(item.id,'and not');">and not</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="modal-footer row">
+                <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="modalOK();">OK</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="btn btn-kaisearch-alt" data-ng-click="closeModal();">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

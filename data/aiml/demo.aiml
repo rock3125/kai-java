@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+    <category>
+        <pattern>(Where is|Who is|call|telephone|extension) (Jim|Jones|Jim Jones)</pattern>
+        <template>Jim Jones is head of marketing, extension 55112.  Quay building, 2nd floor, 125 Queen Street, Auckland.</template>
+    </category>
+</aiml>

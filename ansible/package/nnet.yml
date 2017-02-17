@@ -1,0 +1,37 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+
+#
+# install nnet data
+#
+  - name: testing WSD NNET folder exists
+    stat: path={{ kai_base }}/data/nnet/combined-nnet.bin
+    register: nnet_data_exists
+
+  - name: create WSD NNET folder
+    file: path={{ kai_base }}/data/nnet state=directory owner=kai group=kai
+    when: nnet_data_exists.stat.exists == False
+
+  - name: download WSD NNET (if dne)
+    shell: scp {{ software_base }}/{{ nnet_file }} /tmp/{{ nnet_file }}
+    when: nnet_data_exists.stat.exists == False
+
+  - name: install WSD NNET from local file
+    shell: tar xvzf /tmp/{{ nnet_file }}
+    args:
+      chdir: /opt/kai/data/nnet
+    when: nnet_data_exists.stat.exists == False
+
+  - name: removing nnet download
+    file: path=/tmp/{{ nnet_file }} state=absent
+    when:  nnet_data_exists.stat.exists == False
+
+

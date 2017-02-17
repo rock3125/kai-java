@@ -1,0 +1,161 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- pick time interval dialog -->
+<div id="DateTimeRangeDialog" data-ng-controller="DateTimeRange" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+            <div class="modal-header viki-modal-header-colour row">
+                <div class="col-xs-12 col-md-10">
+                    <h3 id="DateTimeRangeDialogTitle">DATE-TIME RANGE INSIDE DOCUMENT</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1 margin-bottom-20">
+                        <b>TIME RANGE</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 120px">
+                                {{dateRangeType}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="" data-ng-click="selectDateRange('exact');">exact</a></li>
+                                <li><a href="" data-ng-click="selectDateRange('between');">between</a></li>
+                                <li><a href="" data-ng-click="selectDateRange('before');">before</a></li>
+                                <li><a href="" data-ng-click="selectDateRange('after');">after</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="divLogic1" class="col-md-2 col-md-offset-1 margin-bottom-20" style="display: none;">
+                        <b>LOGIC</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div id="divLogic2" class="dropdown" style="display: none;">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 120px">
+                                {{dateLogic}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="" data-ng-click="selectLogic('and');">and</a></li>
+                                <li><a href="" data-ng-click="selectLogic('and not');">and not</a></li>
+                                <li><a href="" data-ng-click="selectLogic('or');">or</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1 margin-bottom-20">
+                        <b>START DATE</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1' style="width:100%;">
+                                <input type='text' id="date1" class="form-control text-kaisearch" id="date1" title="date-time picker 1" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="divEndDate1" class="col-md-2 col-md-offset-1 margin-bottom-20" style="display: none;">
+                        <b>END DATE</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div id="divEndDate2" class="form-group" style=" display: none;">
+                            <div class='input-group date' id='datetimepicker2' style="width:100%;">
+                                <input type='text' id="date2" class="form-control text-kaisearch" id="date2" title="date-time picker 2" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1 margin-bottom-20">
+                        <b>START TIME</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker3' style="width:100%;">
+                                <input type='text' id="time1" class="form-control text-kaisearch" title="date-time picker 3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="divEndTime1" class="col-md-2 col-md-offset-1 margin-bottom-20" style="display: none;">
+                        <b>END TIME</b>
+                    </div>
+                    <div class="col-md-3 margin-bottom-20">
+                        <div id="divEndTime2" class="form-group" style="display: none;">
+                            <div class='input-group date' id='datetimepicker4' style="width:100%;">
+                                <input type='text' id="time2" class="form-control text-kaisearch" title="date-time picker 4" />
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                <div class="row">
+
+                            <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                                <div class="form-group">
+                                    <div class='input-group date' style="width:100%;">
+
+                                        <button type="button" class="btn btn btn-kaisearch" data-ng-click="addTime()">ADD</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <div class='input-group date'  style="width:100%;">
+
+                                        <button type="button" class="btn btn btn-kaisearch-alt" data-ng-click="clearTime()">CLEAR</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 margin-bottom-20">
+                        <div data-ng-repeat="dateTime in dateTimeList">
+                            <b>{{dateTime.prettyStr}}</b>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer row">
+                <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="modalOK();">OK</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="btn btn-kaisearch-alt" data-ng-click="closeModal();">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

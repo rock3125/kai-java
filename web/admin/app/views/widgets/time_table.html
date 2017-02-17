@@ -1,0 +1,250 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- modal dialog for document details -->
+<div id="TimeTableDialog" data-ng-controller="TimeTable" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+            <div class="modal-header viki-modal-header-colour row">
+                <h3 id="TimeTableDialogTitle">TIME SCHEDULE</h3>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-striped table-bordered table-hover table-condensed" style="font-family: 'Open Sans', sans-serif; font-size: 9px; font-weight: 900; width: 100%;">
+                    <tr>
+                        <td></td>
+                        <td data-ng-click="select('0');">00:00</td>
+                        <td data-ng-click="select('1');">01:00</td>
+                        <td data-ng-click="select('2');">02:00</td>
+                        <td data-ng-click="select('3');">03:00</td>
+                        <td data-ng-click="select('4');">04:00</td>
+                        <td data-ng-click="select('5');">05:00</td>
+                        <td data-ng-click="select('6');">06:00</td>
+                        <td data-ng-click="select('7');">07:00</td>
+                        <td data-ng-click="select('8');">08:00</td>
+                        <td data-ng-click="select('9');">09:00</td>
+                        <td data-ng-click="select('10');">10:00</td>
+                        <td data-ng-click="select('11');">11:00</td>
+                        <td data-ng-click="select('12');">12:00</td>
+                        <td data-ng-click="select('13');">13:00</td>
+                        <td data-ng-click="select('14');">14:00</td>
+                        <td data-ng-click="select('15');">15:00</td>
+                        <td data-ng-click="select('16');">16:00</td>
+                        <td data-ng-click="select('17');">17:00</td>
+                        <td data-ng-click="select('18');">18:00</td>
+                        <td data-ng-click="select('19');">19:00</td>
+                        <td data-ng-click="select('20');">20:00</td>
+                        <td data-ng-click="select('21');">21:00</td>
+                        <td data-ng-click="select('22');">22:00</td>
+                        <td data-ng-click="select('23');">23:00</td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('mon');">Monday</td>
+                        <td id="mon-0" data-ng-click="select('mon-0');"></td>
+                        <td id="mon-1" data-ng-click="select('mon-1');"></td>
+                        <td id="mon-2" data-ng-click="select('mon-2');"></td>
+                        <td id="mon-3" data-ng-click="select('mon-3');"></td>
+                        <td id="mon-4" data-ng-click="select('mon-4');"></td>
+                        <td id="mon-5" data-ng-click="select('mon-5');"></td>
+                        <td id="mon-6" data-ng-click="select('mon-6');"></td>
+                        <td id="mon-7" data-ng-click="select('mon-7');"></td>
+                        <td id="mon-8" data-ng-click="select('mon-8');"></td>
+                        <td id="mon-9" data-ng-click="select('mon-9');"></td>
+                        <td id="mon-10" data-ng-click="select('mon-10');"></td>
+                        <td id="mon-11" data-ng-click="select('mon-11');"></td>
+                        <td id="mon-12" data-ng-click="select('mon-12');"></td>
+                        <td id="mon-13" data-ng-click="select('mon-13');"></td>
+                        <td id="mon-14" data-ng-click="select('mon-14');"></td>
+                        <td id="mon-15" data-ng-click="select('mon-15');"></td>
+                        <td id="mon-16" data-ng-click="select('mon-16');"></td>
+                        <td id="mon-17" data-ng-click="select('mon-17');"></td>
+                        <td id="mon-18" data-ng-click="select('mon-18');"></td>
+                        <td id="mon-19" data-ng-click="select('mon-19');"></td>
+                        <td id="mon-20" data-ng-click="select('mon-20');"></td>
+                        <td id="mon-21" data-ng-click="select('mon-21');"></td>
+                        <td id="mon-22" data-ng-click="select('mon-22');"></td>
+                        <td id="mon-23" data-ng-click="select('mon-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('tue');">Tuesday</td>
+                        <td id="tue-0" data-ng-click="select('tue-0');"></td>
+                        <td id="tue-1" data-ng-click="select('tue-1');"></td>
+                        <td id="tue-2" data-ng-click="select('tue-2');"></td>
+                        <td id="tue-3" data-ng-click="select('tue-3');"></td>
+                        <td id="tue-4" data-ng-click="select('tue-4');"></td>
+                        <td id="tue-5" data-ng-click="select('tue-5');"></td>
+                        <td id="tue-6" data-ng-click="select('tue-6');"></td>
+                        <td id="tue-7" data-ng-click="select('tue-7');"></td>
+                        <td id="tue-8" data-ng-click="select('tue-8');"></td>
+                        <td id="tue-9" data-ng-click="select('tue-9');"></td>
+                        <td id="tue-10" data-ng-click="select('tue-10');"></td>
+                        <td id="tue-11" data-ng-click="select('tue-11');"></td>
+                        <td id="tue-12" data-ng-click="select('tue-12');"></td>
+                        <td id="tue-13" data-ng-click="select('tue-13');"></td>
+                        <td id="tue-14" data-ng-click="select('tue-14');"></td>
+                        <td id="tue-15" data-ng-click="select('tue-15');"></td>
+                        <td id="tue-16" data-ng-click="select('tue-16');"></td>
+                        <td id="tue-17" data-ng-click="select('tue-17');"></td>
+                        <td id="tue-18" data-ng-click="select('tue-18');"></td>
+                        <td id="tue-19" data-ng-click="select('tue-19');"></td>
+                        <td id="tue-20" data-ng-click="select('tue-20');"></td>
+                        <td id="tue-21" data-ng-click="select('tue-21');"></td>
+                        <td id="tue-22" data-ng-click="select('tue-22');"></td>
+                        <td id="tue-23" data-ng-click="select('tue-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('wed');">Wednesday</td>
+                        <td id="wed-0" data-ng-click="select('wed-0');"></td>
+                        <td id="wed-1" data-ng-click="select('wed-1');"></td>
+                        <td id="wed-2" data-ng-click="select('wed-2');"></td>
+                        <td id="wed-3" data-ng-click="select('wed-3');"></td>
+                        <td id="wed-4" data-ng-click="select('wed-4');"></td>
+                        <td id="wed-5" data-ng-click="select('wed-5');"></td>
+                        <td id="wed-6" data-ng-click="select('wed-6');"></td>
+                        <td id="wed-7" data-ng-click="select('wed-7');"></td>
+                        <td id="wed-8" data-ng-click="select('wed-8');"></td>
+                        <td id="wed-9" data-ng-click="select('wed-9');"></td>
+                        <td id="wed-10" data-ng-click="select('wed-10');"></td>
+                        <td id="wed-11" data-ng-click="select('wed-11');"></td>
+                        <td id="wed-12" data-ng-click="select('wed-12');"></td>
+                        <td id="wed-13" data-ng-click="select('wed-13');"></td>
+                        <td id="wed-14" data-ng-click="select('wed-14');"></td>
+                        <td id="wed-15" data-ng-click="select('wed-15');"></td>
+                        <td id="wed-16" data-ng-click="select('wed-16');"></td>
+                        <td id="wed-17" data-ng-click="select('wed-17');"></td>
+                        <td id="wed-18" data-ng-click="select('wed-18');"></td>
+                        <td id="wed-19" data-ng-click="select('wed-19');"></td>
+                        <td id="wed-20" data-ng-click="select('wed-20');"></td>
+                        <td id="wed-21" data-ng-click="select('wed-21');"></td>
+                        <td id="wed-22" data-ng-click="select('wed-22');"></td>
+                        <td id="wed-23" data-ng-click="select('wed-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('thu');">Thursday</td>
+                        <td id="thu-0" data-ng-click="select('thu-0');"></td>
+                        <td id="thu-1" data-ng-click="select('thu-1');"></td>
+                        <td id="thu-2" data-ng-click="select('thu-2');"></td>
+                        <td id="thu-3" data-ng-click="select('thu-3');"></td>
+                        <td id="thu-4" data-ng-click="select('thu-4');"></td>
+                        <td id="thu-5" data-ng-click="select('thu-5');"></td>
+                        <td id="thu-6" data-ng-click="select('thu-6');"></td>
+                        <td id="thu-7" data-ng-click="select('thu-7');"></td>
+                        <td id="thu-8" data-ng-click="select('thu-8');"></td>
+                        <td id="thu-9" data-ng-click="select('thu-9');"></td>
+                        <td id="thu-10" data-ng-click="select('thu-10');"></td>
+                        <td id="thu-11" data-ng-click="select('thu-11');"></td>
+                        <td id="thu-12" data-ng-click="select('thu-12');"></td>
+                        <td id="thu-13" data-ng-click="select('thu-13');"></td>
+                        <td id="thu-14" data-ng-click="select('thu-14');"></td>
+                        <td id="thu-15" data-ng-click="select('thu-15');"></td>
+                        <td id="thu-16" data-ng-click="select('thu-16');"></td>
+                        <td id="thu-17" data-ng-click="select('thu-17');"></td>
+                        <td id="thu-18" data-ng-click="select('thu-18');"></td>
+                        <td id="thu-19" data-ng-click="select('thu-19');"></td>
+                        <td id="thu-20" data-ng-click="select('thu-20');"></td>
+                        <td id="thu-21" data-ng-click="select('thu-21');"></td>
+                        <td id="thu-22" data-ng-click="select('thu-22');"></td>
+                        <td id="thu-23" data-ng-click="select('thu-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('fri');">Friday</td>
+                        <td id="fri-0" data-ng-click="select('fri-0');"></td>
+                        <td id="fri-1" data-ng-click="select('fri-1');"></td>
+                        <td id="fri-2" data-ng-click="select('fri-2');"></td>
+                        <td id="fri-3" data-ng-click="select('fri-3');"></td>
+                        <td id="fri-4" data-ng-click="select('fri-4');"></td>
+                        <td id="fri-5" data-ng-click="select('fri-5');"></td>
+                        <td id="fri-6" data-ng-click="select('fri-6');"></td>
+                        <td id="fri-7" data-ng-click="select('fri-7');"></td>
+                        <td id="fri-8" data-ng-click="select('fri-8');"></td>
+                        <td id="fri-9" data-ng-click="select('fri-9');"></td>
+                        <td id="fri-10" data-ng-click="select('fri-10');"></td>
+                        <td id="fri-11" data-ng-click="select('fri-11');"></td>
+                        <td id="fri-12" data-ng-click="select('fri-12');"></td>
+                        <td id="fri-13" data-ng-click="select('fri-13');"></td>
+                        <td id="fri-14" data-ng-click="select('fri-14');"></td>
+                        <td id="fri-15" data-ng-click="select('fri-15');"></td>
+                        <td id="fri-16" data-ng-click="select('fri-16');"></td>
+                        <td id="fri-17" data-ng-click="select('fri-17');"></td>
+                        <td id="fri-18" data-ng-click="select('fri-18');"></td>
+                        <td id="fri-19" data-ng-click="select('fri-19');"></td>
+                        <td id="fri-20" data-ng-click="select('fri-20');"></td>
+                        <td id="fri-21" data-ng-click="select('fri-21');"></td>
+                        <td id="fri-22" data-ng-click="select('fri-22');"></td>
+                        <td id="fri-23" data-ng-click="select('fri-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('sat');">Saturday</td>
+                        <td id="sat-0" data-ng-click="select('sat-0');"></td>
+                        <td id="sat-1" data-ng-click="select('sat-1');"></td>
+                        <td id="sat-2" data-ng-click="select('sat-2');"></td>
+                        <td id="sat-3" data-ng-click="select('sat-3');"></td>
+                        <td id="sat-4" data-ng-click="select('sat-4');"></td>
+                        <td id="sat-5" data-ng-click="select('sat-5');"></td>
+                        <td id="sat-6" data-ng-click="select('sat-6');"></td>
+                        <td id="sat-7" data-ng-click="select('sat-7');"></td>
+                        <td id="sat-8" data-ng-click="select('sat-8');"></td>
+                        <td id="sat-9" data-ng-click="select('sat-9');"></td>
+                        <td id="sat-10" data-ng-click="select('sat-10');"></td>
+                        <td id="sat-11" data-ng-click="select('sat-11');"></td>
+                        <td id="sat-12" data-ng-click="select('sat-12');"></td>
+                        <td id="sat-13" data-ng-click="select('sat-13');"></td>
+                        <td id="sat-14" data-ng-click="select('sat-14');"></td>
+                        <td id="sat-15" data-ng-click="select('sat-15');"></td>
+                        <td id="sat-16" data-ng-click="select('sat-16');"></td>
+                        <td id="sat-17" data-ng-click="select('sat-17');"></td>
+                        <td id="sat-18" data-ng-click="select('sat-18');"></td>
+                        <td id="sat-19" data-ng-click="select('sat-19');"></td>
+                        <td id="sat-20" data-ng-click="select('sat-20');"></td>
+                        <td id="sat-21" data-ng-click="select('sat-21');"></td>
+                        <td id="sat-22" data-ng-click="select('sat-22');"></td>
+                        <td id="sat-23" data-ng-click="select('sat-23');"></td>
+                    </tr>
+                    <tr>
+                        <td data-ng-click="select('sun');">Sunday</td>
+                        <td id="sun-0" data-ng-click="select('sun-0');"></td>
+                        <td id="sun-1" data-ng-click="select('sun-1');"></td>
+                        <td id="sun-2" data-ng-click="select('sun-2');"></td>
+                        <td id="sun-3" data-ng-click="select('sun-3');"></td>
+                        <td id="sun-4" data-ng-click="select('sun-4');"></td>
+                        <td id="sun-5" data-ng-click="select('sun-5');"></td>
+                        <td id="sun-6" data-ng-click="select('sun-6');"></td>
+                        <td id="sun-7" data-ng-click="select('sun-7');"></td>
+                        <td id="sun-8" data-ng-click="select('sun-8');"></td>
+                        <td id="sun-9" data-ng-click="select('sun-9');"></td>
+                        <td id="sun-10" data-ng-click="select('sun-10');"></td>
+                        <td id="sun-11" data-ng-click="select('sun-11');"></td>
+                        <td id="sun-12" data-ng-click="select('sun-12');"></td>
+                        <td id="sun-13" data-ng-click="select('sun-13');"></td>
+                        <td id="sun-14" data-ng-click="select('sun-14');"></td>
+                        <td id="sun-15" data-ng-click="select('sun-15');"></td>
+                        <td id="sun-16" data-ng-click="select('sun-16');"></td>
+                        <td id="sun-17" data-ng-click="select('sun-17');"></td>
+                        <td id="sun-18" data-ng-click="select('sun-18');"></td>
+                        <td id="sun-19" data-ng-click="select('sun-19');"></td>
+                        <td id="sun-20" data-ng-click="select('sun-20');"></td>
+                        <td id="sun-21" data-ng-click="select('sun-21');"></td>
+                        <td id="sun-22" data-ng-click="select('sun-22');"></td>
+                        <td id="sun-23" data-ng-click="select('sun-23');"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer row">
+                <div class="col-md-3 col-md-offset-3 col-sm-6" style="margin-bottom:30px;">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="modalOK();">OK</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="btn btn-kaisearch-alt" data-ng-click="closeModal();">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

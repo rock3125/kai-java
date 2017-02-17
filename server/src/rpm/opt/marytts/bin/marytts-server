@@ -1,0 +1,61 @@
+#!/bin/sh -
+
+##############################################################################
+##
+##  marytts-server start up script for UN*X
+##
+##############################################################################
+
+APP_HOME=/opt/marytts
+cd "$APP_HOME" >/dev/null
+APP_NAME="marytts-server"
+
+APP_BASE_NAME=`basename "$0"`
+export JAVA=/opt/jdk
+JAVACMD="$JAVA/bin/java"
+
+# Add default JVM options here. You can also use JAVA_OPTS and MARYTTS_SERVER_OPTS to pass JVM options to this script.
+DEFAULT_JVM_OPTS="-Dmary.base=$APP_HOME"
+
+# Use the maximum available, or set MAX_FD != -1 to use that value.
+MAX_FD="maximum"
+
+warn ( ) {
+    echo "$*"
+}
+
+die ( ) {
+    echo
+    echo "$*"
+    echo
+    exit 1
+}
+
+CLASSPATH=$APP_HOME/lib/marytts-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-runtime-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-de-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-en-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-fr-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-it-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-lb-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-ru-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-sv-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-te-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-lang-tr-6.0-SNAPSHOT.jar:$APP_HOME/lib/voice-cmu-slt-hsmm-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-common-6.0-SNAPSHOT.jar:$APP_HOME/lib/marytts-signalproc-6.0-SNAPSHOT.jar:$APP_HOME/lib/commons-collections-3.2.2.jar:$APP_HOME/lib/emotionml-checker-java-1.1.jar:$APP_HOME/lib/fast-md5-2.7.1.jar:$APP_HOME/lib/guava-14.0.1.jar:$APP_HOME/lib/hsqldb-2.0.0.jar:$APP_HOME/lib/httpcore-4.1.jar:$APP_HOME/lib/httpcore-nio-4.1.jar:$APP_HOME/lib/icu4j-54.1.1.jar:$APP_HOME/lib/jtok-core-1.9.3.jar:$APP_HOME/lib/opennlp-tools-1.5.3.jar:$APP_HOME/lib/trove4j-2.0.2.jar:$APP_HOME/lib/groovy-all-2.4.7.jar:$APP_HOME/lib/commons-io-2.5.jar:$APP_HOME/lib/commons-lang-2.6.jar:$APP_HOME/lib/log4j-1.2.16.jar:$APP_HOME/lib/jama-1.0.3.jar:$APP_HOME/lib/Jampack-1.0.jar:$APP_HOME/lib/swing-layout-1.0.3.jar:$APP_HOME/lib/slf4j-api-1.6.1.jar:$APP_HOME/lib/slf4j-log4j12-1.6.1.jar:$APP_HOME/lib/opennlp-maxent-3.0.3.jar:$APP_HOME/lib/jwnl-1.3.3.jar
+
+# Increase the maximum file descriptors if we can.
+MAX_FD_LIMIT=`ulimit -H -n`
+if [ $? -eq 0 ] ; then
+    if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
+        MAX_FD="$MAX_FD_LIMIT"
+    fi
+    ulimit -n $MAX_FD
+    if [ $? -ne 0 ] ; then
+        warn "Could not set maximum file descriptor limit: $MAX_FD"
+    fi
+else
+    warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
+fi
+
+# Escape application args
+for s in "${@}" ; do
+    s=\"$s\"
+    APP_ARGS=$APP_ARGS" "$s
+done
+
+# Collect all arguments for the java command, following the shell quoting and substitution rules
+eval set -- "$DEFAULT_JVM_OPTS" "$JAVA_OPTS" "$MARYTTS_SERVER_OPTS" -classpath "\"$APP_HOME/lib/*\"" marytts.server.Mary "$APP_ARGS"
+
+"$JAVACMD" "$@" &
+
+exit 0

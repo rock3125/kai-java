@@ -1,0 +1,97 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="SettingsController" class="container-class">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li class="active"><a data-toggle="tab" href="" data-ng-click="set_config(null)">STATUS</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('setup')">SETUP</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('email')">EMAIL</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('search')">SEARCH</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('k-means')">K-MEANS</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('textrank')">TEXT RANK</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('encryption')">ENCRYPTION</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('lexicons')">LEXICONS</a></li>
+            <li><a data-toggle="tab" href="" data-ng-click="set_config('vader')">VADER</a></li>
+        </ul>
+    </div>
+    <div id="divStatus" class="viki-background-white">
+        <div class="container">
+            <br/>
+            <div class="row">
+                <div class="col-lg-10">
+                    <table class="table table-striped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>TYPE</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tr data-ng-repeat='(server_type, set) in server_list_by_type'>
+                            <td><button data-ng-click="toggle('table_' + server_type);">+</button></td>
+                            <td>{{server_type}}</td>
+                            <td colspan="4">
+                                <table id="table_{{server_type}}" class="table table-striped table-hover table-condensed">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>URL</th>
+                                        <th>ACTIVE</th>
+                                        <th>LOGS</th>
+                                    </tr>
+                                    <tr data-ng-repeat="server in set">
+                                        <td>{{server.id}}</td>
+                                        <td>{{server.url}}</td>
+                                        <td><img src="{{server.image}}" title="{{server.tag}}"></td>
+                                        <td><a href="" data-ng-click="viewLog(server.url)"><img src="images/view-logs.png" title="view logs"></a></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <input type="button" onclick="$('#SettingsController').scope().refresh();" value="refresh" />
+            </div>
+        </div>
+    </div>
+
+    <div id="divConfig" class="viki-background-white" style="display: none;">
+        <div class="container">
+            <br/>
+            <div class="row">
+                <div class="col-lg-10">
+                    <table class="table table-stripe table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>VALUE</th>
+                            </tr>
+                        </thead>
+                        <tr data-ng-repeat='config in config_list'>
+                            <td>{{config.name}}</td>
+                            <td><input id="{{config.name}}" title="{{config.name}}" type="text" style="width:100%" value="{{config.value}}" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <log-viewer />
+
+</div>

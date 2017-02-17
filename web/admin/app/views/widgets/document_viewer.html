@@ -1,0 +1,100 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<!-- modal dialog for document details -->
+<div id="DocumentDetailDialog" data-ng-controller="DocumentViewer" class="modal fade">
+    <div class="modal-dialog large">
+        <div class="modal-content container">
+            <div class="modal-header viki-modal-header-colour row">
+                <div class="col-xs-3 col-sm-2 col-md-1 pull-right">
+                    <a href="" class="btn btn-signout" data-ng-click="closeModal();">X</a>
+                </div>
+                <div class="col-xs-12 col-md-10">
+                    <h3 id="DocumentDetailDialogTitle">Document Details</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable">
+                    <div class="row" style="margin-bottom:40px; margin-top:20px;">
+                        <ul id="navTabs" class="nav nav-tabs nav-kaiModal">
+                            <li class="active"><a data-target="#tab1" data-toggle="tab">METADATA</a></li>
+                            <li><a data-target="#tab2" data-toggle="tab">SUMMARY</a></li>
+                            <li><a data-target="#tab3" data-toggle="tab">SIMILAR DOCUMENTS</a></li>
+                            <li><a data-target="#tab4" data-toggle="tab">EMOTIONAL ANALYSIS</a></li>
+                            <li><a data-target="#tab5" data-toggle="tab">STATS</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <table class="table table-borderless">
+                                <tr data-ng-repeat="(key, value) in metadata">
+                                    <td class="viki-tabledata-width">{{key}}</td>
+                                    <td class="viki-tabledata-text">{{value}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td colspan="2">text summary</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="viki-tabledata-text">{{summarisation_item.sentence_id}}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">top terms</td>
+                                </tr>
+                                <tr data-ng-repeat="result2 in summarisation_item.wordList">
+                                    <td></td>
+                                    <td class="viki-tabledata-text">{{result2}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr data-ng-repeat="result3 in summarisation_item.similarDocumentList">
+                                    <td colspan="2"><a href="" data-ng-click="viewDetails(result3.url2);">{{result3.url2}}</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td style="height: 650px;">
+                                        <svg id="visualisation" style="position: absolute; width: 95%; height: 650px; background: #f8f8f8;"></svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab5">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td style="height: 650px;">
+                                        <svg id="statisticsVisualisation" style="position: absolute; width: 95%; height: 650px; background: #f8f8f8;"></svg>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer row">
+                <div class="col-md-4 col-sm-4 col-xs-8 col-xs-offset-2 col-sm-offset-4 col-md-offset-4">
+                    <a href="" class="btn btn-kaisearch" data-ng-click="download();">DOWNLOAD</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

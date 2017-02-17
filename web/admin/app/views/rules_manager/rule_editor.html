@@ -1,0 +1,206 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<div id="ruleEditorController" class="container-class" data-ng-controller="RuleEditorController">
+    <div class="container">
+
+        <ul class="nav nav-tabs nav-kaiHeader">
+            <li class="goback"><a data-toggle="tab" href="#/dashboard"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></li>
+            <li><a data-toggle="tab" data-target="#rules" href="#/rules">EXISTING RULES</a></li>
+            <li class="active"><a data-toggle="tab" data-target="#rule-editor" href="#/rule-editor">{{tabText}}</a></li>
+        </ul>
+    </div>
+    <div class="viki-background-white">
+        <div class="container">
+
+            <h3 class="heading">{{headerText}}</h3>
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label>NAME OF RULE</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="txtRuleName" class="form-control text-kaisearch" data-ng-model="rule_name" placeholder="Rule Name">
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>DEFINE AN EVENT</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropDownEvent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                            EVENT
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropDownMenuEvent">
+                            <li><a href="" data-ng-click="manual();">manual / user activated</a></li>
+                            <li><a href="" data-ng-click="newDocumentEvent();">a new document arrives ...</a></li>
+                            <li><a href="" data-ng-click="selectInterval();">time interval (e.g. 3 hourly)</a></li>
+                            <li><a href="" data-ng-click="selectTimeSchedule();">time schedule (e.g. every Sunday at 5pm)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                                <table class="table table-hover" style="background-color: #eeeeee">
+                                    <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>TYPE</th>
+                                    </tr>
+                                    </thead>
+                                    <tr data-ng-repeat="item in event_list">
+                                        <td style="float: right; border-top: 0;"><button class="btn btn-remove" data-ng-click="removeEvent();" type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                        <td>{{item.description}}</td>
+                                        <td>{{item.type}}</td>
+                                    </tr>
+                                </table>
+
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>DEFINE A SERIES OF CONDITIONS</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropDownWhen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                            CONDITION
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropDownMenuWhen">
+                            <li><a href="" data-ng-click="dateTimeRange('Date-time in Document Content', 'date-time-content');">document content date-time ...</a></li>
+                            <li><a href="" data-ng-click="dateTimeRange('Document Created date-time', 'date-time-created');">document created date-time ...</a></li>
+                            <li><a href="" data-ng-click="wordBuilder('Document Content contains', 'content-contains', false);">document contents contains ...</a></li>
+                            <li><a href="" data-ng-click="wordBuilder('Document Title contains', 'title-contains', false);">document title contains ...</a></li>
+                            <li><a href="" data-ng-click="wordBuilder('Document Metadata contains','metadata-contains', true);">document metadata field contains ...</a></li>
+                            <li><a href="" data-ng-click="wordBuilder('Document Author(s)','author', false);">document author(s) ...</a></li>
+                            <li><a href="" data-ng-click="wordBuilder('Document Summary contains','summary-contains', false);">document summary contains ...</a></li>
+                            <li><a href="" data-ng-click="wordSet();">document contains specific words more than normal ...</a></li>
+                            <li><a href="" data-ng-click="addCondition('detect if a document has an overly negative contents','negative-content');">document has overly negative content ...</a></li>
+                            <li><a href="" data-ng-click="addCondition('detect if a document has an overly positive contents','positive-content');">document has overly positive content ...</a></li>
+                            <li><a href="" data-ng-click="addCondition('detect if a document is a close duplicate of another','duplicate-content');">document is a close duplicate of another ...</a></li>
+                            <li><a href="" data-ng-click="addCondition('detect if a document has sexual contents','sexual-content');">document contains sexual contents ...</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-hover" style="background-color: #eeeeee">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>DESCRIPTION</th>
+                            <th>TYPE</th>
+                            <!--<th>NEXT STATEMENT</th>-->
+                        </tr>
+                        </thead>
+                        <tr data-ng-repeat="item in condition_list">
+                            <td style="float: right; border-top: 0;"><button class="btn btn-remove" data-ng-click="removeCondition(item.id);" type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.type}}</td>
+                            <td>
+                                <div id="logic_{{item.id}}" style="display: none;">
+                                    <label><input id="logic_{{item.id}}_0" type="radio" name="logic_{{item.id}}" value="and" data-ng-click="setLogic(item.id,'and');" checked>and</label>
+                                    <label><input id="logic_{{item.id}}_1" type="radio" name="logic_{{item.id}}" value="or" data-ng-click="setLogic(item.id,'or');">or</label>
+                                    <label><input id="logic_{{item.id}}_2" type="radio" name="logic_{{item.id}}" value="and not" data-ng-click="setLogic(item.id,'and not');">and not</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>SPECIFY A SERIES OF ACTIONS</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropDownWhen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px">
+                            ACTION
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropDownMenuThen">
+                            <li><a href="" data-ng-click="emailDocument()">email the document to ...</a></li>
+                            <li><a href="" data-ng-click="exportDocument()">export the document to ...</a></li>
+                            <li><a href="" data-ng-click="addField('Change document security to','document-security','New ACL csv list','e.g. users,administrators');">change the document's security to ...</a></li>
+                            <li><a href="" data-ng-click="addField('Change document classification to','document-classification','Classification', 'e.g. top secret');">classify the document as ...</a></li>
+                            <li><a href="" data-ng-click="addMetadata();">update metadata in a document ...</a></li>
+                            <li><a href="" data-ng-click="removeMetadata();">remove metadata from a document ...</a></li>
+                            <!--<li><a href=""  data-ng-click="addAction('stop processing this document','stop-processing');">stop the document from processing further</a></li>-->
+                            <li><a href=""  data-ng-click="addAction('remove this document','remove-document');">remove the document</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-hover" style="background-color: #eeeeee">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>DESCRIPTION</th>
+                            <th>TYPE</th>
+                        </tr>
+                        </thead>
+                        <tr data-ng-repeat="item in action_list">
+                            <td style="float: right; border-top: 0;"><button class="btn btn-remove" data-ng-click="removeAction(item.id);" type="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.type}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br><br>
+
+
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-lg-offset-5 col-md-offset-4 col-sm-offset-3" style="margin-bottom:30px;">
+                    <button type="button" class="btn btn-kaisearch" data-ng-click="save();">
+                        {{buttonText}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-lg-offset-5 col-md-offset-4 col-sm-offset-3">
+                    <button type="button" id="btnCancel" class="btn btn-kaisearch-alt" data-ng-click="cancel();">
+                        cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <document-event />
+
+    <time-interval />
+
+    <time-table />
+
+    <date-time />
+
+    <word-builder />
+
+    <word-set />
+
+    <add-field />
+
+    <add-metadata />
+
+    <email-document />
+
+    <export-document />
+
+</div>

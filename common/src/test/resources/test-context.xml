@@ -1,0 +1,116 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+                            http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <context:property-placeholder properties-ref="config" />
+
+    <bean id="config" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:common.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- setup the database system -->
+    <bean id="dao" class="industries.vocht.viki.memory_db.MemoryDao" />
+
+    <!-- setup hazelcast -->
+    <bean id="hazelcast" class="industries.vocht.viki.memory_hazelcast.HazelcastUnitTest" init-method="init" />
+    <bean id="messageProcessor" class="industries.vocht.viki.hazelcast_messages.UnitTestMessageProcessor" />
+
+
+    <bean id="aes" class="industries.vocht.viki.utility.AESEncryption" init-method="init" />
+
+
+
+
+
+    <bean id="vader" class="industries.vocht.viki.vader.Vader" init-method="init" />
+
+    <bean id="indexer" class="industries.vocht.viki.indexer.Indexer" />
+
+    <!-- cluster infrastructure -->
+    <bean id="clusterInfrastructure" class="industries.vocht.viki.infrastructure.ClusterInfrastructure" init-method="init" />
+
+    <!-- super search system -->
+    <bean id="superSearch" class="industries.vocht.viki.semantic_search.SuperSearch" />
+    <bean id="ssExecutor" class="industries.vocht.viki.semantic_search.SSearchExecutor" />
+    <bean id="tupleSSExecutor" class="industries.vocht.viki.semantic_search.TupleSSearchExecutor" />
+    <bean id="viewSearchEntities" class="industries.vocht.viki.semantic_search.ViewSearchEntities" />
+
+    <!-- relationship provider for word splitting -->
+    <bean id="wordSplitterRelationshipProvider" class="industries.vocht.viki.relationship.WordSplitterRelationshipProvider" />
+
+    <!-- relationship provider for stemming -->
+    <bean id="stemRelationshipProvider" class="industries.vocht.viki.relationship.StemRelationshipProvider" />
+
+    <!-- relationship provider for synonyms -->
+    <bean id="synonymRelationshipProvider" class="industries.vocht.viki.relationship.SynonymRelationshipProvider" />
+
+
+    <bean id="undesirables" class="industries.vocht.viki.lexicon.Undesirables" />
+    <bean id="tupleUndesirables" class="industries.vocht.viki.lexicon.TupleUndesirables" />
+
+    <bean id="grammarLibrary" class="industries.vocht.viki.grammar.GrammarLibrary" init-method="init" />
+
+    <!-- NLP parser -->
+    <bean id="parser" class="industries.vocht.viki.parser.NLParser" init-method="init" />
+
+
+    <bean id="lexicon" class="industries.vocht.viki.lexicon.Lexicon" init-method="init" />
+
+    <bean id="ambiguousLexicon" class="industries.vocht.viki.lexicon.AmbiguousLexicon" init-method="init" />
+
+    <!-- support vector machines -->
+    <bean id="svmStore" class="industries.vocht.viki.svm.SvmStore" init-method="init" />
+
+
+
+    <!-- service dealing with users -->
+    <bean id="userService" class="industries.vocht.viki.services.UserService" />
+
+    <bean id="kbService" class="industries.vocht.viki.services.KBService" />
+
+    <!-- service dealing with organisations -->
+    <bean id="organisationService" class="industries.vocht.viki.services.OrganisationService" />
+
+    <!-- service dealing with documents -->
+    <bean id="documentService" class="industries.vocht.viki.services.DocumentService" />
+
+    <!-- service dealing with groups -->
+    <bean id="groupService" class="industries.vocht.viki.services.GroupService" />
+
+    <!-- speech to text -->
+    <bean id="speechToText" class="industries.vocht.viki.speech2text.SphinxSpeechToText" init-method="init" />
+
+    <!-- semantic system -->
+    <bean id="verbsProtoTypes" class="industries.vocht.viki.semantic_search.VerbsProtoTypes" init-method="init" />
+    <bean id="semanticIndexer" class="industries.vocht.viki.indexer.TupleIndexer" />
+    <bean id="caseTupleQueryParser" class="industries.vocht.viki.parser.TupleQueryParser" />
+    <bean id="tupleSearch" class="industries.vocht.viki.semantic_search.TupleSearch" />
+
+    <!-- AIML template response system -->
+    <bean id="aimlManager" class="industries.vocht.viki.aiml.AimlManager" init-method="init" />
+
+</beans>
+
+

@@ -1,0 +1,39 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+#
+# Mary TTS server (takes about 450MB of RAM)
+#
+  - name: testing MaryTTS server downloaded
+    stat: path=/import/software/{{ s_mary }}
+    register: mary_software_exists
+
+  - name: download MaryTTS (if dne)
+    shell: scp {{ s_software_base }}/{{ s_mary }} /import/software/
+    when: mary_software_exists.stat.exists == False
+
+  - name: testing MaryTTS server existence
+    stat: path=/opt/kai/marytts/bin/marytts-server
+    register: mary_exists
+
+  - name: install MaryTTS server from a local file
+    shell: tar xvzf /import/software/{{ s_mary }}
+    args:
+      chdir: /opt/
+    when: mary_exists.stat.exists == False
+
+  - name: copying marytts-server shell script
+    copy: src={{ dev_base }}/server/src/rpm/opt/marytts/bin/ dest=/opt/marytts/bin/ mode=a+x
+
+  - name: MaryTTS marytts-server, setup jdk
+    replace: dest=/opt/marytts/bin/marytts-server regexp='export.JAVA=.*' replace='export JAVA={{ jdk_directory }}'
+
+  - name: set exec permissions on mary sh script
+    file: path=/opt/marytts/bin/marytts-server owner=kai group=kai mode=a+x

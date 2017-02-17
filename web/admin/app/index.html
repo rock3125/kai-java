@@ -1,0 +1,225 @@
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vocht Industries Knowledge made Interactive</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-macgyver/lib/macgyver.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="bower_components/morrisjs/morris.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <script src="config.js"></script>
+  </head>
+  <body data-ng-app="webApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default vics-header" role="navigation">
+        <div class="container">
+          <div class="row extra-padding">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+
+              <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <ul id="signoutMenu" class="nav navbar-nav navbar-font" style="display: none;;">
+                  <li><a href="#/dashboard">DASHBOARD</a></li>
+                  <!--<li><a href="#/about">ABOUT</a></li>-->
+                  <li><a href="#/signout" class="signin-out">SIGN OUT</a></li>
+                </ul>
+                <ul id="signinMenu" class="nav navbar-nav navbar-right navbar-font">
+                  <!--<li><a href="#/">HOME</a></li>-->
+                  <!--<li><a href="#/about">ABOUT</a></li>-->
+                  <li><a href="#/" class="signin-out">LOGIN</a></li>
+                </ul>
+              </div>
+
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-8 col-xs-12 col-xs-offset-0 col-sm-offset-2 col-md-offset-0 col-lg-offset-0">
+              <a href="#/dashboard" style="text-decoration: none;"><h2 class="logoHeading">VOCHT INDUSTRIES</h2></a>
+              <!--<img alt="Brand" src="images/viki-logo.png" style="width: 100%">-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="errorMessage" class="error-style span12 alert alert-danger" style="display: none;">
+          <a class="close" onclick="$('#errorMessage').hide();"></a><strong>ERROR</strong>&nbsp;<label id="errorMessageMessage"></label>
+        </div>
+      </div>
+      <div class="row">
+        <div id="infoMessage" class="span12 alert alert-info" style="display: none;">
+          <a class="close" onclick="$('#infoMessage').hide();"></a><strong>INFORMATION</strong>&nbsp;<label id="infoMessageMessage"></label>
+        </div>
+      </div>
+      <div data-ng-view></div>
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-macgyver/lib/macgyver-core.js"></script>
+    <script src="bower_components/angular-macgyver/lib/macgyver-filters.js"></script>
+    <script src="bower_components/angular-macgyver/lib/macgyver-string-filter.js"></script>
+    <script src="bower_components/angular-macgyver/lib/macgyver.js"></script>
+    <script src="bower_components/angular-macgyver/lib/macgyver.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootbox/bootbox.js"></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/flot/jquery.flot.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="bower_components/eve/eve.js"></script>
+    <script src="bower_components/raphael/raphael.min.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/morrisjs/morris.js"></script>
+    <script src="bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+    <script src="scripts/d3/d3.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/pagination.js"></script>
+    <script src="scripts/documentPagination.js"></script>
+    <script src="scripts/entityPagination.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/home.js"></script>
+    <script src="scripts/about.js"></script>
+
+    <!-- services -->
+    <script src="scripts/services/globalService.js"></script>
+    <script src="scripts/services/userService.js"></script>
+    <script src="scripts/services/groupService.js"></script>
+    <script src="scripts/services/clusterService.js"></script>
+    <script src="scripts/services/entityService.js"></script>
+    <script src="scripts/services/anomalyService.js"></script>
+    <script src="scripts/services/summaryService.js"></script>
+    <script src="scripts/services/statisticsService.js"></script>
+    <script src="scripts/services/timeService.js"></script>
+    <script src="scripts/services/documentService.js"></script>
+    <script src="scripts/services/ruleService.js"></script>
+    <script src="scripts/services/viewLogService.js"></script>
+    <script src="scripts/services/reportService.js"></script>
+
+    <!-- widgets -->
+    <script src="scripts/widgets/time_table.js"></script>
+    <script src="scripts/widgets/time_table_service.js"></script>
+    <script src="scripts/widgets/time_interval.js"></script>
+    <script src="scripts/widgets/time_interval_service.js"></script>
+    <script src="scripts/widgets/document_viewer_service.js"></script>
+    <script src="scripts/widgets/document_viewer.js"></script>
+    <script src="scripts/widgets/date_time_range.js"></script>
+    <script src="scripts/widgets/date_time_range_service.js"></script>
+    <script src="scripts/widgets/word_builder.js"></script>
+    <script src="scripts/widgets/word_builder_service.js"></script>
+    <script src="scripts/widgets/word_set.js"></script>
+    <script src="scripts/widgets/word_set_service.js"></script>
+    <script src="scripts/widgets/document_event.js"></script>
+    <script src="scripts/widgets/document_event_service.js"></script>
+    <script src="scripts/widgets/add_field.js"></script>
+    <script src="scripts/widgets/add_field_service.js"></script>
+    <script src="scripts/widgets/add_metadata.js"></script>
+    <script src="scripts/widgets/add_metadata_service.js"></script>
+    <script src="scripts/widgets/email_document.js"></script>
+    <script src="scripts/widgets/email_document_service.js"></script>
+    <script src="scripts/widgets/export_document.js"></script>
+    <script src="scripts/widgets/export_document_service.js"></script>
+    <script src="scripts/widgets/report_entity_time.js"></script>
+    <script src="scripts/widgets/report_entity_time_service.js"></script>
+    <script src="scripts/widgets/log_viewer_widget.js"></script>
+
+    <!-- security matters -->
+    <script src="scripts/security/signin.js"></script>
+    <script src="scripts/security/signout.js"></script>
+    <script src="scripts/security/activate.js"></script>
+    <script src="scripts/security/resetpwd.js"></script>
+    <script src="scripts/security/resetpasswordrequest.js"></script>
+    <script src="scripts/security/resetpassword.js"></script>
+    <script src="scripts/security/activation.js"></script>
+    <script src="scripts/security/activationrequest.js"></script>
+
+    <script src="scripts/search/search.js"></script>
+    <script src="scripts/time_manager/time.js"></script>
+    <script src="scripts/time_manager/day_time.js"></script>
+    <script src="scripts/user_manager/manager.js"></script>
+    <script src="scripts/entity_manager/entity.js"></script>
+    <script src="scripts/document_manager/document.js"></script>
+    <script src="scripts/group_manager/groups.js"></script>
+    <script src="scripts/search/search_anomaly.js"></script>
+    <script src="scripts/summary_manager/summary.js"></script>
+    <script src="scripts/cluster_manager/clusters.js"></script>
+    <script src="scripts/cluster_manager/cluster_details.js"></script>
+    <script src="scripts/similar_manager/similar.js"></script>
+    <script src="scripts/anomaly_manager/anomaly.js"></script>
+    <script src="scripts/anomaly_manager/document_anomaly.js"></script>
+    <script src="scripts/rules_manager/rules.js"></script>
+    <script src="scripts/report_manager/reports.js"></script>
+    <script src="scripts/system_stats/statistics.js"></script>
+    <script src="scripts/index_stats/statistics.js"></script>
+    <script src="scripts/rules_manager/rule_editor.js"></script>
+    <script src="scripts/agents/agent_controller.js"></script>
+    <script src="scripts/session_manager/session_manager.js"></script>
+
+    <script src="scripts/kb_manager/kb-manager.js"></script>
+    <script src="scripts/kb_manager/kb-field.js"></script>
+    <script src="scripts/kb_manager/kb-instance.js"></script>
+    <script src="scripts/kb_manager/kb-aiml.js"></script>
+
+
+
+    <!-- endbuild -->
+
+
+  </body>
+</html>

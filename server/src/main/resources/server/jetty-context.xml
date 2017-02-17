@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2016 by Peter de Vocht
+  ~
+  ~ All rights reserved. No part of this publication may be reproduced, distributed, or
+  ~ transmitted in any form or by any means, including photocopying, recording, or other
+  ~ electronic or mechanical methods, without the prior written permission of the publisher,
+  ~ except in the case of brief quotations embodied in critical reviews and certain other
+  ~ noncommercial uses permitted by copyright law.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- the node.properties defines where these services run in terms of ports and what
+         kind of node this is
+    -->
+    <context:property-placeholder location="file:./node.properties"/>
+
+    <!-- aes encryption system -->
+    <bean id="aes" class="industries.vocht.viki.utility.AESEncryption" init-method="init">
+        <property name="keyStorePassword" value="${aes.keystore.password}" />
+        <property name="certAlias" value="viki" />
+        <property name="keyStoreFile" value="/viki-aes.jks" />
+    </bean>
+
+    <!-- setup the web server -->
+    <bean id="jersey" class="industries.vocht.viki.jersey.EmbeddedJerseyServer" init-method="init">
+        <property name="aesEncryption" ref="aes" />
+        <property name="description" value="Kai node01 server" />
+        <property name="keyPassword" value="${web.keyPassword}" />
+        <property name="keyStorePassword" value="${web.keyStorePassword}" />
+        <property name="keyStoreCertName" value="star_kai-cluster.com" />
+        <property name="keystoreFile" value="/opt/kai/server-cert.jks" />
+        <property name="port" value="${web.port}" />
+        <property name="springContext" value="${system.spring.context}" />
+        <property name="staticWeb" value="${web.is.static}" />
+        <property name="useMultipartUpload" value="${web.multipart.upload}" />
+        <property name="webBasePath" value="${web.base}" />
+        <property name="serviceNameSpace" value="${service.namespace}" />
+    </bean>
+
+
+</beans>

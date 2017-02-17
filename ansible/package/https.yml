@@ -1,0 +1,26 @@
+#
+# Copyright (c) Peter de Vocht, 2016
+#
+# All rights reserved. No part of this publication may be reproduced, distributed, or
+# transmitted in any form or by any means, including photocopying, recording, or other
+# electronic or mechanical methods, without the prior written permission of the publisher,
+# except in the case of brief quotations embodied in critical reviews and certain other
+# noncommercial uses permitted by copyright law.
+#
+
+# install httpd server
+  - name: Install httpd server for port 80
+    shell: apt install -y apache2
+
+  - name: replace search/config.js http with https
+    replace: dest={{ kai_base }}/webserver/web/search/config.js regexp='http:' replace='https:'
+
+  - name: replace admin/config.js localhost with {{ ansible_nodename }}
+    replace: dest={{ kai_base }}/webserver/web/admin/config.js regexp='http:' replace='https:'
+
+#
+# copy the chosen cert
+#
+  - name: download cert {{ s_cert_name }}
+    shell: scp {{ s_software_base }}/{{ s_cert_name }}/server-cert.jks {{ kai_base }}/server-cert.jks
+

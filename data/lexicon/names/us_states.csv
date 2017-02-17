@@ -1,0 +1,57 @@
+#
+# set of country entities
+#
+# format:  id(uuid),name,isa,alternatives csv list(optional)
+#
+
+f04b1cf3-06a5-4c38-9182-8e3cb38d3c92,Alabama,state,AL
+358cbeb3-e33d-4db3-8b13-53e1ab913d8b,Alaska,state,AK
+b0c929d5-f8a8-4327-a654-6da6da49d61e,Arizona,state,AZ
+acf15cb8-0a3a-4a46-9290-220e23d0e441,Arkansas,state,AR
+c416235b-1b16-4200-9cdd-a69dc9f2f606,California,state,CA
+a383e1cd-9bb4-4417-ab3f-35362e10daa1,Colorado,state,CO
+57c7dd25-0859-41b0-a044-37dd9ecae8a2,Connecticut,state,CT
+ac3b4443-d55b-4842-91f2-7e67a1e4a5bd,Delaware,state,DE
+8715633a-21b6-489c-b2b4-fcaf6ede5f80,District of Columbia,state,DC
+67c9501c-59b3-4804-97b3-e30a8b61fdb1,Florida,state,FL
+5ff9ea8f-6d95-43f6-9889-d531d6c46cb4,Georgia,state,GA
+b42eb9d2-3ae2-45a8-ad91-9f476a999730,Hawaii,state,HI
+864b9d0e-0fbf-43ab-9db7-0877bbe117ed,Idaho,state,ID
+feb520fa-b7fd-439e-a3bd-1db7c0f14b72,Illinois,state,IL
+a1e77bb0-5389-4377-9232-dec554fbadef,Indiana,state,IN
+69ae8588-caae-4de8-9132-70f9aded55dd,Iowa,state,IA
+15df1c3a-1e66-4042-8209-9fb6454faa53,Kansas,state,KS
+934ccad8-4037-4451-b5d6-2aae925d72e8,Kentucky,state,KY
+90ae4584-9861-4dda-90a2-4b4b2fb341fa,Louisiana,state,LA
+27b89b8d-8fb8-4b5d-acb2-073d4e00120e,Maine,state,ME
+3550c745-c3aa-4cfa-b93a-e1e82bb87691,Maryland,state,MD
+e151999d-ccdb-4a0d-97b6-4224c8922d18,Massachusetts,state,MA
+66cfaf03-1205-42c5-85aa-40934d4fa11c,Michigan,state,MI
+418afb56-c930-458b-894f-88635a6ad087,Minnesota,state,MN
+4274e5c2-317a-47d0-a2d8-9a55c758fef5,Mississippi,state,MS
+2381d890-e86a-40f6-a5da-9c4293c34aff,Missouri,state,MO
+6615ee63-b5ad-446b-9361-5218ed8c1439,Montana,state,MT
+1ea312e6-90fb-492b-ae11-44e1346ef4d1,Nebraska,state,NE
+5fb70976-3a3e-44bf-b8f3-85acc65a1011,Nevada,state,NV
+718819af-3279-4ed6-9ca9-8412a924d3c1,New Hampshire,state,NH
+faacf5ca-cd7e-4c58-8798-52b455b63347,New Jersey,state,NJ
+7a6c72ee-61ed-444b-8322-54fdcad16f34,New Mexico,state,NM
+fa4c4014-1428-4b5a-8853-7841e5cfd9c9,New York,state,NY
+5e905db0-41b9-4539-9c07-47b70e22eb70,North Carolina,state,NC
+d7f6e973-9138-495d-aa0d-f67db5f56953,North Dakota,state,ND
+cb0ac1cc-d3cc-4309-bc09-700ece5cda82,Ohio,state,OH
+e5a48f56-4c38-4cd4-9939-151920987059,Oklahoma,state,OK
+ad8dddc9-dea0-484e-8103-c1cdbeacaa1e,Oregon,state,OR
+a53740d9-20d9-4c1e-a8d4-a9173271c967,Pennsylvania,state,PA
+4a6c815e-09bf-496b-9ad0-de91503e4f42,Rhode Island,state,RI
+a4da123a-20b4-4e17-9f59-6f490d299d64,South Carolina,state,SC
+085a0ab3-30be-4f42-b44c-c6173583d72e,South Dakota,state,SD
+3aed5f21-ce43-43b9-9fab-97fcd37d931d,Tennessee,state,TN
+1d954e63-7a21-48a2-81a2-54cfc2bdfcbb,Texas,state,TX
+c6c310c8-f9fc-4e52-94e5-4c9169a7e40e,Utah,state,UT
+2ac30b49-0b94-452e-93c2-6bc67c9f1a65,Vermont,state,VT
+8377c278-4bd5-4720-87cd-340b4d3fae7f,Virginia,state,VA
+b246370e-dc55-40ed-823a-cc0756a07999,Washington,state,WA
+ed1edd20-91d4-4a98-991e-782d5ac91fe5,West Virginia,state,WV
+eca155b7-c6e7-4ce6-abca-59c1091bdd0b,Wisconsin,state,WI
+39fe1309-bcce-4af2-9110-11ff1dd7d862,Wyoming,state,WY
