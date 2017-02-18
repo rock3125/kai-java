@@ -29,6 +29,7 @@ import industries.vocht.viki.parser.NLTimeResolver;
 import industries.vocht.viki.parser.NLParser;
 import industries.vocht.viki.utility.SentenceFromBinary;
 import org.joda.time.DateTime;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.util.Assert;
@@ -112,6 +113,7 @@ public class SuperSearchExecutorTest {
         contains(results1, "http://1");
     }
 
+    @Ignore
     @Test
     public void testSynsetIdWorks() throws Exception {
 

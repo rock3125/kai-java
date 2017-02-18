@@ -163,7 +163,7 @@ public class KnowledgeSearchTest {
         Assert.isTrue(trList2.getCaseTupleList().size() == 1);
         String hlString2 = trList2.getCaseTupleList().get(0).getTupleText();
         Assert.isTrue(hlString2 != null &&
-                hlString2.equals("The old {hl1:} man {:hl1} in the bed {hl2:} watched {:hl2} {hl1:} Kramer {:hl1} silently"));
+                hlString2.equals("The old man in the bed {hl2:} watched {:hl2} {hl1:} Kramer {:hl1} silently"));
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
