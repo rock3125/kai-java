@@ -100,7 +100,7 @@
     <bean id="groupService" class="industries.vocht.viki.services.GroupService" />
 
     <!-- speech to text -->
-    <bean id="speechToText" class="industries.vocht.viki.speech2text.SphinxSpeechToText" init-method="init" />
+    <!--<bean id="speechToText" class="industries.vocht.viki.speech2text.SphinxSpeechToText" init-method="init" />-->
 
     <!-- semantic system -->
     <bean id="verbsProtoTypes" class="industries.vocht.viki.semantic_search.VerbsProtoTypes" init-method="init" />

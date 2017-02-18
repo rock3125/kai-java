@@ -57,7 +57,7 @@ public class SpeechServiceLayer {
     @Autowired
     private UserService userService;
 
-    @Autowired
+    @Autowired(required = false)
     private SphinxSpeechToText sphinxSpeechToText;
 
     //////////////////////////////////////////////////////////////////

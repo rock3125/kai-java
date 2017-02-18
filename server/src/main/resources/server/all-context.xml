@@ -178,7 +178,7 @@
     <bean id="vader" class="industries.vocht.viki.vader.Vader" init-method="init" />
 
     <!-- speech to text -->
-    <bean id="sphinxSpeechToText" class="industries.vocht.viki.speech2text.SphinxSpeechToText" init-method="init" />
+    <!--<bean id="sphinxSpeechToText" class="industries.vocht.viki.speech2text.SphinxSpeechToText" init-method="init" />-->
 
     <!-- orchestrators -->
     <!-- a document blocking queue -->

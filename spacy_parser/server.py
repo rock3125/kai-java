@@ -37,7 +37,10 @@ parser = Parser()
 wsd_model_filename = '/opt/kai/data/nnet/combined-nnet.bin'
 wsd_label_filename = '/opt/kai/data/nnet/combined-ts.labels.txt'
 window_size = 25
-wsd_nnet = NNetWSD(wsd_model_filename, wsd_label_filename)
+if os.path.isfile(wsd_model_filename):
+    wsd_nnet = NNetWSD(wsd_model_filename, wsd_label_filename)
+else:
+    wsd_nnet = None
 
 # temp directory for the system
 temp_dir = "/tmp"
@@ -72,7 +75,8 @@ def parse():
     sentence_list, token_list, num_tokens = parser.parse_document(text)
 
     # perform wsd on all the tokens/words of a sentence
-    wsd_nnet.wsd(token_list, window_size)
+    if wsd_nnet is not None:
+        wsd_nnet.wsd(token_list, window_size)
 
     delta = datetime.now() - t1
     return JsonSystem().encode({"processing_time": int(delta.total_seconds() * 1000),
@@ -125,7 +129,8 @@ def parse_package():
         sentence_list, token_list, num_tokens = parser.parse_document(parts[key])
 
         # perform wsd on all the tokens/words of a sentence
-        wsd_nnet.wsd(token_list, window_size)
+        if wsd_nnet is not None:
+            wsd_nnet.wsd(token_list, window_size)
 
         delta = datetime.now() - t1
         packet_list.append({'metadata': key, 'spacyTokenList': {"processing_time": int(delta.total_seconds() * 1000),
@@ -163,7 +168,8 @@ def stt():
                 sentence_list, token_list, num_tokens = parser.parse_document(text_content)
 
                 # perform wsd on all the tokens/words of a sentence
-                wsd_nnet.wsd(token_list, window_size)
+                if wsd_nnet is not None:
+                    wsd_nnet.wsd(token_list, window_size)
 
                 delta = datetime.now() - t1
                 return JsonSystem().encode({"processing_time": int(delta.total_seconds() * 1000),

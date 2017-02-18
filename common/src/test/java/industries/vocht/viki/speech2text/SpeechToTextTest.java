@@ -22,17 +22,19 @@ import java.io.InputStream;
 @ContextConfiguration(locations = {"/test-context.xml"})
 public class SpeechToTextTest {
 
-    @Autowired
-    private SphinxSpeechToText speechToText;
+    @Autowired(required = false)
+    private SphinxSpeechToText speechToText = null;
 
     @Test
     public void testSpeechToTextPart1() throws IOException {
-        InputStream in = getClass().getResourceAsStream("/common/84-121550-0022.wav");
-        if (in != null) {
-            STTResult result = speechToText.wavToText(in);
-            Assert.notNull(result);
-            Assert.notNull(result.getText());
-            Assert.isTrue(result.getText().equals("AS SOON AS ON MY PATIENCE MULLET THE POWERS OF THE WIND HAD ALREADY PIERCED ME THROUGH AIR FROM MY BOYHOOD AHEAD YET COME FOR UP"));
+        if (speechToText != null) {
+            InputStream in = getClass().getResourceAsStream("/common/84-121550-0022.wav");
+            if (in != null) {
+                STTResult result = speechToText.wavToText(in);
+                Assert.notNull(result);
+                Assert.notNull(result.getText());
+                Assert.isTrue(result.getText().equals("AS SOON AS ON MY PATIENCE MULLET THE POWERS OF THE WIND HAD ALREADY PIERCED ME THROUGH AIR FROM MY BOYHOOD AHEAD YET COME FOR UP"));
+            }
         }
     }
 
