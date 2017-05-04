@@ -16,7 +16,9 @@
     register: file_exists
 
   - name: download JDK 8 (if dne)
-    shell: scp {{ soft_base }}/{{ jdk_file }} /import/software/
+    shell: wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+    args:
+      chdir: /import/software/
     when: file_exists.stat.exists == False
 
   - name: testing JDK 8 installation

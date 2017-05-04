@@ -11,7 +11,7 @@
 
 # install python3 required packages and pip
   - name: Install Python3 dev
-    shell: apt install -y python3-dev python3-pip htop iotop
+    shell: apt install -y python3-dev python3-pip htop iotop wget
 
 # install pip
   - name: Install pip for Python3
@@ -23,5 +23,5 @@
 
 # install python3 required packages
   - name: Install Python3 pip packages
-    shell: python3 -m pip install gunicorn gevent flask flask-cors flask-restplus spacy keras sumy h5py {{ s_tensorflow_cpu }}
+    shell: python3 -m pip install gunicorn gevent flask flask-cors flask-restplus spacy keras sumy h5py tensorflow
 

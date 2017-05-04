@@ -21,6 +21,6 @@
 #
 # copy the chosen cert
 #
-  - name: download cert {{ s_cert_name }}
-    shell: scp {{ s_software_base }}/{{ s_cert_name }}/server-cert.jks {{ kai_base }}/server-cert.jks
+#  - name: download cert {{ s_cert_name }}
+#    shell: scp data/certs/{{ s_cert_name }}/server-cert.jks {{ kai_base }}/server-cert.jks
 

@@ -21,7 +21,7 @@
     when: nnet_data_exists.stat.exists == False
 
   - name: download WSD NNET (if dne)
-    shell: scp {{ software_base }}/{{ nnet_file }} /tmp/{{ nnet_file }}
+    shell: scp data/nnet/{{ nnet_file }} /tmp/{{ nnet_file }}
     when: nnet_data_exists.stat.exists == False
 
   - name: install WSD NNET from local file

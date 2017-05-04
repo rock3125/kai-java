@@ -16,7 +16,9 @@
     register: cassandra_exists
 
   - name: download Cassandra (if dne)
-    shell: scp {{ s_software_base }}/{{ s_cassandra }} /import/software/
+    shell: wget http://www-us.apache.org/dist/cassandra/3.10/apache-cassandra-3.10-bin.tar.gz
+    args:
+      chdir: /import/software/
     when: cassandra_exists.stat.exists == False
 
   - name: testing Cassandra installation

@@ -16,7 +16,7 @@
     register: mary_software_exists
 
   - name: download MaryTTS (if dne)
-    shell: scp {{ s_software_base }}/{{ s_mary }} /import/software/
+    shell: scp data/mary/{{ s_mary }} /import/software/
     when: mary_software_exists.stat.exists == False
 
   - name: testing MaryTTS server existence

@@ -28,25 +28,18 @@
   remote_user: root
   vars:
     file_base: /opt/kai
-    software_base: peter@dsvocht:/volume1/store/software
-    jdk: jdk-8u121-linux-x64.tar.gz
-    spacy: spacy.tgz
+    jdk_wget: wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz
+    jdk: jdk-8u131-linux-x64.tar.gz
     nnet: nnet-1.0.tar.gz
     mary: marytts-server.tgz
-    jdk_dir: /opt/jdk1.8.0_121
+    jdk_dir: /opt/jdk1.8.0_131
 
     protocol: http
     cert_name: kai
 
-    # python 3.5, CUDA 8, x64
-    tensorflow_cpu: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp35-cp35m-linux_x86_64.whl
-    tensorflow_gpu: https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.0-cp35-cp35m-linux_x86_64.whl
-
-    cassandra: apache-cassandra-3.9-bin.tar.gz
-    cassandra_dir: /opt/apache-cassandra-3.9
+    cassandra: apache-cassandra-3.10-bin.tar.gz
+    cassandra_dir: /opt/apache-cassandra-3.10
     cassandra_cluster_name: KAI Cluster
-
-    dev_base: /home/peter/dev/kai
 
 
   tasks:
@@ -73,17 +66,17 @@
 
   - include: package/os.yml
 
-  - include: package/os-software.yml s_tensorflow_cpu={{ tensorflow_cpu }}
+  - include: package/os-software.yml
 
   - include: package/kai-folders.yml kai_base={{ file_base }}
 
-  - include: package/spacy.yml soft_base={{ software_base }} spacy_file={{ spacy }} kai_base={{ file_base }}
+  - include: package/spacy.yml kai_base={{ file_base }}
 
-  - include: package/mary.yml kai_base={{ file_base }} jdk_directory={{ jdk_dir }} s_mary={{ mary }} s_software_base={{ software_base }}
+#  - include: package/mary.yml kai_base={{ file_base }} jdk_directory={{ jdk_dir }} s_mary={{ mary }}
 
   - include: package/nnet.yml kai_base={{ file_base }} nnet_file={{ nnet }}
 
-  - include: package/jdk-install.yml jdk_file={{ jdk }} soft_base={{ software_base }} cass_dir={{ cassandra_dir }}
+  - include: package/jdk-install.yml jdk_file={{ jdk }} cass_dir={{ cassandra_dir }} s_jdk_wget = {{ jdk_wget }}
 
   - include: package/kai-web.yml kai_base={{ file_base }} s_server_port={{ server_port }} s_web_port={{ web_port }} s_protocol={{ protocol }} s_en={{ external_name }}
 
@@ -93,11 +86,11 @@
 
   - include: package/kai-data.yml kai_base={{ file_base }}
 
-  - include: package/cassandra.yml s_cassandra={{ cassandra }} s_software_base={{ software_base }} s_cassandra_dir={{ cassandra_dir }}
+  - include: package/cassandra.yml s_cassandra={{ cassandra }} s_cassandra_dir={{ cassandra_dir }}
 
   - include: package/kai-folder-permissions.yml s_cassandra_dir={{ cassandra_dir }} s_jdk_dir={{ jdk_dir }}
 
   - include: package/systemctl.yml s_cassandra_dir={{ cassandra_dir }} s_jdk_dir={{ jdk_dir }}
 
-  - include: package/https.yml s_software_base={{ software_base }} s_cert_name={{ cert_name }} kai_base={{ file_base }}
+  - include: package/https.yml kai_base={{ file_base }}
     when: protocol == "https"
