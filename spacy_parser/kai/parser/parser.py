@@ -2,7 +2,6 @@ import logging
 import en_core_web_sm
 import json
 
-
 logger = logging.getLogger("kai-parser")
 
 logger.info("loading spacy...")
@@ -25,8 +24,12 @@ class Token:
 class JsonSystem(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Token):
-            return {'text': obj.text, 'index': obj.index, 'synid': obj.synid,
-                    'tag': obj.tag, 'dep': obj.dep, 'list': obj.ancestor_list}
+            if len(obj.ancestor_list) > 0:  # just write one ancestoral token
+                return {'text': obj.text, 'index': obj.index, 'synid': obj.synid,
+                        'tag': obj.tag, 'dep': obj.dep, 'list': [obj.ancestor_list[0]]}
+            else:
+                return {'text': obj.text, 'index': obj.index, 'synid': obj.synid,
+                        'tag': obj.tag, 'dep': obj.dep, 'list': obj.ancestor_list}
         return json.JSONEncoder.default(self, obj)
 
 

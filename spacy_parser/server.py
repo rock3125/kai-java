@@ -16,6 +16,7 @@ handler = logging.FileHandler('/var/log/kai/parser.log')
 handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 logger.addHandler(handler)
 
+import kai
 from kai.nnet_wsd.wsd_nnet import NNetWSD
 from kai.parser.summarizer import SumySummarizer
 from kai.parser.parser import Parser, JsonSystem
@@ -38,8 +39,8 @@ summarizer = SumySummarizer()
 parser = Parser()
 
 # nnet setup for WSD
-wsd_model_filename = '/opt/kai/data/nnet/combined-nnet.bin'
-wsd_label_filename = '/opt/kai/data/nnet/combined-ts.labels.txt'
+wsd_model_filename = kai.resource_filename('combined-nnet.bin')
+wsd_label_filename = kai.resource_filename('combined-ts.labels.txt')
 window_size = 25
 if os.path.isfile(wsd_model_filename):
     logger.info("loading wsd model " + wsd_model_filename)
