@@ -2,13 +2,19 @@
 
 import uuid
 import os
-import sys
+import logging
 
 from datetime import datetime
 
 from flask import Flask
 from flask import request
 from flask_cors import CORS
+
+# setup logging to file
+logger = logging.getLogger("kai-parser")
+handler = logging.FileHandler('/var/log/kai/parser.log')
+handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
+logger.addHandler(handler)
 
 from kai.nnet_wsd.wsd_nnet import NNetWSD
 from kai.parser.summarizer import SumySummarizer
@@ -36,8 +42,10 @@ wsd_model_filename = '/opt/kai/data/nnet/combined-nnet.bin'
 wsd_label_filename = '/opt/kai/data/nnet/combined-ts.labels.txt'
 window_size = 25
 if os.path.isfile(wsd_model_filename):
+    logger.info("loading wsd model " + wsd_model_filename)
     wsd_nnet = NNetWSD(wsd_model_filename, wsd_label_filename)
 else:
+    logger.info("no wsd models found, disabling wsd")
     wsd_nnet = None
 
 # temp directory for the system
@@ -49,21 +57,24 @@ ALLOWED_EXTENSIONS = {'txt'}
 # 10MB maximum upload size for text files
 max_upload_size_in_bytes = 10 * 1024 * 1024
 
-
 app = Flask(__name__)
 CORS(app, resources={r"/parse/*": {"origins": "*"}})
+
 
 # is a file allowed for upload?
 def allowed_file(filename):
     return filename[-3:].lower() in ALLOWED_EXTENSIONS
 
+
 # create a temp file with a given .suffix (suffix must have dot in its string
 def get_temp_file(suffix):
     return os.path.join(temp_dir, str(uuid.uuid4()) + suffix)
 
+
 @app.route('/')
 def index():
     return "parser service layer"
+
 
 # curl -H "Content-Type: plain/text" -X POST --data "@test.txt" http://localhost:9000/parse
 @app.route('/parse', methods=['POST'])
@@ -193,6 +204,7 @@ def stt():
 
 # non gunicorn use - debug
 if __name__ == "__main__":
+    logger.info("running in dev test mode (not containered)")
     app.run(host="0.0.0.0",
             port=9000,
             debug=True,

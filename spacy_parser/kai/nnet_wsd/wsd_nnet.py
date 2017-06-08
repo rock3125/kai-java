@@ -3,7 +3,7 @@ import numpy as np
 import logging
 
 
-logger = logging.getLogger("kai-wsd")
+logger = logging.getLogger("kai-parser")
 
 
 # the input to the network, the word to "disambiguate" and the word_window list of words around it
