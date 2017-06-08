@@ -25,7 +25,6 @@ class NNetWSD:
         self.max_sentence_len = max_sentence_len
         logger.info("loading WSD NNET done!")
 
-
     # perform word sence disambiguation on a list of tokens
     def wsd(self, token_list, window_size):
         judged = {}
@@ -53,7 +52,6 @@ class NNetWSD:
                         token_list = collection[item[0]]
                         for token in token_list:
                             token.synid = item[1]
-
 
     # input list is a list of NNetWSDInput items
     # returns a list of predicted labels as a list of the same size as the input list
@@ -94,7 +92,6 @@ class NNetWSD:
 
         return result_list
 
-
     # load the labels file - explaining what words go with what labels for WSD
     def load_labels(self, label_file):
         # load the label lookup file to get the correct "class" for a word
@@ -114,11 +111,9 @@ class NNetWSD:
                 if not label in self.word2labels[label_word]:
                     self.word2labels[label_word].append(label)
 
-
     # return true if this parser token's text and tag are a noun of the ambigous nouns of the nnet
     def is_amiguous_noun(self, text, tag):
         return tag.startswith("NN") and text in self.word2labels
-
 
     # load nnet vocab that translates word -> int for nnet inputs
     def load_nnet_vocab(self, model_file):
