@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import uuid
 import os
 import sys
@@ -8,15 +10,11 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 
-SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
-sys.path.append(os.path.normpath(SCRIPT_DIR))
-
-from wsd_nnet import NNetWSD
-from summarizer import SumySummarizer
-from parser import Parser, JsonSystem
+from kai.nnet_wsd.wsd_nnet import NNetWSD
+from kai.parser.summarizer import SumySummarizer
+from kai.parser.parser import Parser, JsonSystem
 
 
-# requires ~ 2.2GB of RAM to run - and is really fast
 # gunicorn --bind 0.0.0.0:9000 --timeout 120 --threads 1 server:app
 
 # parser:   curl -H "Content-Type: plain/text" -X POST --data "@test.txt" http://localhost:9000/parse
@@ -30,7 +28,7 @@ from parser import Parser, JsonSystem
 # setup a text summarizer
 summarizer = SumySummarizer()
 
-# setup the spacy parser
+# setup a spaCy parser
 parser = Parser()
 
 # nnet setup for WSD

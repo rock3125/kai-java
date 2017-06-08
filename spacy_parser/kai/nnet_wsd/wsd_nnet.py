@@ -1,5 +1,9 @@
 from keras.preprocessing import sequence
 import numpy as np
+import logging
+
+
+logger = logging.getLogger("kai-wsd")
 
 
 # the input to the network, the word to "disambiguate" and the word_window list of words around it
@@ -14,12 +18,12 @@ class NNetWSD:
     # load the model and the labels (the vocab is derived from the model name)
     def __init__(self, model_file, label_file, max_sentence_len=50):
         from keras.models import load_model
-        print("loading WSD NNET model from " + model_file)
+        logger.info("loading WSD NNET model from " + model_file)
         self.model = load_model(model_file)
         self.load_nnet_vocab(model_file)
         self.load_labels(label_file)
         self.max_sentence_len = max_sentence_len
-        print("loading WSD NNET done!")
+        logger.info("loading WSD NNET done!")
 
 
     # perform word sence disambiguation on a list of tokens

@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 *.class
-
+.env
 # Package Files #
 *.jar
 *.war

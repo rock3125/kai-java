@@ -1,9 +1,13 @@
-* installation
-
+### installation
+Python 3.5+, setup your virtualenv
 ```
-sudo apt install python3-pip python3-dev
-sudo python3.5 -m pip install gunicorn gevent flask flask-cors flask-restplus spacy
-sudo python3.5 -m spacy.en.download all --data-path /opt/spacy
+virtualenv -p /usr/bin/python3.6 .env
+. .env/bin/activate
+```
+then install requirements and spaCy data
+```
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
 ```
 
 * production run without gevent (sync) can be run multi-threaded with w

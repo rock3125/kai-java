@@ -1,0 +1,9 @@
+gunicorn
+gevent
+flask
+flask-cors
+flask-restplus
+spacy
+keras
+tensorflow
+sumy

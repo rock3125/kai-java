@@ -1,8 +1,13 @@
-import spacy
+import logging
+import en_core_web_sm
 import json
-import uuid
-import os
-import sys
+
+
+logger = logging.getLogger("kai-parser")
+
+logger.info("loading spacy...")
+nlp = en_core_web_sm.load()
+logger.info("loading spacy done!")
 
 
 # sentence holder, this is what is returned
@@ -27,19 +32,8 @@ class JsonSystem(json.JSONEncoder):
 
 # the text parser
 class Parser:
-
     def __init__(self):
-        # set spacey data path, where spacy files are installed
-        spacy_path = '/opt/spacy'
-        if not os.path.isfile(os.path.join(spacy_path, 'cookies.txt')):
-            spacy_path = '/opt/kai/spacy'
-
-        print("loading spacy from " + spacy_path)
-        spacy.util.set_data_path(spacy_path)
-
-        self.en_nlp = spacy.load('en')  # , create_make_doc=KAISpacyTokenizer)
-        print("loading spacy done!")
-
+        self.en_nlp = nlp
 
     # cleanup text to ASCII
     def cleanup_text(self, data):
@@ -78,6 +72,3 @@ class Parser:
             sentence_list.append(sentence)
             num_tokens += len(sentence)
         return sentence_list, token_list, num_tokens
-
-
-
