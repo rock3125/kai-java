@@ -2,7 +2,7 @@
 
 KAI knowledge management system.  A search engine/document management system written in Java, using Apache Cassandra (3.9) and Hazelcast and the spaCy parser.  Uses GRADLE for build.  Missing some data-files I still need to upload due to their size.
 
-[![Watch the video](https://raw.github.com/peter3125/kai-java/master/data/video/kai-intro-video.png)(http://youtu.be/XWBYJd_rbYc)]
+![Watch the video](https://raw.github.com/peter3125/kai-java/master/data/video/kai-intro-video.png)(http://youtu.be/XWBYJd_rbYc)
 
 ## How do I get set up on DEV?
 
